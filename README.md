@@ -15,7 +15,6 @@ URL des API
 Voici le Repository GitHub à cloner
 https://github.com/OpenClassrooms-Student-Center/JWDP5.git
 
-J'ai preféré d'integrer les documents dans un fichier .gitignore pour les cachés tout simplement je ne suis pas l'auteur de ces documents et j'évite de commiter. 
 
 # FelicitteMbeyKoumatey_5_22062021
 OC DW P5-Créer un site e-commerce
