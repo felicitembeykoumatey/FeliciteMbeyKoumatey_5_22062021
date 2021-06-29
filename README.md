@@ -18,3 +18,9 @@ https://github.com/OpenClassrooms-Student-Center/JWDP5.git
 OC DW P5-Créer un site e-commerce
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> dev
