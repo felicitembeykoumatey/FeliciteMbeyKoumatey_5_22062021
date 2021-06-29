@@ -1,4 +1,4 @@
-# FelicitteMbeyKoumatey_5_22062021
+
  Entant que développeur front-end chez Orinoco, une entreprise de commerce en ligne, 
  Je vais développer le site à l'aide de javaScript du coté front-end. 
 
@@ -15,8 +15,6 @@ URL des API
 Voici le Repository GitHub à cloner
 https://github.com/OpenClassrooms-Student-Center/JWDP5.git
 
-
-# FelicitteMbeyKoumatey_5_22062021
 OC DW P5-Créer un site e-commerce
 
 
