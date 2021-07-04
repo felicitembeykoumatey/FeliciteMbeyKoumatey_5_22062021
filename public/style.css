@@ -1,0 +1,106 @@
+body{
+    font-size:large;
+}
+@-webkit-keyframes lds-ripple {
+	from {
+		top: 36px;
+		left: 36px;
+		width: 0;
+		height: 0;
+		opacity: 1;
+	}
+	to {
+		top: 0px;
+		left: 0px;
+		width: 72px;
+		height: 72px;
+		opacity: 0;
+	}
+}
+
+@keyframes lds-ripple {
+	from {
+		top: 36px;
+		left: 36px;
+		width: 0;
+		height: 0;
+		opacity: 1;
+	}
+	to {
+		top: 0px;
+		left: 0px;
+		width: 72px;
+		height: 72px;
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes load-wrapper {
+	0% {
+		opacity: 1;
+		z-index: 2;
+	}
+	70% {
+		opacity: 1;
+	}
+	99% {
+		z-index: 2;
+	}
+	100% {
+		opacity: 0;
+		z-index: -10;
+	}
+}
+
+@keyframes load-wrapper {
+	0% {
+		opacity: 1;
+		z-index: 2;
+	}
+	70% {
+		opacity: 1;
+	}
+	99% {
+		z-index: 2;
+	}
+	100% {
+		opacity: 0;
+		z-index: -10;
+	}
+}
+/*loader*/
+
+.loader {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fad608f6), to(#746a13c9));
+	background: linear-gradient(#fad608f6 #746a13c9, );
+	-webkit-animation: load-wrapper 3s both;
+	animation: load-wrapper 3s both;
+}
+
+.lds-ripple {
+	position: absolute;
+	width: 80px;
+	height: 56px;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+.lds-ripple div {
+	position: absolute;
+	border: 4px solid var(--white);
+	opacity: 1;
+	border-radius: 50%;
+	-webkit-animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+	animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+	-webkit-animation-delay: -0.5s;
+	animation-delay: -0.5s;
+}
