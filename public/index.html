@@ -28,6 +28,14 @@
 </head>
 
 <body>
+  <!-- loader -->
+  <div class="loader">
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <!-- header -->
   <header>
 
     <nav class=" hearder_nav">
@@ -38,12 +46,12 @@
           <a href="../public/index.html"> Accueil </a>
         </li>
         <li>
-          <a href="../public/view/listearticles.html"> Nos produits </a>
+          <a href="../public/view/listearticles.html"> Nos meubles</a>
         </li>
         <li>
           <a href="../public/view/panier.html"> <img
               src="https://img.icons8.com/material-outlined/50/4a90e2/shopping-cart--v1.png" alt="logo panier" />
-            Mon panier</a>
+            Panier</a>
         </li>
 
       </ul>
@@ -51,12 +59,33 @@
     </nav>
   </header>
   <main>
-    <h1>Bienvenu sur Orifurniture, site de vente en ligne des meubles chênes vintages.</h1>
+    <section id="all-furnitures" class="container">
+      <h1>Bienvenu chez Orifurniture</h1>
+      <p class="text-center">Voici la liste de nos meubles!</p>
+    </section>
 
   </main>
-</body>
-<footer>
 
-  <script src="https://kit.fontawesome.com/8e5ac735b3.js" crossorigin="anonymous"></script>
-  <script src="index.js"></script>
-</footer>
+  <footer>
+    <section class="footer-container">
+      <h2>Suivez-nous sur les réseaux</h2>
+      <ul class="footer-container__reseaux">
+        <li>
+          <a href="https://www.facebook.com/">facebook <i class="fa fa-facebook icon-md"></i></a>
+        </li>
+        <li>
+          <a href="https://twitter.com/">twitter <i class="fa fa-twitter icon-md"></i></a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com">instagram</a>
+        </li>
+      </ul>
+
+    </section>
+    <a href="html/mentionslegales.html" class="Mentions Légales">Mentions légales</a>
+
+  </footer>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
