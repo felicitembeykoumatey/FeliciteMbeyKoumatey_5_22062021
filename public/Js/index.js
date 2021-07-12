@@ -1,1 +1,1 @@
-<script></<script>
+console.log(2 + 5);
