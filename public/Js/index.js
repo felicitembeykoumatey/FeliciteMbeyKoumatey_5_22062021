@@ -1,1 +1,4 @@
-console.log(2 + 5);
+// on s'assure que le Dom est chargé
+window.onload=() => {
+    // Ici le document est chargé
+
