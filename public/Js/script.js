@@ -7,11 +7,13 @@ fetch("http://localhost:3000/api/furniture/")
     array_furnitures.forEach(function (product) {
       output += `
         <figure class="product">
-        <img src=${product.imageUrl} class="products_container" alt="image_product"/>
+        <img src=${
+          product.imageUrl
+        } class="products_container" alt="image_product"/>
         <figcaption class="description">
         <p>${product.name}</p>
         <div class="price">
-        <p>${product.price},00€</p>
+        <p>${product.price / 100}€</p>
         </div>
         </figcaption>
         </figure>
