@@ -1,4 +1,15 @@
-//affichage du produit qui a été selectionné par l'id//
-let params = new URL(document.location).searchParams;
-let id = params.get("id");
-let name = params.get("name");
+//Rappel de notre API
+fetch("http://localhost:3000/api/furniture/" + id)
+ .then((res) => res.json())
+  .then((furniture) => {
+    let output = "";
+    console.log(furniture);
+  
+//URL
+const params = new URL(document.location).searchParams;
+const id = params.get("id");
+
+//Page produit
+let furniture;
+const $furnitureProduct = document.querySelector("#furniture_product");
+const varnish = document.createElement("varnish_select");
