@@ -5,8 +5,6 @@
  Technologies utilisées
 HTML, CSS, JavaScript.
 URL des API
-● Ours en peluche faits à la main : http://localhost:3000/api/teddies
-● Caméras vintage : http://localhost:3000/api/cameras
 ● Meubles en chêne : http://localhost:3000/api/furniture
 
  https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P5/P5_Spe%CC%81cifications+fonctionnelles+Orinoco.pdf
