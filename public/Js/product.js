@@ -1,15 +1,10 @@
-//Rappel de notre API
-fetch("http://localhost:3000/api/furniture/" + id)
- .then((res) => res.json())
-  .then((furniture) => {
-    let output = "";
-    console.log(furniture);
-  
-//URL
-const params = new URL(document.location).searchParams;
-const id = params.get("id");
-
-//Page produit
-let furniture;
-const $furnitureProduct = document.querySelector("#furniture_product");
-const varnish = document.createElement("varnish_select");
+fetch("http://localhost:3000/api/furniture/").then((res) => res.json());
+// Recupération de la chaine de requete dans l'url
+const queryString_url_id = window.location.search;
+console.log(queryString_url_id);
+//pour extraire l'id
+const urlSearchParams = new UrlSearchParams(queryString_url_id);
+console.log(urlSearchParams);
+const _id = urlSearchParams.get("_id");
+console.log(_id);
+let res = await fetch(`http://localhost:3000/api/furniture/${_id}`);
