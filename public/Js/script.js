@@ -1,20 +1,53 @@
+//variable
+let _id = [];
+let imageUrl = [];
+let name = [];
+let description = [];
+let varnish = [];
+let quantity = [];
+let price = [];
+let i = [];
+// Fonction qui va afficher les produits dans le site
+// Chercher les données de API
+
 fetch("http://localhost:3000/api/furniture/")
   .then((res) => res.json())
   .then((array_furnitures) => {
-    let output = "";
-    array_furnitures.forEach(function (product) {
-      output += `
+    console.log(array_furnitures);
+    let cardArticles = "";
+
+    //Réccupérer et afficher les données de API
+    for (i = 0; i < array_furnitures.length; i++) {
+      array_furnitures.forEach((element, i) => {
+        _id[i] = element._id;
+        imageUrl[i] = element.imageUrl;
+        name[i] = element.name;
+        description[i] = element.description;
+        varnish[i] = element.varnish;
+        quantity[i] = element.quantity;
+        price[i] = element.price;
+      });
+
+      cardArticles += `
+      <div class="products">
         <figure class="product">
-        <img src=${product.imageUrl} class="products_container" alt="image_product"/>
-        <figcaption class="description">
-        <p>${product.name}</p>
+         <a href="./view/product.html?id=${_id[i]}">
+        <img src=${
+          imageUrl[i]
+        } class="products_container" alt="image_product"/> </a>
+        <div class="description">
+        <p>${name[i]}</p>
         <div class="price">
-        <p>${product.price},00€</p>
+        <p>${price[i] / 100}€</p>
         </div>
-        </figcaption>
+      
         </figure>
+        </div>
         `;
-    });
-    document.getElementById("products").innerHTML = output;
+
+      document.getElementById("products").innerHTML = cardArticles;
+    }
   })
-  .catch((error) => console.log("Erreur : " + error));
+  .catch((error) => {
+    // Le code en cas d'erreur
+  });
