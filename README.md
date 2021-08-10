@@ -5,7 +5,6 @@ Technologies utilisées
 HTML, CSS, JavaScript.
 J'ai choisi de développer le site e-commerce des meubles en chêne.
 URL de notre API
-
 ● Meubles en chêne : http://localhost:3000/api/furniture
 
 https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P5/P5_Spe%CC%81cifications+fonctionnelles+Orinoco.pdf
