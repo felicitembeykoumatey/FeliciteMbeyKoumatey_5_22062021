@@ -13,6 +13,7 @@ let i = [];
 fetch("http://localhost:3000/api/furniture/")
   .then((res) => res.json())
   .then((array_furnitures) => {
+    console.log(array_furnitures);
     let cardArticles = "";
 
     //Réccupérer et afficher les données de API
