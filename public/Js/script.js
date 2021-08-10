@@ -13,7 +13,7 @@ let i = [];
 fetch("http://localhost:3000/api/furniture/")
   .then((res) => res.json())
   .then((array_furnitures) => {
-    let picture = "";
+    let cardArticles = "";
 
     //Réccupérer et afficher les données de API
     for (i = 0; i < array_furnitures.length; i++) {
@@ -27,7 +27,8 @@ fetch("http://localhost:3000/api/furniture/")
         price[i] = element.price;
       });
 
-      picture += `
+      cardArticles += `
+      <div class="products">
         <figure class="product">
          <a href="./view/product.html?id=${_id[i]}">
         <img src=${
@@ -40,8 +41,12 @@ fetch("http://localhost:3000/api/furniture/")
         </div>
       
         </figure>
+        </div>
         `;
 
-      document.getElementById("products").innerHTML = picture;
+      document.getElementById("products").innerHTML = cardArticles;
     }
+  })
+  .catch((error) => {
+    // Le code en cas d'erreur
   });
