@@ -1,15 +1,13 @@
 // récupération de la chaine de requete dans l'url
 const queryString_url_id = window.location.search;
 console.log("queryString_url_id : " + queryString_url_id);
-//méthode pour extrairer l'id
+//méthode pour extraire l'id
 const urlSearchParams = new URLSearchParams(queryString_url_id);
 console.log("urlSearchParams : " + urlSearchParams);
 const id = urlSearchParams.get("id");
 console.log("id : " + id);
-//Affichage du produit qui a été selectionné par l'id
 
 //on récupère uniquement le produit dont on a besoin via le paramètre dans la réquête
-
 //Réccupérer et afficher les données de API
 
 fetch(`http://localhost:3000/api/furniture/${id}`)
@@ -17,11 +15,11 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
   .then((array_furnitures) => {
     console.log("Valeur du array_furnitures :");
     console.log(array_furnitures);
-    let truc = "";
+    let cardArticle = "";
     console.log(`${array_furnitures.imageUrl}`);
 
     // la structure html pour l'affichage du produit selectionné
-    truc += ` <div id="container_page_product">
+    cardArticle += ` <div id="container_page_product">
      <figure class="product_single">
        <img src="${array_furnitures.imageUrl}"
        alt="meuble en chêne" /> </a>
@@ -33,14 +31,19 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
           </ul>
 
       </figure>
-    </div>
+  
     <form>
       <label for="option_product"></label>
       <select name="option_product" id="option_product">
             <option  value="varnish">Choix vernis</option>
     </select>
     </form>
-
+  </div>
     <button id="ajout_panier">Ajouter au panier</button>`;
-    document.getElementById("container_page_product").innerHTML = truc;
+    document.getElementById("container_page_product").innerHTML = cardArticle;
   });
+//-----------------Gestion du panier-------------
+//Récupération des données séléctionnés par l'utilisateur et envoie du panier
+// Séléction de l'id du formulaire
+
+let;
