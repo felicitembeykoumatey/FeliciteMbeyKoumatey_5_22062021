@@ -21,16 +21,23 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     // la structure html pour l'affichage du produit selectionné
     cardArticle += ` <div id="container_page_product">
      <figure class="product_single">
-       <img src="${array_furnitures.imageUrl}"
+       <img class="picture_furniture"src="${array_furnitures.imageUrl}"
        alt="meuble en chêne" /> 
         <ul class="meuble">
            <li>${array_furnitures.name}</li>
          <li>${array_furnitures.description}</li>
          
           <li> ${array_furnitures.price / 100} € </li>
-          </ul>
+          </ul> </figure>
+          
+<form>
 
-      </figure>
+ <label for="option_product">choisir l'option:</label>
+        <select name="option_product" id="option_product">
+          <option value="varnish">${array_furnitures.varnish}</option>
+        </select>
+</form>
+     
   
 
   </div>
