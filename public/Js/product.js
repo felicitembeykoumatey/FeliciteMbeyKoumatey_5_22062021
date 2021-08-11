@@ -32,20 +32,14 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 
       </figure>
   
-    <form>
-         <label for="option_product"></label>
-      <select name="option_product" id="option_product">
-            <option  value="varnish">Choix vernis</option>
-    </select>
-    </form>
+
   </div>
-    <button id="ajout_panier">Ajouter au panier</button>`;
+  <a href="../view/basket.html?id=${_id[i]}">
+    <button id="ajout_panier">Ajouter au panier</button></a>`;
     document.getElementById("container_page_product").innerHTML = cardArticle;
   });
 //-----------------Gestion du panier-------------
 //Récupération des données séléctionnés par l'utilisateur et envoie du panier
 // Séléction de l'id du formulaire
 
-var select = document.getElementById("select");
-console.log("selectElem:" + select);
 //Mettre le choix de l'utilisateur dans une variable
