@@ -6,3 +6,7 @@ body {
   padding: 0;
   width: 37%;
 }
+#banner {
+  background-image: url(/images/oak_1.jpg);
+  background-size: 280px 280px;
+}

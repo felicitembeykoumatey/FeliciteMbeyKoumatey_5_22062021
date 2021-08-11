@@ -15,7 +15,6 @@ fetch("http://localhost:3000/api/furniture/")
   .then((array_furnitures) => {
     console.log(array_furnitures);
     let cardArticles = "";
-
     //Réccupérer et afficher les données de API
     for (i = 0; i < array_furnitures.length; i++) {
       array_furnitures.forEach((element, i) => {
