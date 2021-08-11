@@ -22,7 +22,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     cardArticle += ` <div id="container_page_product">
      <figure class="product_single">
        <img src="${array_furnitures.imageUrl}"
-       alt="meuble en chêne" /> </a>
+       alt="meuble en chêne" /> 
         <ul class="meuble">
            <li>${array_furnitures.name}</li>
          <li>${array_furnitures.description}</li>
@@ -33,7 +33,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
       </figure>
   
     <form>
-      <label for="option_product"></label>
+         <label for="option_product"></label>
       <select name="option_product" id="option_product">
             <option  value="varnish">Choix vernis</option>
     </select>
@@ -46,4 +46,6 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 //Récupération des données séléctionnés par l'utilisateur et envoie du panier
 // Séléction de l'id du formulaire
 
-let;
+var select = document.getElementById("select");
+console.log("selectElem:" + select);
+//Mettre le choix de l'utilisateur dans une variable
