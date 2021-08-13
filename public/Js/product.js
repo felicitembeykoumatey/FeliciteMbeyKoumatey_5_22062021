@@ -68,15 +68,24 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 //Récupération des données séléctionnés par l'utilisateur et envoie du panier
 // Séléction de l'id du formulaire
 const idForm = document.querySelector("#option_product");
-console.log("idForm:" + idForm);
-// Mettre le choix de l'utilisateur dans une variable
-const choixForm = idForm.value;
-console.log("choixForm:" + choixForm);
 
 // Ajouter l'article au panier
 let ajoutPanier = document.querySelector("#ajout_panier");
-console.log("ajoutPanier:" + ajoutPanier);
+
 ajoutPanier.addEventListerner("click", (event) => {
   event.preventDefault();
+  // Mettre le choix de l'utilisateur dans une variable
+const choixForm = idForm.value;
+  //Récupération des valeurs du formulaire
+  let optionProduct = {
+  productName: array_furnitures.productName,
+  id_productSelectionner: array_furnitures._id,
+  option_product: choixForm,
+  quantite: 1,
+  prix: array_furnitures.price / 100
+}
 });
-//Mettre le choix de l'utilisateur dans une variable
+
+
+
+console.log("optionProduct:" + optionProduct);
