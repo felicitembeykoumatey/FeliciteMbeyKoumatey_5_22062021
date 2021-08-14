@@ -16,18 +16,22 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 
     // la structure html pour l'affichage du produit selectionné
     cardArticle += ` 
-    <div id="container_page_product">
+    <div id="container_page_product" class="products_container">
         <figure class="product_single">
             <img class="picture_furniture"src="${array_furnitures.imageUrl}"
        alt="meuble en chêne" />
          </figure>
        <div class="product">
-            <ul class="meuble">
-              <li>${array_furnitures.name}</li>
-              <li>${array_furnitures.description}</li>
+            <section class="meuble">
+              <h2>${array_furnitures.name}</h2>
+              <p>${array_furnitures.description}</p>
          
-               <li> ${array_furnitures.price / 100} € </li>
-          </ul>
+               <h3> ${array_furnitures.price / 100} € </h3>
+               <div class="quantity_product">
+          <label for="furnitureNum">Quantité :</label>
+          <input id="furnitureNum" type="number" name="furnitureNum" value="1" min="1">
+        </div>
+          </section>
          
         <div class="option_product_global">
           <form>
@@ -38,9 +42,9 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
   
         </div>
   
-  <a href="../view/basket.html?id=${_id[i]}">
+ 
     <button id="ajout_panier" type="submit" name="ajout_panier">Ajouter au panier</button>
-    </a></form>
+   </form>
      </div>
      </div>
     
@@ -68,24 +72,24 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 //Récupération des données séléctionnés par l'utilisateur et envoie du panier
 // Séléction de l'id du formulaire
 const idForm = document.querySelector("#option_product");
-
+// Mettre le choix de l'utilisateur dans une variable
+let choixForm = idForm.value;
+console.log("choixForm:" + choixForm);
 // Ajouter l'article au panier
 let ajoutPanier = document.querySelector("#ajout_panier");
+console.log("ajoutPanir:" + ajoutPanier);
 
 ajoutPanier.addEventListerner("click", (event) => {
   event.preventDefault();
-  // Mettre le choix de l'utilisateur dans une variable
-const choixForm = idForm.value;
+
   //Récupération des valeurs du formulaire
   let optionProduct = {
-  productName: array_furnitures.productName,
-  id_productSelectionner: array_furnitures._id,
-  option_product: choixForm,
-  quantite: 1,
-  prix: array_furnitures.price / 100
-}
+    nomProduit: array_furnitures.nomProduit,
+    id_array_furnitures: array_furnitures.queryString_url_id,
+    option_product: choixForm,
+    quantity: 1,
+    price: array_furnitures.price / 100,
+  };
 });
-
-
-
-console.log("optionProduct:" + optionProduct);
+//------Le local Storage-----------------------------------
+//-------Stocker la récupération des valeurs du formulaire dans le local storage----
