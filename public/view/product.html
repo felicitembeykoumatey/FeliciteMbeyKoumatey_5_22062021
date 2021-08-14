@@ -35,35 +35,41 @@
 
 <body>
   <header class="nav">
+
     <a href="../index.html">
       <i class="fa fa-arrow-left fa-2x"></i>
     </a>
     <a href="../index.html">
       <img src="../logo.webp" alt="logo de l'entreprise" />
     </a>
+    <h1> Orifurniture, <br /> n°1 de vente en ligne des mobiliers en chêne!</h1>
   </header>
   <main>
     <!--Produits-->
     <div id="container_page_product" class="products_container">
-      <figure>
-        <img class="picture_furniture" src="" alt="" />
-        <ul class="meuble">
-          <li class="name"></li>
-          <li class="description"></li>
-          <li class="price"></li>
-        </ul>
+      <figure class="product_single">
+        <img class="picture_furniture" src="" alt="" /> 
+      </figure>
+      <section class="meuble">
+        <h2 class="name"></h2>
+        <p class="description"></p>
+        <h3 class="price"></h3>
+        <div class="quantity_product">
+          <label for="furnitureNum">Quantité :</label>
+          <input id="furnitureNum" type="number" name="furnitureNum" value="1" min="1">
+        </div>
 
-      
-      <form>
-        <label for="option_product">choisir l'option:</label>
-        <select name="option_product" id="option_product">
-          <option value="varnish"></option>
-        </select>
-      </form>
-    </figure>
-     <button id="ajout_panier" type="submit" name="ajout_panier">Ajouter au panier</button>
+
+        <form>
+          <label for="option_product">choisir l'option:</label>
+          <select name="option_product" id="option_product">
+            <option value="varnish"></option>
+          </select>
+        </form>
+
+        <button id="ajout_panier" type="submit" name="ajout_panier">Ajouter au panier</button>
     </div>
-   
+
   </main>
 
   <footer>
