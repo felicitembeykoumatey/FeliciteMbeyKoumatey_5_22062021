@@ -10,3 +10,6 @@ body {
   background-image: url(/images/oak_1.jpg);
   background-size: 280px 280px;
 }
+.product_single {
+  width: 70px;
+}
