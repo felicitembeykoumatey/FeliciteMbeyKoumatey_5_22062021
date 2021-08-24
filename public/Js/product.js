@@ -18,7 +18,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     cardArticle += ` 
     <div id="container_page_product" class="products_container">
         <figure class="product_single">
-            <img class="picture_furniture"src="${array_furnitures.imageUrl}"
+            <img class="product_single"src="${array_furnitures.imageUrl}"
        alt="meuble en chêne" />
          </figure>
        <div class="product">
@@ -43,7 +43,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
         </div>
   
  
-    <button id="ajout_panier" type="submit" name="ajout_panier">Ajouter au panier</button>
+    <button id="add_to_basket" type="submit" name="add_to_basket">Ajouter au panier</button>
    </form>
      </div>
      </div>
@@ -68,28 +68,29 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     positionElement.innerHTML = structureOptions;
   });
 
-//-----------------Gestion du panier-------------
+//-----------------Ajouter le produit au panier-------------
 //Récupération des données séléctionnés par l'utilisateur et envoie du panier
 // Séléction de l'id du formulaire
 const idForm = document.querySelector("#option_product");
 // Mettre le choix de l'utilisateur dans une variable
-let choixForm = idForm.value;
-console.log("choixForm:" + choixForm);
+const choixForm = idForm.value;
+
 // Ajouter l'article au panier
-let ajoutPanier = document.querySelector("#ajout_panier");
-console.log("ajoutPanir:" + ajoutPanier);
 
-ajoutPanier.addEventListerner("click", (event) => {
-  event.preventDefault();
+const quantityProduct = document.getElementById("quantity");
 
-  //Récupération des valeurs du formulaire
-  let optionProduct = {
-    nomProduit: array_furnitures.nomProduit,
-    id_array_furnitures: array_furnitures.queryString_url_id,
-    option_product: choixForm,
-    quantity: 1,
-    price: array_furnitures.price / 100,
-  };
-});
-//------Le local Storage-----------------------------------
+let addToBasket = document.getElementById("add_to_basket");
+
+//Ecouter le bouton clickconst
+
+addToBasket.addEventListener("click", click_addToBasket);
+
+function click_addToBasket() {
+  nameProduct = array_furnitures.name;
+  id_product = array_furnitures.id_product;
+  quantityProduct = quantityProduct.value;
+  optionProduct = idForm.value;
+  price = array_furnitures.price / 100;
+}
+console.log(click_addToBasket);
 //-------Stocker la récupération des valeurs du formulaire dans le local storage----

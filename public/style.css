@@ -1,12 +1,91 @@
 body {
   font-size: small;
+  min-width: 375px;
 }
+h1 {
+  display: flex;
+  margin: 0px 5px 0px 5px;
+  font-size: medium;
+}
+.footer {
+  align-items: center;
+}
+ul {
+  display: flex;
+  text-decoration: none;
+}
+
+header {
+  width: 375px;
+  display: flex;
+}
+li {
+  display: flex;
+  text-align: left;
+  text-decoration: none;
+  padding: 10px 15px 10px 10px;
+  margin: 10px 12px 10px 15px;
+}
+.logo {
+  display: flex;
+  padding: 0;
+}
+
+.header_nav {
+  width: 100%;
+}
+
+.header_nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0 0 7px 0;
+}
+
 .products_container {
   margin: 0;
   padding: 0;
-  width: 37%;
+  width: 50%;
 }
-#banner {
-  background-image: url(/images/oak_1.jpg);
-  background-size: 280px 280px;
+img .product_single {
+  width: 70px;
+}
+img .logo_panier {
+  font-size: small;
+  margin: 10px 2px 12px 10px;
+}
+.container_reseaux {
+  display: flex;
+  flex-direction: row;
+}
+/*tablets*/
+
+@media screen and (min-width: 768px) {
+  figure {
+    margin: 10px 15px 10px 15px;
+  }
+  img .product_single {
+    width: 70px;
+  }
+  .products_container {
+    margin: 0;
+    padding: 0;
+    width: 30%;
+  }
+  .global_articles {
+    display: flex;
+    margin: 36px 12px 15px 45px;
+  }
+}
+
+/*desktop*/
+
+@media screen and (min-width: 992px) {
+  img .product_single {
+    width: 70px;
+  }
+  .products_container {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+  }
 }
