@@ -52,7 +52,9 @@ li {
   padding: 0;
   width: 90%;
 }
-
+.products_container:hover {
+  transform: scale(1.1);
+}
 img .product_single {
   width: 70px;
 }
