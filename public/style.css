@@ -19,11 +19,6 @@ ul {
   margin: 0 6px 10px 108px;
 }
 
-header {
-  width: 375px;
-  display: flex;
-}
-
 li {
   display: flex;
   text-align: left;
@@ -35,10 +30,11 @@ li {
 .logo {
   display: flex;
   padding: 0;
+  width: 80%;
 }
 
 .header_nav {
-  width: 100%;
+  width: 80%;
 }
 
 .header_nav ul {
@@ -50,7 +46,7 @@ li {
 .products_container {
   margin: 0;
   padding: 0;
-  width: 90%;
+  width: 80%;
 }
 .products_container:hover {
   transform: scale(1.1);
