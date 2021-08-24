@@ -2,23 +2,28 @@ body {
   font-size: small;
   min-width: 375px;
 }
+
 h1 {
   display: flex;
   margin: 0px 5px 0px 5px;
   font-size: medium;
 }
+
 .footer {
   align-items: center;
 }
+
 ul {
   display: flex;
   text-decoration: none;
+  margin: 0 6px 10px 108px;
 }
 
 header {
   width: 375px;
   display: flex;
 }
+
 li {
   display: flex;
   text-align: left;
@@ -26,6 +31,7 @@ li {
   padding: 10px 15px 10px 10px;
   margin: 10px 12px 10px 15px;
 }
+
 .logo {
   display: flex;
   padding: 0;
@@ -46,31 +52,38 @@ li {
   padding: 0;
   width: 50%;
 }
+
 img .product_single {
   width: 70px;
 }
+
 img .logo_panier {
   font-size: small;
   margin: 10px 2px 12px 10px;
 }
+
 .container_reseaux {
   display: flex;
   flex-direction: row;
 }
+
 /*tablets*/
 
 @media screen and (min-width: 768px) {
   figure {
     margin: 10px 15px 10px 15px;
   }
+
   img .product_single {
     width: 70px;
   }
+
   .products_container {
     margin: 0;
     padding: 0;
     width: 30%;
   }
+
   .global_articles {
     display: flex;
     margin: 36px 12px 15px 45px;
@@ -83,6 +96,7 @@ img .logo_panier {
   img .product_single {
     width: 70px;
   }
+
   .products_container {
     margin: 0;
     padding: 0;
