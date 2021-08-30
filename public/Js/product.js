@@ -54,7 +54,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     let optionVarnish = arrayFurnitures.varnish;
 
     let structureOptions = [];
-
+    console.log("optionVarnish : " + optionVarnish);
     //la boucle for pour afficher toutes les options du produit
     for (let j = 0; j < optionVarnish.length; j++) {
       structureOptions =
@@ -80,18 +80,37 @@ function addToBasket() {
   price = arrayFurnitures.price / 100;
 }
 console.log(addToBasket);
-
+console.log("id 1 : " + id);
+console.log("productName 1 : " + productName);
+console.log("varnish 1 : " + varnish);
+console.log("quantity 1 : " + quantity);
+console.log("price 1 : " + price);
 //Ecouter le bouton click
 basketElt.addEventListener("click", addToBasket);
+console.log(addEventListener);
 
 //-------Stocker la récupération des valeurs du formulaire dans le localStorage
-localStorage.setItem("productName ", "name");
-localStorage.setItem("id ", "_id");
-localStorage.setItem("varnish ", "varnishElt");
-localStorage.setItem("quantity ", "quantityElt");
+//basketElt = JSON.parse(localStorage.getItem("id"));
+console.log("basketElt 1 : " + basketElt);
+if (basketElt) {
+  //basketElt.push(varnish);
+  //localStorage.setItem("id", JSON.stringify(basketElt));
+  localStorage.addToBasket;
+  console.log("ProduitlocalStorage 2 : " + basketElt);
+} else {
+  basketElt = [];
+  //basketElt.push(varnish);
+  //localStorage.setItem("id", JSON.stringify(basketElt));
+  localStorage.addToBasket;
+  console.log("basketElt 3 : " + basketElt);
+}
+/*
+localStorage.setItem("_id ", id);
 
+localStorage.setItem("varnish ", varnish);
+localStorage.setItem("quantity ", quantity);
+localStorage.setItem("price ", price);
+localStorage.setItem("furniture", productName);
+console.log(localStorage);
+*/
 //-------localStorage getItem ------------
-localStorage.getItem("productName");
-localStorage.getItem("id");
-localStorage.getItem("varnish");
-localStorage.getItem("quantity");
