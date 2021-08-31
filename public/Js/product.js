@@ -10,16 +10,17 @@ const quantityElt = document.getElementById("quantity");
 
 const basketElt = document.getElementById("add_to_basket");
 
-//fonction
+// variables
 
+//fonction
+console.log(quantityElt.value);
 function addToBasket() {
   productName = furniture.name;
   id = furniture._id;
   varnish = varnishElt.value;
-  quantity = quantity.value;
+  quantity = quantityElt.value;
   price = furniture.price / 100;
 }
-console.log(addToBasket);
 
 //on récupère uniquement le produit dont on a besoin via le paramètre dans la réquête
 //Réccupérer et afficher les données de API
@@ -61,6 +62,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
             </button>
     
     `;
+    console.log("furniture.varnish:" + furniture.price);
     // formulaire option
     let optionVarnish = furniture.varnish;
 
@@ -87,10 +89,10 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 
     localStorage.setItem("_id ", id);
 
-    localStorage.setItem("varnish ", varnish);
-    localStorage.setItem("quantityElt", quantity);
-    localStorage.setItem("furniturePrice", price);
-    localStorage.setItem("furniture", productName);
+    localStorage.setItem("varnish ", furniture.varnish);
+    localStorage.setItem("quantity", quantityElt.value);
+    localStorage.setItem("Price", furniture.price);
+    localStorage.setItem("furniture", furniture.name);
     console.log(localStorage);
   });
 
