@@ -13,34 +13,35 @@ const basketElt = document.getElementById("add_to_basket");
 //fonction
 
 function addToBasket() {
-  productName = arrayFurnitures.name;
-  id = arrayFurnitures._id;
+  productName = furniture.name;
+  id = furniture._id;
   varnish = varnishElt.value;
-  quantity = quantityElt.value;
-  price = arrayFurnitures.price / 100;
+  quantity = quantity.value;
+  price = furniture.price / 100;
 }
+console.log(addToBasket);
 
 //on récupère uniquement le produit dont on a besoin via le paramètre dans la réquête
 //Réccupérer et afficher les données de API
 
 fetch(`http://localhost:3000/api/furniture/${id}`)
   .then((res) => res.json())
-  .then((arrayFurnitures) => {
+  .then((furniture) => {
     let cardArticle = "";
 
     // la structure html pour l'affichage du produit selectionné
     cardArticle += ` 
     <div id="container_page_product" class="products_container">
         <figure class="product_single">
-            <img class="product_single"src="${arrayFurnitures.imageUrl}"
+            <img class="product_single"src="${furniture.imageUrl}"
        alt="meuble en chêne" />
          </figure>
        <div class="product">
             <section class="meuble">
-              <h2>${arrayFurnitures.name}</h2>
-              <p>${arrayFurnitures.description}</p>
+              <h2>${furniture.name}</h2>
+              <p>${furniture.description}</p>
          
-               <h3> ${arrayFurnitures.price / 100} € </h3>
+               <h3> ${furniture.price / 100} € </h3>
                <div class="quantity_product">
           <label for="furnitureNum">Quantité :</label>
           <input id="furnitureNum" type="number" name="furnitureNum" value="1" min="1">
@@ -61,7 +62,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     
     `;
     // formulaire option
-    let optionVarnish = arrayFurnitures.varnish;
+    let optionVarnish = furniture.varnish;
 
     let structureOptions = [];
     //la boucle for pour afficher toutes les options du produit
@@ -77,42 +78,20 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     const varnishElt = document.getElementById("option_product");
 
     varnishElt.innerHTML = structureOptions;
-    console.log(addToBasket);
-    console.log("id 1 : " + id);
-    console.log("productName 1 : " + productName);
-    console.log("varnish 1 : " + varnish);
-    console.log("quantity 1 : " + quantity);
-    console.log("price 1 : " + price);
+
     //Ecouter le bouton click
     basketElt.addEventListener("click", addToBasket);
     console.log(addEventListener);
 
     //-------Stocker la récupération des valeurs du formulaire dans le localStorage
 
-    console.log("basketElt 1 : " + basketElt);
-    if (addToBasket) {
-      basketElt.push(varnish);
-      localStorage.setItem("id", JSON.stringify(basketElt));
-      localStorage.addToBasket;
-      console.log("ProduitlocalStorage 2 : " + basketElt);
-    } else {
-      basketElt = [];
-      basketElt.push(varnish);
-      localStorage.setItem("id", JSON.stringify(basketElt));
-      localStorage.addToBasket;
-      console.log("basketElt 3 : " + basketElt);
-    }
-
     localStorage.setItem("_id ", id);
 
     localStorage.setItem("varnish ", varnish);
-    localStorage.setItem("quantity ", quantity);
-    localStorage.setItem("price ", price);
+    localStorage.setItem("quantityElt", quantity);
+    localStorage.setItem("furniturePrice", price);
     localStorage.setItem("furniture", productName);
     console.log(localStorage);
-
-    //-------localStorage getItem ------------
-    basketElt = JSON.parse(localStorage.getItem("id"));
   });
 
 //-----------------Ajouter le produit au panier-------------
