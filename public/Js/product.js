@@ -91,7 +91,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 
     localStorage.setItem("varnish ", furniture.varnish);
     localStorage.setItem("quantity", quantityElt.value);
-    localStorage.setItem("Price", furniture.price);
+    localStorage.setItem("Price", furniture.price / 100);
     localStorage.setItem("furniture", furniture.name);
     console.log(localStorage);
   });
