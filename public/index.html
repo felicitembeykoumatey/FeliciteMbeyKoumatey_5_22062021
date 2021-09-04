@@ -36,34 +36,43 @@
 <body>
   <!-- header -->
   <header>
-    <!--Navigateur-->
-    <div class="hearder_nav">
+    <nav class="header_nav">
       <img src="logo.webp" id="logo" alt="logo de l'entreprise" />
 
-      <div class="accueil">
+      <!--Navigateur-->
 
-        <a href="index.html"> Accueil </a>
-      </div>
 
-      <nav class="nav_basket">
-
+      <div class="basket_link">
         <a href="./view/basket.html" id="panier">
-          <i class="fas fa-shopping-basket"></i>
-          <p>Panier</p>
+          <div class="nb-articles cache">
+            <i class="fas fa-shopping-basket"></i>
+            <p>Panier</p>
         </a>
-      </nav>
-      <h1>
-        Bienvenu(e) chez Orifurniture <br />
-        N°1 de la vente en ligne des mobiliers en chêne!
-      </h1>
+      </div>
+    </nav>
+
 
   </header>
-  <main>
-    <!--Produits-->
+  <div id="bannière">
+    <h1>
+      Orifurniture,<br>
+      vente en ligne des mobiliers en chêne!
+    </h1>
+    <img class="image_bannière" src="./images/bathroom-2132342.jpg" alt="mobiliers en chêne" />
+  </div>
+  <main id="meubles_chêne">
+    <!--Nos produits-->
 
-    <h2 class="articles">Consultez nos meubles!</h2>
-    <p>Tous nos produits sont de la qualité supérieure!</p>
-    <div class="global_articles" id="furnitures"></div>
+    <h2 class="articles"> Nos produits !</h2>
+<br>
+
+    <div class="global_articles" id="furnitures">
+
+      <section class="alerte">
+        <h3 class="title_alerte">Oups! Problème d'affichage.</h3>
+        <p>Merci de demarrer votre serveur au port 300.</p>
+      </section>
+    </div>
 
   </main>
   <!--Footer-->
@@ -122,8 +131,10 @@
     <section>
       <h3>LE GROUPE ORINOCO</h3>
       <ul>
-        <li><a href="#"><li>Historique</a></li>
-       <li><a href="#"> <li>Nous rejoindre!</a></li>
+        <li><a href="#">
+        <li>Historique</a></li>
+        <li><a href="#">
+        <li>Nous rejoindre!</a></li>
       </ul>
     </section>
     <section>
@@ -131,36 +142,35 @@
       <ul>
         <li><a href="#"><i class="fas fa-camera">Oricam</i></a></li>
         <li><a href="#"><i class="fas fa-books">Oribook</i></a></li>
-      <li><a href=""><i class="fas fa-tshirt"></i>Oritextil</a></li>
+        <li><a href=""><i class="fas fa-tshirt"></i>Oritextil</a></li>
       </ul>
     </section>
 
-<section>
-                <h3>PAIEMENTS</h3>
-                <ul id="footer_paiement">
-                   <li><i class="fab fa-cc-paypal"></i></li>
-                   <li><i class="fab fa-cc-visa"></i></li>
-                   <li><i class="fab fa-cc-mastercard"></i></li>
-                </ul>
-            </section>
+    <section>
+      <h3>PAIEMENTS</h3>
+      <ul id="footer_paiement">
+        <li><i class="fab fa-cc-paypal"></i></li>
+        <li><i class="fab fa-cc-visa"></i></li>
+        <li><i class="fab fa-cc-mastercard"></i></li>
+      </ul>
+    </section>
 
 
 
-    
     <div class="container">
-      <p class="m-orifurnitureCookie-content col-md-12" style="text-align: center">
+      <p class="orifurnitureCookie" style="text-align: center">
         En utilisant ce site, vous acceptez notre utilisation des
-        <a href="#" target="_blank">cookies</a> afin d'améliorer votre
+        <a href="#">cookies</a> afin d'améliorer votre
         expérience de navigation
         <button>OK</button>
       </p>
     </div>
     </div>
 
-    <hgroup class="copyright">
-      <h3>Copyright © 2021 Orifurniture by Orinoco - Tous droits réservés</h3>
-      <h4>Projet 5 - Parcours Developpeur Web - OpenClassrooms</h4>
-    </hgroup>
+    <div class="copyright" style="text-align: center">
+      <p>Copyright © 2021 Orifurniture by Orinoco - Tous droits réservés</p>
+    </div>
+
   </footer>
   <script src="Js/script.js"></script>
 </body>

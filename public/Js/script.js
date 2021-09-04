@@ -29,16 +29,19 @@ fetch("http://localhost:3000/api/furniture/")
       cardArticles += `
      <div class="global_articles" id="furnitures">
         <figure class="product">
-         <a href="./view/product.html?id=${_id[i]}">
-        <img src=${
-          imageUrl[i]
-        } class="products_container" alt="image_product"/> </a>
-        <div class="description">
-        <p>${productName[i]}</p>
-        <div class="price">
-        <p>${price[i] / 100}€</p>
-        </div>
-      
+            <a href="./view/product.html?id=${_id[i]}">
+           <img src=${
+             imageUrl[i]
+           }  class="products_container" sizes="100vw" alt="image_product"/> </a>
+         <figcaption class="description">
+            <article>
+         <h3>${productName[i]}</h3>
+       
+           <p>${price[i] / 100}€</p>
+        
+        </article>
+       
+           </figcaption>
         </figure>
         </div>
         `;
