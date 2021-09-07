@@ -94,6 +94,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     localStorage.setItem("Price", furniture.price / 100);
     localStorage.setItem("furniture", furniture.name);
     console.log(localStorage);
+   
   });
 
 //-----------------Ajouter le produit au panier-------------
