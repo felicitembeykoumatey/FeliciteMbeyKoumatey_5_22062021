@@ -13,7 +13,7 @@ const basketElt = document.getElementById("add_to_basket");
 // variables
 
 //fonction
-console.log(quantityElt.value);
+
 function addToBasket() {
   productName = furniture.name;
   id = furniture._id;
@@ -33,7 +33,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     // la structure html pour l'affichage du produit selectionné
     cardArticle += ` 
     <div id="container_page_product" class="products_container">
-        <figure class="product_single">
+        <figure>
             <img class="product_single"src="${furniture.imageUrl}"
        alt="meuble en chêne" />
          </figure>
@@ -62,7 +62,8 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
             </button>
     
     `;
-    console.log("furniture.varnish:" + furniture.price);
+    console.log(furniture);
+
     // formulaire option
     let optionVarnish = furniture.varnish;
 
@@ -87,14 +88,8 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 
     //-------Stocker la récupération des valeurs du formulaire dans le localStorage
 
-    localStorage.setItem("_id ", id);
-
-    localStorage.setItem("varnish ", furniture.varnish);
-    localStorage.setItem("quantity", quantityElt.value);
-    localStorage.setItem("Price", furniture.price / 100);
-    localStorage.setItem("furniture", furniture.name);
+    localStorage.setItem(id, JSON.stringify(furniture));
     console.log(localStorage);
-   
   });
 
 //-----------------Ajouter le produit au panier-------------

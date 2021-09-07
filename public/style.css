@@ -28,6 +28,7 @@ nav a i {
   margin-right: 5px;
   font-size: small;
 }
+
 footer {
   display: flex;
   flex-direction: column;
@@ -127,5 +128,10 @@ article h3 P {
     width: 100%;
     border-radius: 10px 10px 0 0;
     box-shadow: 0 0 15px rgba(168, 37, 4, 0.883);
+  }
+  img .product_single {
+    width: 45%;
+    margin: 0;
+    padding: 0;
   }
 }
