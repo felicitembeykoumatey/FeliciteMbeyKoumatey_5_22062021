@@ -91,10 +91,6 @@ footer li a {
   box-shadow: 0 0 2px rgba(117, 5, 108, 0.883);
 }
 
-.products_container:hover {
-  transform: scale(1.1);
-}
-
 .container_reseaux {
   display: flex;
   flex-direction: row;
@@ -125,13 +121,20 @@ article h3 P {
     width: 80%;
   }
   .products_container {
-    width: 100%;
+    width: 35%;
     border-radius: 10px 10px 0 0;
     box-shadow: 0 0 15px rgba(168, 37, 4, 0.883);
+    margin: 10px 12px 10px 138px;
+    height: 20%;
   }
-  img .product_single {
-    width: 45%;
-    margin: 0;
-    padding: 0;
+  .image {
+    width: 400px;
+    border-radius: 50px 50px 50px 50px;
+    height: 480px;
+    margin: 10px 12px 15px 15px;
+    padding: 30px 20px 0 30px;
+  }
+  .container_page_product {
+    width: 80%;
   }
 }
