@@ -30,7 +30,6 @@ function ProductChoice() {
 
   //----- Affichage des données-------------------------------
   title.textContent = furniture.name;
-  console.log("title.textContent:" + title.textContent);
   price.textContent = furniture.price / 100 + " €";
   description.textContent = furniture.description;
   image.src = furniture.imageUrl;
@@ -47,47 +46,86 @@ function ProductChoice() {
     structureOptions =
       structureOptions +
       `<option value="${varnish + 1}">${optionVarnish[varnish]}</option>`;
+    //---Injection html dans la pageproduit pour le choix vernis
+
+    const varnishElt = document.getElementById("varnish-select");
+    console.log("varnishElt:" + varnishElt);
+    varnishElt.innerHTML = structureOptions;
   }
+  //------- sélection des Options---------------------------------------------------
 
-  // Injection html dans la pageproduit pour le choix vernis
-
-  const varnishElt = document.getElementById("varnish-select");
-  console.log("varnishElt:" + varnishElt);
-  varnishElt.innerHTML = structureOptions;
-
-  //-----Sélection des vernis------------------------------------------
-  const selectVarnish = document
+  let selectionVarnish = document
     .getElementById("varnish-select")
     .addEventListener("change", function (e) {
-      selectVarnish = e.target.value;
+      selectionVarnish = e.target.value;
     });
-  console.log("addEventListener:" + addEventListener);
 
-  //---------Création de la quantité------------------------------------
-  let quantityElt = document.getElementById("quantity");
-  console.log("quantityElt:" + quantityElt);
-
-  //---------Bouton ajouter au panier---------------------------------
-  let addToBasket = document.getElementById("btn-ajouter");
-  addToBasket.addEventListener("click", function () {
-    if (selectVarnish != undefined && quantity != undefined) {
-      furniture.varnish = selectVarnish;
-      furniture.quantity = quantity;
-    } else if (selectVarnish == undefined && quantity != undefined) {
+  console.log(selectionVarnish);
+  //--------sélection de la quantité---------------------------------------------------
+  const quantity = document
+    .getElementById("quantityProduct")
+    .addEventListener("change", function (e) {
+      quantity = e.target.value;
+    });
+  console.log("quantity:" + quantity);
+  //-----------bouton ajouter au panier------------------------------------------------------
+  let ajouterPanier = document.getElementById("btn-ajouter");
+  ajouterPanier.addEventListener("click", function () {
+    if (selectionVarnish != undefined && quantity != undefined) {
+      furniture.varnish = selectionVarnish;
+      furniture.quantity = quantiteProduit;
+    } else if (selectionVarnish == undefined && quantity != undefined) {
       furniture.varnish = furniture.varnish[0];
       furniture.quantity = quantity;
-    } else if (selectVarnish != undefined && quantity == undefined) {
-      furniture.varnishElt = selectVarnish;
+    } else if (selectionVarnish != undefined && quantity == undefined) {
+      furniture.varnish = selectionVarnish;
       furniture.quantity = 1;
     } else {
       furniture.varnish = furniture.varnish[0];
       furniture.quantity = 1;
     }
-    alert("Votre article a été ajouté");
+    alert("Votre article a été ajouté au panier");
+    prixTotal();
+    ajoutLocalStorage();
   });
-  let panier = localStorage.getItem("panier");
-  panier = JSON.parse(panier);
-  localStorage.setItem("product", JSON.stringify(furniture));
+  console.log(addEventListener);
 
-  console.log(localStorage);
+  //* Fonction du prix total dans localStorage------------------------------------
+  function prixTotal() {
+    let price = parseInt(furniture.price);
+    let prixDuPanier = JSON.parse(localStorage.getItem("prixTotal"));
+
+    if (prixDuPanier == 0) {
+      localStorage.setItem(
+        "prixTotal",
+        prixDuPanier + (price / 100) * furniture.quantity
+      );
+    } else {
+      localStorage.setItem(
+        "prixTotal",
+        prixDuPanier + (price / 100) * furniture.quantity
+      );
+    }
+  }
+  console.log("prixTotal:" + prixTotal);
+
+  //* Fonction du prix total dans localStorage------------------------------------
+  function prixTotal() {
+    let price = parseInt(furniture.price);
+    let prixDuPanier = JSON.parse(localStorage.getItem("prixTotal"));
+
+    if (prixDuPanier == 0) {
+      localStorage.setItem(
+        "prixTotal",
+        prixDuPanier + (price / 100) * furniture.quantity
+      );
+    } else {
+      localStorage.setItem(
+        "prixTotal",
+        prixDuPanier + (price / 100) * furniture.quantity
+      );
+    }
+  }
+  //---------------Ajout dans localStorage------------------------------------------
+  localStorage.setItem("basket", JSON.stringify(furniture));
 }

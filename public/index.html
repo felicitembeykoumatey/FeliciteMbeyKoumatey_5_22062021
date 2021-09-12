@@ -27,31 +27,25 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <!-- Bootstrap CSS -->
- <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <!-- fontawesome CSS -->
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    />
-    <link rel="stylesheet" href="../style.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- fontawesome CSS -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
   <!-- header -->
   <header>
-    <nav class="header_nav">
-      <img src="logo.webp" id="logo" alt="logo de l'entreprise" />
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <img  class="img-fluid logo ml-lg-5" src="logo.webp" id="logo" alt="logo de l'entreprise" />
 
       <!--Navigateur-->
 
 
       <div class="basket_link">
-        <a href="./view/basket.html" id="panier">
-          <div class="nb-articles cache">
+        <a href="./view/basket.html" id="basket">
+          <div class=" nb-articles cache">
             <i class="fas fa-shopping-basket"></i>
             <p>Panier</p>
         </a>
@@ -61,15 +55,14 @@
 
   </header>
 
-  <h1>
-    Bienvenu(e) chez Orifurniture !</h1><br>
-  <p class="buy"> Vente n°1 en ligne des mobiliers en chêne!</p>
+  <h1  class="buy text-center">
+   Oriwood by Orinoco, <br> Vente n°1 en ligne des meubles en chêne!</h1>
 
 
   <main id="meubles_chêne">
     <!--Nos produits-->
 
-    <h2 class="articles"> Nos produits !</h2>
+    <h2 class="col-lg-12 articles text-center"> Consultez nos produits !</h2>
     <br>
 
     <div class="global_articles" id="furnitures">
@@ -82,29 +75,29 @@
 
   </main>
   <!--Footer-->
-  <footer>
+  <footer class="container-fluid footer">
 
-    <section>
-      <h3>Suivez-nous sur les réseaux sociaux</h3>
-      <div class="social">
-        <div class="facebook">
+    
+      <h3 class="title_footer text-center">Suivez-nous sur les réseaux sociaux</h3>
+<section class="social">
+      <div class="facebook">
 
-          <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i>
-            <p>Facebook</p>
-          </a>
-        </div>
-        <div class="instagram">
-          <a href="https://www.instagram.com"><i class="fab fa-instagram"></i>
-            <p>Instagram</p>
-          </a>
-        </div>
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i>
+          <p>Facebook</p>
+        </a>
+      </div>
+      <div class="instagram">
+        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i>
+          <p>Instagram</p>
+        </a>
+      </div>
 
-        <div class="twitter">
-          <a href="https://twitter.com/">
-            <i class="fab fa-twitter-square"></i>
-            <p>Twitter</p>
-          </a>
-        </div>
+      <div class="twitter">
+        <a href="https://twitter.com/">
+          <i class="fab fa-twitter-square"></i>
+          <p>Twitter</p>
+        </a>
+
       </div>
     </section>
     <div class="footer_container">
@@ -167,7 +160,7 @@
 
 
       <div class="container">
-        <p class="orifurnitureCookie" style="text-align: center">
+        <p class="oriwoodCookie" style="text-align: center">
           En utilisant ce site, vous acceptez notre utilisation des
           <a href="#">cookies</a> afin d'améliorer votre
           expérience de navigation
@@ -177,7 +170,7 @@
     </div>
 
     <div class="copyright" style="text-align: center">
-      <p>Copyright © 2021 Orifurniture by Orinoco - Tous droits réservés</p>
+      <p>Copyright © 2021 Oriwood by Orinoco - Tous droits réservés</p>
     </div>
 
   </footer>

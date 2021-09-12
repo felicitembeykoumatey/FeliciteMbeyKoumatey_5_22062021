@@ -1,4 +1,4 @@
-//* Fonction affichage produit -------------------------------------------------------
+//------ Fonction affichage produit -------------------------------------------------------
 monPanier();
 afficheProduitPanier();
 function monPanier() {
@@ -29,22 +29,22 @@ function monPanier() {
       let tr = document.createElement("tr");
       let name = document.createElement("td");
       let varnish = document.createElement("td");
-      let quantite = document.createElement("td");
-      let prix = document.createElement("td");
-      let prixTotal = document.createElement("td");
+      let quantity = document.createElement("td");
+      let price = document.createElement("td");
+      let priceTotal = document.createElement("td");
 
       afficheProduitPanier.appendChild(tr);
       tr.appendChild(name);
       tr.appendChild(varnish);
-      tr.appendChild(quantite);
-      tr.appendChild(prix);
-      tr.appendChild(prixTotal);
+      tr.appendChild(quantity);
+      tr.appendChild(price);
+      tr.appendChild(priceTotal);
 
       name.textContent = furniture.name;
       furniture.textContent = furniture.varnish;
-      quantite.textContent = furniture.quantity;
+      quantity.textContent = furniture.quantity;
       prix.textContent = furniture.price / 100 + " €";
-      prixTotal.textContent =
+      priceTotal.textContent =
         (furniture.price / 100) * furniture.quantity + " €";
 
       let emptyButton = document.getElementById("empty");
@@ -65,9 +65,9 @@ let lastName = document.querySelector("#lastName");
 let eMail = document.querySelector("#inputEmail");
 let address = document.querySelector("#inputAddress");
 let city = document.querySelector("#inputCity");
-
+visiteur();
 //* Création de l'objet général client
-function client(firstName, lastName, eMail, telephoneNumber, address, city) {
+function visiteur(firstName, lastName, eMail, telephoneNumber, address, city) {
   (this.firstName = firstName),
     (this.lastName = lastName),
     (this.eMail = eMail),
@@ -76,12 +76,12 @@ function client(firstName, lastName, eMail, telephoneNumber, address, city) {
 }
 
 //*création d'un tableau contenant les articles commandés------------------------
-let panier = JSON.parse(localStorage.getItem("panier"));
+let basket = JSON.parse(localStorage.getItem("basket"));
 let listIdProduct = [];
 
-function cart(panier) {
-  for (let i = 0; i < panier.length; i++) {
-    listIdProduct.push(panier[i].id);
+function cart(basket) {
+  for (let i = 0; i < basket.length; i++) {
+    listIdProduct.push(basket[i].id);
   }
 
   localStorage.setItem("products", JSON.stringify(listIdProduct));
