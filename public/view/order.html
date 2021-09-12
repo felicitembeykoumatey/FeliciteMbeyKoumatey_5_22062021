@@ -41,11 +41,16 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- fontawesome CSS -->
     <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     />
-    <link rel="stylesheet" href="./css/commande.css" />
     <link rel="stylesheet" href="../style.css" />
   </head>
 
@@ -56,10 +61,47 @@
       </a>
       <a href="../view/basket.html">
         <img src="../logo.webp" id="logo" alt="logo de l'entreprise" />
+        <h1>Orifurniture, <br />n°1 de vente en ligne des mobiliers en chêne!</h1>
       </a>
     </header>
 
-    <main></main>
+
+      <main class="container">
+        <div class="row confirm-order my-4">
+          <div class="card col-10 offset-1 col-md-11">
+            <section class="card-header p-5">
+              <h2 class="font-weight-bold text-center">
+                Merci pour votre commande!
+              </h2>
+            </section>
+            <article class="font-weight-bold p-5 text-center commandeId">
+              Confirmation de votre commande <br />#<span></span>
+            </article>
+
+            <section class="card-body p-5 totalPrice">
+              <h2 class="confirm_price">
+                Le montant de votre commande est de : <span></span>,00 €
+              </h2>
+            </section>
+            <div>
+              <p class="font-weight-light Date heure">
+                Commande effectuée le : <span></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <h3 class="d-flex justify-content-center">
+          <a
+            href="../index.html"
+            id="btn_liste "
+            type="button"
+            class="btn btn-success text-center col-md-2"
+          >
+            Retour à la liste</a
+          >
+        </h3>
+      </main>
+    </main>
     <!--Footer-->
 
     <footer id="footer_order">
@@ -70,7 +112,24 @@
         </p>
       </div>
     </footer>
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    ></script>
 
+    <script
+      defer
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+
+    <script
+      defer
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
     <script src="../Js/script.js"></script>
     <script src="../js/product.js"></script>
     <script src="../js/order.js"></script>

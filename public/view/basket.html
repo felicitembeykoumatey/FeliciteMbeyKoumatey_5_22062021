@@ -41,6 +41,12 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- fontawesome CSS -->
     <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -68,81 +74,134 @@
         </li>
       </ul>
     </header>
-    <main>
-      <div id="basket_container">
-        <section id="article_global">
-          <h2 class="your_basket">Votre panier</h2>
-
-          <div id="list_basket">
-            <div class="article-basket">
-              <div>Article</div>
-              <div>Vernis</div>
-              <div>Prix</div>
-            </div>
-
-            <div class="empty_basket">
-              Votre panier est vide <i class="far fa-frown"></i>
-            </div>
+    <main class="container">
+      <h2 class="text-center">Votre panier</h2>
+      <div class="container">
+        <div id="tableauPanier" class="card border-dark">
+          <table class="table bg-light">
+            <thead class="thead-dark">
+              <tr>
+                <th>Produit</th>
+                <th>Vernis</th>
+                <th>Quantité</th>
+                <th>Prix</th>
+                <th>Prix total</th>
+              </tr>
+            </thead>
+            <tbody id="monProduit"></tbody>
+          </table>
+          <h4 class="font-weight-bold" id="affichageTotal">Total panier</h4>
+          <div class="d-flex justify-content-end">
+            <button id="empty" class="col-lg-4 btn btn-dark">
+              Supprimer mon panier
+            </button>
           </div>
-
-          <div id="montant_total"></div>
-        </section>
-
-        <section id="sectionFormulaire">
-          <h2 class="your_informations">Vos informations</h2>
-
-          <form id="contact">
-            <label for="lastName">Nom :</label>
-            <input
-              id="lastName"
-              type="text"
-              name="lastName"
-              placeholder="Nom"
-              class=""
-            />
-
-            <label for="firstName">Prénom :</label>
-            <input
-              id="firstName"
-              type="text"
-              name="firstName"
-              placeholder="Prénom"
-              class=""
-            />
-
-            <label for="address">Adresse :</label>
-            <input
-              id="address"
-              type="text"
-              name="address"
-              placeholder="Adresse"
-              class=""
-            />
-
-            <label for="city">Ville :</label>
-            <input
-              id="city"
-              type="text"
-              name="city"
-              placeholder="Ville"
-              class=""
-            />
-
-            <label for="email">Mail :</label>
-            <input
-              id="email"
-              type="text"
-              name="email"
-              placeholder="Email"
-              class=""
-            />
-
-            <button>Commander</button>
-            <a href="index.html" class="retour text-center"
-              >Continuez vos achats</a
-            >
-          </form>
-        </section>
+        </div>
+        <br />
+        <div class="card border-dark form-container">
+          <div class="card-header text-center bg-light">
+            <h2>Vos coordonnées</h2>
+          </div>
+          <div class="card-body">
+            <form class="form">
+              <div class="form-row my-3">
+                <label for="firstName" class="col-md-2 col-form-label"
+                  >Prénom</label
+                >
+                <div class="col-md-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+              <div class="form-row my-3">
+                <label for="lastName" class="col-md-2 col-form-label"
+                  >Nom</label
+                >
+                <div class="col-md-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+              <div class="form-row my-3">
+                <label for="email" class="col-md-2 col-form-label">Email</label>
+                <div class="col-md-5">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+              <div class="form-row my-3">
+                <label for="telephoneNumber" class="col-md-2 col-form-label"
+                  >Téléphone</label
+                >
+                <div class="col-md-5">
+                  <input
+                    type="tel"
+                    required
+                    placeholder=""
+                    class="form-control"
+                    id="telephoneNumber"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+              <div class="form-row my-3">
+                <label for="inputAddress" class="col-md-2 col-form-label"
+                  >Adresse</label
+                >
+                <div class="col-md-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+              <div class="form-row my-3">
+                <label for="city" class="col-md-2 col-form-label">Ville</label>
+                <div class="col-md-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="city"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+              <div class="text-center">
+                <button class="btn order-submit disabled">
+                  Confirmer mes coordonnées
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <a
+          href="../view/order.html"
+          class="
+            btn btn-success
+            validation
+            col-6
+            offset-3
+            col-md-4
+            offset-md-4
+            my-4
+            disabled
+          "
+          >Valider ma commande</a
+        >
       </div>
     </main>
 
@@ -252,6 +311,20 @@
       </div>
     </footer>
 
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    ></script>
+
+    <script
+      defer
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+    <script src="https://kit.fontawesome.com/b4a8f51e6a.js"></script>
     <script src="../Js/basket.js"></script>
     <script src="../js/app.js"></script>
   </body>

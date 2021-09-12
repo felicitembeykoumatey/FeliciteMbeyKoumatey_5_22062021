@@ -26,21 +26,24 @@
       name="keywords"
       content="meuble vintage, meuble design, tables en bois, chêne, vernis, bois, chaise en bois, meuble tv"
     />
-
     <link
       rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       as="style"
     />
-
     <link rel="icon" type="image/png" href="favicon.ico" />
     <!-- Meta description -->
-
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- fontawesome CSS -->
     <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -63,51 +66,74 @@
           <p>Panier</p>
         </a>
       </nav>
-      <h1>
-        Orifurniture, <br />
-        n°1 de vente en ligne des mobiliers en chêne!
-      </h1>
+      <h1>Orifurniture, <br />n°1 de vente en ligne des mobiliers en chêne!</h1>
     </header>
+    <main class="container" id="furniture">
+      <div id="product" class="col-lg-8 card border-light bg-light mx-auto">
+        <div class="pb-3 align-self-center m-3 bg-light text-black">
+          <h2 id="titre" class="text-center align-self-top">....</h2>
+          <img
+            src="..."
+            id="image"
+            alt="meuble en bois chêne"
+            class="card-img-top p-3"
+          />
+        </div>
+        <section
+          class="card-body align-self-center bg-light d-flex flex-column"
+        >
+          <h3 id="prix" class="card-title">Prix</h3>
+          <h4 id="description" class="card-text p-2">....</h4>
+          <div class="row">
+            <div class="col-lg-4">
+              <label for="varnish-select"> Vernis :</label>
+              <select name="varnish" id="varnish-select" class="mb-2"></select>
+            </div>
 
-    <!--Produits-->
-    <main id="container_page_product" class="products_container">
-      <!-- Insertion de l'image -->
+            <div class="col-lg-4 mt-4">
+              <label for="quantity">Quantité :</label>
+              <input
+                id="quantity"
+                type="number"
+                class="mb-3"
+                value="1"
+                min="1"
+              />
+            </div>
+          </div>
 
-      <figure>
-        <img class="image" src="..." alt="meuble en chêne" />
-
-        <figcaption>
-          <form>
-            <label for="quantity">Quantité :</label>
-            <input id="quantity" type="number" value="1" min="1" />
-
-            <label for="option_product">vernis:</label>
-            <select id="option_product">
-              <option value="varnish">Choix</option>
-            </select>
-          </form>
-        </figcaption>
-      </figure>
+          <button
+            id="btn-ajouter"
+            class="btn btn-light border border-info p-2 m-3"
+          >
+            Ajouter au panier
+          </button>
+          <bouton class="btn btn-light border border-primary p-2 m-3">
+            <a href="../view/basket.html">Voir le panier</a>
+          </bouton>
+          <bouton class="btn btn-light border border-warning p-2 m-3">
+            <a href="../index.html">Retour</a>
+          </bouton>
+        </section>
+      </div>
     </main>
-
     <!--Footer-->
     <footer>
       <section>
         <h3>Suivez-nous sur les réseaux sociaux</h3>
         <div class="social">
           <div class="facebook">
-            <a href="https://www.facebook.com/"
-              ><i class="fab fa-facebook"></i>
+            <a href="https://www.facebook.com/">
+              <i class="fab fa-facebook"></i>
               <p>Facebook</p>
             </a>
           </div>
           <div class="instagram">
-            <a href="https://www.instagram.com"
-              ><i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com">
+              <i class="fab fa-instagram"></i>
               <p>Instagram</p>
             </a>
           </div>
-
           <div class="twitter">
             <a href="https://twitter.com/">
               <i class="fab fa-twitter-square"></i>
@@ -120,40 +146,51 @@
         <section class="mention">
           <h3>A PROPOS</h3>
           <ul>
-            <li><a href="#">Qui sommes nous et nos engagements </a></li>
-            <li><a href="#">Conditions générales de ventes</a></li>
-            <li><a href="#">Conditions générales d'utilisation</a></li>
-            <li><a href="#">Mentions</a></li>
+            <li>
+              <a href="#">Qui sommes nous et nos engagements</a>
+            </li>
+            <li>
+              <a href="#">Conditions générales de ventes</a>
+            </li>
+            <li>
+              <a href="#">Conditions générales d'utilisation</a>
+            </li>
+            <li>
+              <a href="#">Mentions</a>
+            </li>
           </ul>
         </section>
-
         <section class="service">
           <h3>NOS SERVICES</h3>
           <ul>
-            <li><a href="#">SAV</a></li>
-            <li><a href="#"> Livraison-montage meubles</a></li>
-            <li><a href="#">Carte de fidelite et parrainage </a></li>
+            <li>
+              <a href="#">SAV</a>
+            </li>
+            <li>
+              <a href="#">Livraison-montage meubles</a>
+            </li>
+            <li>
+              <a href="#">Carte de fidelite et parrainage</a>
+            </li>
             <li>
               <a href="#">Contactez-nous</a>
             </li>
             <li>
-              <i class="fas fa-phone-square-alt">
-                Besoin d'aide!
-
-                <span class="navbar-title">Appelez au 02.00.00.00</span></i
-              >
+              <i class="fas fa-phone-square-alt"
+                >Besoin d'aide!
+                <span class="navbar-title">Appelez au 02.00.00.00</span>
+              </i>
             </li>
           </ul>
         </section>
-
         <section class="orinoco">
           <h3>LE GROUPE ORINOCO</h3>
           <ul>
             <li>
-              <a href="#"> Historique</a>
+              <a href="#">Historique</a>
             </li>
             <li>
-              <a href="#"> Nous rejoindre!</a>
+              <a href="#">Nous rejoindre!</a>
             </li>
           </ul>
         </section>
@@ -161,43 +198,64 @@
           <h3>Nos autres sites</h3>
           <ul>
             <li>
-              <a href="#"><i class="fas fa-camera">Oricam</i></a>
+              <a href="#">
+                <i class="fas fa-camera">Oricam</i>
+              </a>
             </li>
             <li>
-              <a href="#"><i class="fas fa-books">Oribook</i></a>
+              <a href="#">
+                <i class="fas fa-books">Oribook</i>
+              </a>
             </li>
             <li>
-              <a href=""><i class="fas fa-tshirt"></i>Oritextil</a>
+              <a href=""> <i class="fas fa-tshirt"></i>Oritextil</a>
             </li>
           </ul>
         </section>
-
         <section class="payment">
           <h3>PAIEMENTS</h3>
           <ul id="footer_paiement">
-            <li><i class="fab fa-cc-paypal"></i></li>
-            <li><i class="fab fa-cc-visa"></i></li>
-            <li><i class="fab fa-cc-mastercard"></i></li>
+            <li>
+              <i class="fab fa-cc-paypal"></i>
+            </li>
+            <li>
+              <i class="fab fa-cc-visa"></i>
+            </li>
+            <li>
+              <i class="fab fa-cc-mastercard"></i>
+            </li>
           </ul>
         </section>
-
         <div class="container">
           <p class="orifurnitureCookie" style="text-align: center">
             En utilisant ce site, vous acceptez notre utilisation des
-            <a href="#">cookies</a> afin d'améliorer votre expérience de
+            <a href="#">cookies</a>afin d'améliorer votre expérience de
             navigation
             <button>OK</button>
           </p>
         </div>
       </div>
-
       <div class="copyright" style="text-align: center">
         <p>Copyright © 2021 Orifurniture by Orinoco - Tous droits réservés</p>
       </div>
     </footer>
+
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    ></script>
+
+    <script
+      defer
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+    <script src="https://kit.fontawesome.com/b4a8f51e6a.js"></script>
     <script src="../Js/script.js"></script>
     <script src="../js/product.js"></script>
     <script src="../js/basket.js"></script>
-    <script src="../js/app.js"></script>
   </body>
 </html>
