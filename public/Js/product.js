@@ -33,6 +33,7 @@ function ProductChoice() {
   price.textContent = furniture.price / 100 + " €";
   description.textContent = furniture.description;
   image.src = furniture.imageUrl;
+  quantityProduct.value = furniture.quantity;
 
   //------Création des options vernis meubles--------------------
 
@@ -73,7 +74,7 @@ function ProductChoice() {
   ajouterPanier.addEventListener("click", function () {
     if (selectionVarnish != undefined && quantity != undefined) {
       furniture.varnish = selectionVarnish;
-      furniture.quantity = quantiteProduit;
+      furniture.quantity = quantityProduit;
     } else if (selectionVarnish == undefined && quantity != undefined) {
       furniture.varnish = furniture.varnish[0];
       furniture.quantity = quantity;
@@ -86,7 +87,6 @@ function ProductChoice() {
     }
     alert("Votre article a été ajouté au panier");
     prixTotal();
-    ajoutLocalStorage();
   });
   console.log(addEventListener);
 
@@ -109,7 +109,7 @@ function ProductChoice() {
   }
   console.log("prixTotal:" + prixTotal);
 
-  //* Fonction du prix total dans localStorage------------------------------------
+  //-------Fonction du prix total dans localStorage------------------------------------
   function prixTotal() {
     let price = parseInt(furniture.price);
     let prixDuPanier = JSON.parse(localStorage.getItem("prixTotal"));
@@ -127,5 +127,31 @@ function ProductChoice() {
     }
   }
   //---------------Ajout dans localStorage------------------------------------------
-  localStorage.setItem("basket", JSON.stringify(furniture));
+  localStorage.setItem("article", JSON.stringify(furniture));
+  console.log(localStorage);
 }
+//--Fonction ajouter un produit selectionné dans LocalStorage
+const addProductLocalStorage = () => {
+  productSendInLocalStorage.push(ProductChoice);
+  localStorage.setItem("article", JSON.stringify(productSendInLocalStorage));
+};
+
+//-------------Stocker la recupération des valeurs du formulaire dans le local Storage
+//Déclaration de la variable "productSendInLocalStorage" dans laquelle on met les key et les valeurs qui sont dans le localStorage
+
+let productSendInLocalStorage = JSON.parse(localStorage.getItem("article"));
+//---JSON.parse c'est pour convertir les données au format JSON qui sont dans le localStorage en objet JS.
+
+//---S'il y a déjà des produits d'enregistré dans le Local Storage
+
+if (productSendInLocalStorage) {
+  addProductLocalStorage();
+  console.log("ok");
+}
+
+// S'il n' y a pas de produit d'enregistré dans le Local Storage
+else {
+  productSendInLocalStorage = [];
+  addProductLocalStorage();
+}
+console.log(ProductChoice);

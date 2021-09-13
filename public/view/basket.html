@@ -1,332 +1,264 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mobiliers|Orinoco</title>
-    <!-- Meta open graph -->
-    <meta
-      property="og: title"
-      content="Meuble design vintage et mobilier pas cher-Orifurniture"
-    />
-    <meta property="og: type" content="website" />
-    <meta property="og: url" content="" />
-    <meta property="og: image" content="logo.webp" />
-    <meta
-      property="og: description"
-      content="Bienvenu sur la boutique Orifurniture de l'entreprise Orinoco spécialisée dans la vente en ligne des meubles en chêne. Découvrez nos meubles vintages : Table, chaisses..."
-    />
-    <meta name="Copyright" content="Orifurniture" />
-    <meta name="author" content="Mbey_Koumatey-Orifurniture web developer" />
-    <meta
-      name="description"
-      content="Bienvenu sur la boutique Orifurniture de l'entreprise Orinoco spécialisée dans la vente en ligne des meubles en chêne. Découvrez nos meubles vintages : Table, chaisses..."
-    />
-    <meta
-      name="keywords"
-      content="meuble vintage, meuble design, tables en bois, chêne, vernis, bois, chaise en bois, meuble tv"
-    />
 
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-      as="style"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobiliers|Orinoco</title>
+  <!-- Meta open graph -->
+  <meta property="og: title" content="Meuble design vintage et mobilier pas cher-Orifurniture" />
+  <meta property="og: type" content="website" />
+  <meta property="og: url" content="" />
+  <meta property="og: image" content="logo.webp" />
+  <meta property="og: description"
+    content="Bienvenu sur la boutique Orifurniture de l'entreprise Orinoco spécialisée dans la vente en ligne des meubles en chêne. Découvrez nos meubles vintages : Table, chaisses..." />
+  <meta name="Copyright" content="Orifurniture" />
+  <meta name="author" content="Mbey_Koumatey-Orifurniture web developer" />
+  <meta name="description"
+    content="Bienvenu sur la boutique Orifurniture de l'entreprise Orinoco spécialisée dans la vente en ligne des meubles en chêne. Découvrez nos meubles vintages : Table, chaisses..." />
+  <meta name="keywords"
+    content="meuble vintage, meuble design, tables en bois, chêne, vernis, bois, chaise en bois, meuble tv" />
 
-    <link rel="icon" type="image/png" href="favicon.ico" />
-    <!-- Meta description -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    as="style" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <!-- fontawesome CSS -->
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    />
-    <link rel="stylesheet" href="../style.css" />
-  </head>
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <!-- Meta description -->
 
-  <body>
-    <header class="nav">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <a href="../index.html">
-          <img src="../logo.webp" alt="logo de l'entreprise" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- fontawesome CSS -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <header class="nav">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a href="../index.html">
+        <img src="../logo.webp" alt="logo de l'entreprise" />
+      </a>
+
+      <div class="basket_link">
+        <a href="basket.html" id="basket">
+          <div class="nb-articles cache"></div>
+          <i class="fas fa-shopping-basket fa-2x"></i>
+          <p>Panier</p>
         </a>
+      </div>
+    </nav>
+  </header>
+  <main id="container-produits-panier" class="main">
+    <section id="sectionArticles">
+      <h1 class="text-center">Récapitulatif de mon panier</h1>
 
-        <div class="basket_link">
-          <a href="basket.html" id="basket">
-            <div class="nb-articles cache"></div>
-            <i class="fas fa-shopping-basket fa-2x"></i>
-            <p>Panier</p>
-          </a>
+      <div id="afficheProduitPanier" class="card border-dark">
+        <table class="table bg-light">
+          <thead class="thead-dark">
+            <tr>
+              <th>Produit</th>
+              <th>Vernis</th>
+              <th>Quantité</th>
+              <th>Prix</th>
+              <th>Prix total</th>
+            </tr>
+          </thead>
+          <tbody id="monProduit"></tbody>
+        </table>
+        <h4 class="font-weight-bold" id="affichageTotal">Total</h4>
+        <div class="d-flex justify-content-end">
+          <button id="empty" class="col-lg-4 btn btn-dark">
+            Supprimer mon panier
+          </button>
         </div>
-      </nav>
-    </header>
-    <main class="container">
-      <h1 class="text-center">Votre panier</h1>
-      <div class="container">
-        <div id="tableauPanier" class="card border-dark">
-          <table class="table bg-light">
-            <thead class="thead-dark">
-              <tr>
-                <th>Produit</th>
-                <th>Vernis</th>
-                <th>Quantité</th>
-                <th>Prix</th>
-                <th>Prix total</th>
-              </tr>
-            </thead>
-            <tbody id="monProduit"></tbody>
-          </table>
-          <h4 class="font-weight-bold" id="affichageTotal">Total panier</h4>
-          <div class="d-flex justify-content-end">
-            <button id="empty" class="col-lg-4 btn btn-dark">
-              Supprimer mon panier
-            </button>
-          </div>
+      </div>
+
+    </section>
+    <br />
+    <div class="card border-dark form-container">
+      <section id="sectionFormulaire" class="card-header text-center bg-light">
+        <h2>Vos coordonnées</h2>
+
+        <div class="card-body">
+          <form class="form">
+            <div class="form-row my-3">
+              <label for="firstName" class="col-md-2 col-form-label">Prénom</label>
+              <div class="col-md-5">
+                <input type="text" class="form-control" id="firstName" placeholder="Prénom" />
+              </div>
+            </div>
+            <div class="form-row my-3">
+              <label for="lastName" class="col-md-2 col-form-label">Nom</label>
+              <div class="col-md-5">
+                <input type="text" class="form-control" id="lastName" placeholder="Name" />
+              </div>
+            </div>
+            <div class="form-row my-3">
+              <label for="email" class="col-md-2 col-form-label">Email</label>
+              <div class="col-md-5">
+                <input type="email" class="form-control" id="email" placeholder="Email" />
+              </div>
+            </div>
+            <div class="form-row my-3">
+              <label for="telephoneNumber" class="col-md-2 col-form-label">Téléphone</label>
+              <div class="col-md-5">
+                <input type="tel" required placeholder="numéro Téléphone" class="form-control" id="telephoneNumber" />
+              </div>
+            </div>
+            <div class="form-row my-3">
+              <label for="inputAddress" class="col-md-2 col-form-label">Adresse</label>
+              <div class="col-md-5">
+                <input type="text" class="form-control" id="address" placeholder="addresse" />
+              </div>
+            </div>
+            <div class="form-row my-3">
+              <label for="city" class="col-md-2 col-form-label">Ville</label>
+              <div class="col-md-5">
+                <input type="text" class="form-control" id="city" placeholder="Ville" />
+              </div>
+            </div>
+            <div class="text-center">
+              <button class="btn order-submit disabled">
+                Confirmer mes coordonnées
+              </button>
+            </div>
+          </form>
         </div>
-        <br />
-        <div class="card border-dark form-container">
-          <div class="card-header text-center bg-light">
-            <h2>Vos coordonnées</h2>
-          </div>
-          <div class="card-body">
-            <form class="form">
-              <div class="form-row my-3">
-                <label for="firstName" class="col-md-2 col-form-label"
-                  >Prénom</label
-                >
-                <div class="col-md-5">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="firstName"
-                    placeholder=""
-                  />
-                </div>
-              </div>
-              <div class="form-row my-3">
-                <label for="lastName" class="col-md-2 col-form-label"
-                  >Nom</label
-                >
-                <div class="col-md-5">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="lastName"
-                    placeholder=""
-                  />
-                </div>
-              </div>
-              <div class="form-row my-3">
-                <label for="email" class="col-md-2 col-form-label">Email</label>
-                <div class="col-md-5">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    placeholder=""
-                  />
-                </div>
-              </div>
-              <div class="form-row my-3">
-                <label for="telephoneNumber" class="col-md-2 col-form-label"
-                  >Téléphone</label
-                >
-                <div class="col-md-5">
-                  <input
-                    type="tel"
-                    required
-                    placeholder=""
-                    class="form-control"
-                    id="telephoneNumber"
-                    placeholder=""
-                  />
-                </div>
-              </div>
-              <div class="form-row my-3">
-                <label for="inputAddress" class="col-md-2 col-form-label"
-                  >Adresse</label
-                >
-                <div class="col-md-5">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="address"
-                    placeholder=""
-                  />
-                </div>
-              </div>
-              <div class="form-row my-3">
-                <label for="city" class="col-md-2 col-form-label">Ville</label>
-                <div class="col-md-5">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="city"
-                    placeholder=""
-                  />
-                </div>
-              </div>
-              <div class="text-center">
-                <button class="btn order-submit disabled">
-                  Confirmer mes coordonnées
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <a
-          href="../view/order.html"
-          class="
+    </div>
+    <a href="../view/order.html" class="
             btn btn-success
             validation
             col-6
             offset-3
             col-md-4
             offset-md-4
-            my-4
             disabled
-          "
-          >Valider ma commande</a
-        >
+          ">Valider ma Commande</a>
+    </div>
+
+    <a class="col-lg-4 btn btn-link" href="index.html" class="retour text-center">Continuer mes achats</a> </section>
+  </main>
+
+  <!--Footer-->
+
+  <!--Footer-->
+  <footer class="container-fluid footer">
+    <h3 class="title_footer text-center">
+      Suivez-nous sur les réseaux sociaux
+    </h3>
+    <section class="social">
+      <div class="facebook">
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i>
+          <p>Facebook</p>
+        </a>
       </div>
-    </main>
+      <div class="instagram">
+        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i>
+          <p>Instagram</p>
+        </a>
+      </div>
 
-    <!--Footer-->
-
-    <!--Footer-->
-    <footer class="container-fluid footer">
-      <h3 class="title_footer text-center">
-        Suivez-nous sur les réseaux sociaux
-      </h3>
-      <section class="social">
-        <div class="facebook">
-          <a href="https://www.facebook.com/"
-            ><i class="fab fa-facebook"></i>
-            <p>Facebook</p>
-          </a>
-        </div>
-        <div class="instagram">
-          <a href="https://www.instagram.com"
-            ><i class="fab fa-instagram"></i>
-            <p>Instagram</p>
-          </a>
-        </div>
-
-        <div class="twitter">
-          <a href="https://twitter.com/">
-            <i class="fab fa-twitter-square"></i>
-            <p>Twitter</p>
-          </a>
-        </div>
+      <div class="twitter">
+        <a href="https://twitter.com/">
+          <i class="fab fa-twitter-square"></i>
+          <p>Twitter</p>
+        </a>
+      </div>
+    </section>
+    <div class="footer_container">
+      <section class="mention">
+        <h3>A PROPOS</h3>
+        <ul>
+          <li><a href="#">Qui sommes nous et nos engagements </a></li>
+          <li><a href="#">Conditions générales de ventes</a></li>
+          <li><a href="#">Conditions générales d'utilisation</a></li>
+          <li><a href="#">Mentions</a></li>
+        </ul>
       </section>
-      <div class="footer_container">
-        <section class="mention">
-          <h3>A PROPOS</h3>
-          <ul>
-            <li><a href="#">Qui sommes nous et nos engagements </a></li>
-            <li><a href="#">Conditions générales de ventes</a></li>
-            <li><a href="#">Conditions générales d'utilisation</a></li>
-            <li><a href="#">Mentions</a></li>
-          </ul>
-        </section>
 
-        <section class="service">
-          <h3>NOS SERVICES</h3>
-          <ul>
-            <li><a href="#">SAV</a></li>
-            <li><a href="#"> Livraison-montage meubles</a></li>
-            <li><a href="#">Carte de fidelite et parrainage </a></li>
-            <li>
-              <a href="#">Contactez-nous</a>
-            </li>
-            <li>
-              <i class="fas fa-phone-square-alt">
-                Besoin d'aide!
+      <section class="service">
+        <h3>NOS SERVICES</h3>
+        <ul>
+          <li><a href="#">SAV</a></li>
+          <li><a href="#"> Livraison-montage meubles</a></li>
+          <li><a href="#">Carte de fidelite et parrainage </a></li>
+          <li>
+            <a href="#">Contactez-nous</a>
+          </li>
+          <li>
+            <i class="fas fa-phone-square-alt">
+              Besoin d'aide!
 
-                <span class="navbar-title">Appelez au 02.00.00.00</span></i
-              >
-            </li>
-          </ul>
-        </section>
+              <span class="navbar-title">Appelez au 02.00.00.00</span></i>
+          </li>
+        </ul>
+      </section>
 
-        <section class="orinoco">
-          <h3>LE GROUPE ORINOCO</h3>
-          <ul>
-            <li>
-              <a href="#"> <li>Historique</li></a>
-            </li>
-            <li>
-              <a href="#"> <li>Nous rejoindre!</li></a>
-            </li>
-          </ul>
-        </section>
-        <section class="filiales">
-          <h3>Nos autres sites</h3>
-          <ul>
-            <li>
-              <a href="#"><i class="fas fa-camera">Oricam</i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-books">Oribook</i></a>
-            </li>
-            <li>
-              <a href=""><i class="fas fa-tshirt"></i>Oritextil</a>
-            </li>
-          </ul>
-        </section>
+      <section class="orinoco">
+        <h3>LE GROUPE ORINOCO</h3>
+        <ul>
+          <li>
+            <a href="#">
+          <li>Historique</li></a>
+          </li>
+          <li>
+            <a href="#">
+          <li>Nous rejoindre!</li></a>
+          </li>
+        </ul>
+      </section>
+      <section class="filiales">
+        <h3>Nos autres sites</h3>
+        <ul>
+          <li>
+            <a href="#"><i class="fas fa-camera">Oricam</i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-books">Oribook</i></a>
+          </li>
+          <li>
+            <a href=""><i class="fas fa-tshirt"></i>Oritextil</a>
+          </li>
+        </ul>
+      </section>
 
-        <section class="payment">
-          <h3>PAIEMENTS</h3>
-          <ul id="footer_paiement">
-            <li><i class="fab fa-cc-paypal"></i></li>
-            <li><i class="fab fa-cc-visa"></i></li>
-            <li><i class="fab fa-cc-mastercard"></i></li>
-          </ul>
-        </section>
+      <section class="payment">
+        <h3>PAIEMENTS</h3>
+        <ul id="footer_paiement">
+          <li><i class="fab fa-cc-paypal"></i></li>
+          <li><i class="fab fa-cc-visa"></i></li>
+          <li><i class="fab fa-cc-mastercard"></i></li>
+        </ul>
+      </section>
 
-        <div class="container">
-          <p class="oriwoodCookie" style="text-align: center">
-            En utilisant ce site, vous acceptez notre utilisation des
-            <a href="#">cookies</a> afin d'améliorer votre expérience de
-            navigation
-            <button>OK</button>
-          </p>
-        </div>
+      <div class="container">
+        <p class="oriwoodCookie" style="text-align: center">
+          En utilisant ce site, vous acceptez notre utilisation des
+          <a href="#">cookies</a> afin d'améliorer votre expérience de
+          navigation
+          <button>OK</button>
+        </p>
       </div>
+    </div>
 
-      <div class="copyright" style="text-align: center">
-        <p>Copyright © 2021 Oriwood by Orinoco - Tous droits réservés</p>
-      </div>
-    </footer>
-    <script
-      defer
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    ></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    ></script>
+    <div class="copyright" style="text-align: center">
+      <p>Copyright © 2021 Oriwood by Orinoco - Tous droits réservés</p>
+    </div>
+  </footer>
+  <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
-    <script
-      defer
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    ></script>
+  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script
-      defer
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    ></script>
+  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script src="../js/script.js"></script>
+ <script src="../Js/product.js"></script>
+  <script src="../Js/basket.js"></script>
+  
+</body>
 
-    <script src="../Js/basket.js"></script>
-  </body>
 </html>
