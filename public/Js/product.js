@@ -2,38 +2,44 @@
 let urlSearchParams = new URLSearchParams(document.location.search);
 let id = urlSearchParams.get("id");
 let url = "http://localhost:3000/api/furniture";
+let localStorage;
 
 //* Affichage produit dans la page--------------------------------------------------
 let request = new XMLHttpRequest();
 request.onreadystatechange = function () {
   if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
     furniture = JSON.parse(this.responseText);
-    ProductChoice();
+    productChoice();
   }
 };
 //-------initialisation de la requête----------------------------
 request.open("GET", url + "/" + id);
 //----- envoi de la requête----------------------------
 request.send();
+//-----------Const et variables -----------------------------
+const varnishElt = document.getElementById("varnish-select");
+console.log("varnishElt:" + varnishElt);
 
+const titleElt = document.getElementById("titre");
+console.log("titleElt:" + titleElt);
+
+const priceElt = document.getElementById("prix");
+console.log("priceElt:" + priceElt);
+
+const descriptionElt = document.getElementById("description");
+const imageElt = document.getElementById("image");
+const quantityElt = document.getElementById("quantityProduct");
+
+productSendInLocalStorage = [];
 //-----Produit choisi---------------------------------
-function ProductChoice() {
+function productChoice() {
   //------Stockage données HTML dans la variable---------------
-  let title = document.getElementById("titre");
-  console.log("title:" + title);
-
-  let price = document.getElementById("prix");
-  console.log("price:" + price);
-
-  let description = document.getElementById("description");
-  let image = document.getElementById("image");
 
   //----- Affichage des données-------------------------------
-  title.textContent = furniture.name;
-  price.textContent = furniture.price / 100 + " €";
-  description.textContent = furniture.description;
-  image.src = furniture.imageUrl;
-  quantityProduct.value = furniture.quantity;
+  titleElt.textContent = furniture.name;
+  priceElt.textContent = furniture.price / 100 + " €";
+  descriptionElt.textContent = furniture.description;
+  imageElt.src = furniture.imageUrl;
 
   //------Création des options vernis meubles--------------------
 
@@ -49,97 +55,113 @@ function ProductChoice() {
       `<option value="${varnish + 1}">${optionVarnish[varnish]}</option>`;
     //---Injection html dans la pageproduit pour le choix vernis
 
-    const varnishElt = document.getElementById("varnish-select");
-    console.log("varnishElt:" + varnishElt);
     varnishElt.innerHTML = structureOptions;
+    console.log("varnishElt.innerHTML:" + varnishElt.innerHTML);
   }
   //------- sélection des Options---------------------------------------------------
 
-  let selectionVarnish = document
+  document
     .getElementById("varnish-select")
     .addEventListener("change", function (e) {
-      selectionVarnish = e.target.value;
+      varnishElt = e.target.value;
     });
 
-  console.log(selectionVarnish);
+  console.log(varnishElt);
   //--------sélection de la quantité---------------------------------------------------
-  const quantity = document
+  document
     .getElementById("quantityProduct")
     .addEventListener("change", function (e) {
-      quantity = e.target.value;
+      quantityElt = e.target.value;
     });
-  console.log("quantity:" + quantity);
+  console.log("quantityElt:" + quantityElt);
   //-----------bouton ajouter au panier------------------------------------------------------
-  let ajouterPanier = document.getElementById("btn-ajouter");
-  ajouterPanier.addEventListener("click", function () {
-    if (selectionVarnish != undefined && quantity != undefined) {
-      furniture.varnish = selectionVarnish;
-      furniture.quantity = quantityProduit;
-    } else if (selectionVarnish == undefined && quantity != undefined) {
+  const addToBasket = document.getElementById("btn-ajouter");
+  addToBasket.addEventListener("click", function () {
+    console.log("helloClik");
+
+    if (varnishElt != undefined && quantityElt != undefined) {
+      console.log("hello if");
+      furniture.varnish = varnishElt;
+      furniture.quantity = quantityElt;
+    } else if (varnishElt == undefined && quantityElt != undefined) {
+      console.log("hello else if");
+
       furniture.varnish = furniture.varnish[0];
-      furniture.quantity = quantity;
-    } else if (selectionVarnish != undefined && quantity == undefined) {
-      furniture.varnish = selectionVarnish;
+      furniture.quantity = quantityElt;
+    } else if (varnishElt != undefined && quantityElt == undefined) {
+      furniture.varnish = varnishElt;
       furniture.quantity = 1;
     } else {
       furniture.varnish = furniture.varnish[0];
       furniture.quantity = 1;
     }
     alert("Votre article a été ajouté au panier");
-    prixTotal();
+    priceTotal();
   });
   console.log(addEventListener);
 
   //* Fonction du prix total dans localStorage------------------------------------
-  function prixTotal() {
+  function priceTotal() {
     let price = parseInt(furniture.price);
-    let prixDuPanier = JSON.parse(localStorage.getItem("prixTotal"));
-
+    // let prixDuPanier = JSON.parse(localStorage.getItem("prixTotal"));
+    let priceInBasket = JSON.parse(window.localStorage.getItem("priceTotal"));
+    console.log("priceInBasket");
     if (prixDuPanier == 0) {
-      localStorage.setItem(
-        "prixTotal",
+      //localStorage.setItem(
+      window.localStorage.setItem(
+        "priceTotal",
         prixDuPanier + (price / 100) * furniture.quantity
       );
     } else {
-      localStorage.setItem(
-        "prixTotal",
+      //localStorage.setItem(
+      window.localStorage.setItem(
+        "priceTotal",
         prixDuPanier + (price / 100) * furniture.quantity
       );
     }
   }
-  console.log("prixTotal:" + prixTotal);
+  console.log("priceTotal:" + priceTotal);
 
   //-------Fonction du prix total dans localStorage------------------------------------
-  function prixTotal() {
+  function priceTotal() {
     let price = parseInt(furniture.price);
-    let prixDuPanier = JSON.parse(localStorage.getItem("prixTotal"));
 
+    let prixDuPanier = JSON.parse(window.localStorage.getItem("priceTotal"));
     if (prixDuPanier == 0) {
-      localStorage.setItem(
-        "prixTotal",
+      //localStorage.setItem(
+      window.localStorage.setItem(
+        "priceTotal",
         prixDuPanier + (price / 100) * furniture.quantity
       );
     } else {
-      localStorage.setItem(
-        "prixTotal",
+      //localStorage.setItem(
+      window.localStorage.setItem(
+        "priceTotal",
         prixDuPanier + (price / 100) * furniture.quantity
       );
     }
   }
   //---------------Ajout dans localStorage------------------------------------------
-  localStorage.setItem("article", JSON.stringify(furniture));
+  //localStorage.setItem("article", JSON.stringify(furniture));
+  window.localStorage.setItem("article", JSON.stringify(furniture));
   console.log(localStorage);
 }
 //--Fonction ajouter un produit selectionné dans LocalStorage
 const addProductLocalStorage = () => {
-  productSendInLocalStorage.push(ProductChoice);
-  localStorage.setItem("article", JSON.stringify(productSendInLocalStorage));
+  // localStorage.setItem("article", JSON.stringify(productSendInLocalStorage));
+  window.localStorage.setItem(
+    "article",
+    JSON.stringify(productSendInLocalStorage)
+  );
 };
 
 //-------------Stocker la recupération des valeurs du formulaire dans le local Storage
 //Déclaration de la variable "productSendInLocalStorage" dans laquelle on met les key et les valeurs qui sont dans le localStorage
 
-let productSendInLocalStorage = JSON.parse(localStorage.getItem("article"));
+//let productSendInLocalStorage = JSON.parse(localStorage.getItem("article"));
+let productSendInLocalStorage = JSON.parse(
+  window.localStorage.getItem("article")
+);
 //---JSON.parse c'est pour convertir les données au format JSON qui sont dans le localStorage en objet JS.
 
 //---S'il y a déjà des produits d'enregistré dans le Local Storage
@@ -151,7 +173,5 @@ if (productSendInLocalStorage) {
 
 // S'il n' y a pas de produit d'enregistré dans le Local Storage
 else {
-  productSendInLocalStorage = [];
   addProductLocalStorage();
 }
-console.log(ProductChoice);
