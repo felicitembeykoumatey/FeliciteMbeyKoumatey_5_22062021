@@ -51,25 +51,28 @@
         </a>
       </div>
     </nav>
+    <h1 class="title">Meubles en chêne chez Oriwood!</h1>
   </header>
   <main id="container-produits-panier" class="main">
-    <section id="sectionArticles">
-      <h1 class="panier_article_titre text-center">Récapitulatif de mon panier</h1>
+    <section id="section-articles">
+      <h2 class="panier-article-titre text-center">Récapitulatif de mon panier</h2>
 
-      <div id="afficheProduitPanier" class="card border-dark">
+      <div id="show-product-Basket" class="card border-dark">
         <table class="table bg-light">
           <thead class="thead-dark">
             <tr>
-              <th>Produit</th>
-              <th>Vernis</th>
-              <th>Quantité</th>
-              <th>Prix</th>
-              <th>Prix total</th>
-            </tr>
+              <th id="cart-card-recap-title">Produit</th>
+              <th id="title-varnish">Vernis</th>
+              <th id="title-quantity">Quantité</th>
+              <th id="price">Prix</th> 
+               <th id="price-total">Prix total</th>
+             </tr>  
+           
+           
           </thead>
           <tbody id="monProduit"></tbody>
         </table>
-        <h4 class="font-weight-bold" id="affichageTotal">Total</h4>
+        <h3 class="font-weight-bold" id="showTotal">Total</h3>
         <div class="d-flex justify-content-end">
           <button id="empty" class="col-lg-4 btn btn-dark">
             Supprimer mon panier
@@ -127,7 +130,7 @@
           </div>
         </form>
       </section>
-      <a href="../view/order.html" class="
+      <a href="../view/order.html" id ="order" class="
             btn btn-success
             validation
             col-6
@@ -253,8 +256,7 @@
 
   <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
  
-  <script src="../Js/product.js"></script>
-  <script src="../Js/basket.js"></script>
+<script src="../js/basket.min.js" type="text/javascript"></script>
 
 </body>
 
