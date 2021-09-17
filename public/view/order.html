@@ -41,11 +41,17 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <!-- fontawesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
   </head>
 
   <body>
@@ -55,41 +61,77 @@
       </a>
       <a href="../view/basket.html">
         <img src="../logo.webp" id="logo" alt="logo de l'entreprise" />
+        <h1>Orifurniture, <br />n°1 de vente en ligne des mobiliers en chêne!</h1>
       </a>
     </header>
 
-    <main></main>
 
-    <footer>
-      <section class="Social_networks">
-        <h2>Suivez-nous sur les réseaux</h2>
-        <ul class="footer-container">
-          <li class="container_facebook">
-            <a href="https://www.facebook.com/"
-              ><i class="fa fa-facebook icon-md"></i>
-              <p>Facebook</p>
-            </a>
-          </li>
-          <li class="container_twitter">
-            <a href="https://twitter.com/">
-              <i class="fa fa-twitter"></i>
-              <p>Twitter</p>
-            </a>
-          </li>
-          <li class="container_twitter">
-            <a href="https://www.instagram.com"
-              ><i class="fa fa-instagram icon-md"></i>
-              <p>Instagram</p>
-            </a>
-          </li>
-        </ul>
-      </section>
-      <hgroup class="footer">
-        <h3>Copyright © 2021 Orifurniture by Orinoco - Tous droits réservés</h3>
-        <h4>Projet 5 - Parcours Developpeur Web - OpenClassrooms</h4>
+      <main class="container">
+        <div class="row confirm-order my-4">
+          <div class="card col-10 offset-1 col-md-11">
+            <section class="card-header p-5">
+              <h2 class="font-weight-bold text-center">
+                Merci pour votre commande!
+              </h2>
+            </section>
+            <article class="font-weight-bold p-5 text-center commandeId">
+              Confirmation de votre commande <br />#<span></span>
+            </article>
+
+            <section class="card-body p-5 totalPrice">
+              <h2 class="confirm_price">
+                Le montant de votre commande est de : <span></span>,00 €
+              </h2>
+            </section>
+            <div>
+              <p class="font-weight-light Date heure">
+                Commande effectuée le : <span></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <h3 class="d-flex justify-content-center">
+          <a
+            href="../index.html"
+            id="btn_liste "
+            type="button"
+            class="btn btn-success text-center col-md-2"
+          >
+            Retour à la liste</a
+          >
+        </h3>
+      </main>
+    </main>
+    <!--Footer-->
+
+    <footer id="footer_order">
+      <div>
+        <p>
+          <i class="far fa-copyright"></i>2021 - Tous droits réservés - Groupe
+          Orinoco
+        </p>
+      </div>
     </footer>
-    <script src="../Js/script.js"></script>
-    <script src="../js/product.js"></script>
-    <script src="../js/order.js"></script>
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    ></script>
+
+    <script
+      defer
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+
+    <script
+      defer
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+    <script src="../Js/script.min.js"  type="text/javascript"></script>
+    <script src="../js/product.min.js"  type="text/javascript"></script>
+    <script src="../js/order.min.js"  type="text/javascript"></script>
   </body>
 </html>
