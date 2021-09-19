@@ -51,42 +51,31 @@
         </a>
       </div>
     </nav>
-    <h1 class="title">Meubles en chêne chez Oriwood!</h1>
+    <h1 class="title">Oriwood, vente n°1 en ligne des meubles en chênes pas cher!!</h1>
   </header>
   <main id="container-produits-panier" class="main">
-    <section id="section-articles">
-      <h2 class="panier-article-titre text-center">Récapitulatif de mon panier</h2>
+    <section class="container-recapitulatif">
+          <h2 class="your-basket">Récapitulatif de votre commande!</h2>
+    <div class="ordered">
+      <h2>Vos articles</h2>
+      <!--<div class ="ordered-article">
+     <img src="" alt="meuble en chêne"/>
+      <div>
+      <h3> meuble en bois chêne</h3>
+    <b> 199 €</b>
+     </div>
+         </div>
+    -->
+    </div>
+    <!--Prix Total-->
+    <b id="total-price"></b>
+</section>
 
-      <div id="show-product-Basket" class="card border-dark">
-        <table class="table bg-light">
-          <thead class="thead-dark">
-            <tr>
-              <th id="cart-card-recap-title">Produit</th>
-              <th id="title-varnish">Vernis</th>
-              <th id="title-quantity">Quantité</th>
-              <th id="price">Prix</th> 
-               <th id="price-total">Prix total</th>
-             </tr>  
-           
-           
-          </thead>
-          <tbody id="monProduit"></tbody>
-        </table>
-        <h3 class="font-weight-bold" id="showTotal">Total</h3>
-        <div class="d-flex justify-content-end">
-          <button id="empty" class="col-lg-4 btn btn-dark">
-            Supprimer mon panier
-          </button>
-        </div>
-      </div>
-
-    </section>
-    <br />
     <div class="card border-dark form-container">
       <section id="sectionFormulaire" class="card-header text-center bg-light">
         <h2>Vos coordonnées</h2>
 
-        <form id ="contact"class="form card-body">
+        <form id="contact" class="form card-body">
           <div class="form-row my-3">
             <label for="firstName" class="col-md-2 col-form-label">Prénom</label>
             <div class="col-md-5">
@@ -124,13 +113,13 @@
             </div>
           </div>
           <div class="text-center">
-            <button id ="btn"class=" order-submit disabled">
+            <button id="btn" class=" order-submit disabled">
               Confirmer mes coordonnées
             </button>
           </div>
         </form>
       </section>
-      <a href="../view/order.html" id ="order" class="
+      <a href="../view/order.html" id="order" class="
             btn btn-success
             validation
             col-6
@@ -255,8 +244,9 @@
   <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- 
-<script src="../js/basket.min.js" type="text/javascript"></script>
+
+  <script src="../js/basket.min.js"></script>
+
 
 </body>
 
