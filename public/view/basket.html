@@ -55,24 +55,22 @@
   </header>
   <main id="container-produits-panier" class="main">
     <section class="container-recapitulatif">
-          <h2 class="your-basket">Récapitulatif de votre commande!</h2>
-    <div class="ordered">
-      <h2>Vos articles</h2>
-      <!--<div class ="ordered-article">
-     <img src="" alt="meuble en chêne"/>
-      <div>
-      <h3> meuble en bois chêne</h3>
-    <b> 199 €</b>
-     </div>
-         </div>
-    -->
-    </div>
-    <!--Prix Total-->
-    <b id="total-price"></b>
-</section>
+      <h2 class="your-basket">Récapitulatif de votre commande!</h2>
+
+      <div id="articles"></div>
+
+<div id = articleName>Nom</div>
+<div id = articlePrice>prix</div>
+<div id = articleQty>Quantité</div>
+      <div class="col-6 col-md-3 "><span class="bold">Supprimer</span>
+        <p> <button id="deleteBtn"><i class="far fa-trash-alt"></i></button></p>
+      </div>
+
+      <div id="total-price">Prix Total</div>
+    </section>
 
     <div class="card border-dark form-container">
-      <section id="sectionFormulaire" class="card-header text-center bg-light">
+      <section id="formulaire" class="card-header text-center bg-light">
         <h2>Vos coordonnées</h2>
 
         <form id="contact" class="form card-body">
@@ -119,7 +117,7 @@
           </div>
         </form>
       </section>
-      <a href="../view/order.html" id="order" class="
+      <a href="../view/order.html" id="validate" class="
             btn btn-success
             validation
             col-6
@@ -128,9 +126,9 @@
             offset-md-4
             disabled
           ">Valider ma Commande</a>
-    </div>
 
-    <a class="col-lg-4 btn retour text-center btn-success " href="../index.html">Continuer mes achats</a> </section>
+
+      <a class="col-lg-4 btn retour text-center btn-success " href="../index.html">Continuer mes achats</a> </section>
   </main>
 
   <!--Footer-->
@@ -246,6 +244,8 @@
   <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script src="../js/basket.min.js"></script>
+ 
+
 
 
 </body>
