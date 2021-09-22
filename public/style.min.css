@@ -5,6 +5,18 @@ footer li a {
   text-decoration: none;
   color: #ffff;
 }
+#container-products-basket {
+  display: flex;
+  flex-direction: column;
+  min-width: 80vw;
+  justify-content: center;
+  border: 2px solid #000000;
+}
+.empty-basket {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 #panier {
   background-color: #550551;
 }
