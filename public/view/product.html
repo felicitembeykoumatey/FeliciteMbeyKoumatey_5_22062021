@@ -28,19 +28,16 @@
     </header>
     <!--Produits-->
     <main id="product">
-      <div>
+      <form id="formulaire-product">
         <h2 id="titre">nom</h2>
         <img id="image" alt="meuble en bois chêne" />
-      </div>
-      <section>
-        <h3 id="prix">Prix</h3>
-        <h4 id="description">description</h4>
 
-        <form>
-          <div>
-            <label for="varnish-select"> Vernis :</label>
-            <select name="varnish" id="varnish-select" class="mb-2"></select>
-          </div>
+        <section>
+          <h3 id="prix">Prix</h3>
+          <h4 id="description">description</h4>
+
+          <label for="varnish-select"> Vernis :</label>
+          <select name="varnish" id="varnish-select" class="mb-2"></select>
 
           <label for="quantity">Quantité :</label>
           <select name="quantity" id="quantity-product" class="mb-3">
@@ -55,19 +52,19 @@
             <option value="3">9</option>
             <option value="4">10</option>
           </select>
-        </form>
 
-        <button id="add-to-basket" type="submit" name="btn-envoyer">
-          Ajouter au panier
-        </button>
-        <div id="confirmation-ajout"></div>
-        <bouton id="look-basket">
-          <a href="../view/basket.html">Voir le panier</a>
-        </bouton>
-        <bouton id="return-home">
-          <a href="../index.html">Retour</a>
-        </bouton>
-      </section>
+          <button id="add-to-basket" type="submit" name="btn-envoyer">
+            Ajouter au panier
+          </button>
+          <div id="confirmation-ajout"></div>
+          <bouton id="look-basket">
+            <a href="../view/basket.html">Voir le panier</a>
+          </bouton>
+          <bouton id="return-home">
+            <a href="../index.html">Retour</a>
+          </bouton>
+        </section>
+      </form>
     </main>
 
     <!--Footer-->
@@ -131,10 +128,10 @@
           <h3>LE GROUPE ORINOCO</h3>
           <ul>
             <li>
-              <a href="#"> <li>Historique</li></a>
+              <a href="#"> Historique</a>
             </li>
             <li>
-              <a href="#"> <li>Nous rejoindre!</li></a>
+              <a href="#">Nous rejoindre!</a>
             </li>
           </ul>
         </section>

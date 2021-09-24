@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mobiliers|Orinoco</title>
-    <meta name="author" content="Mbey_Koumatey-oriwood web developer" />
+  <meta name="author" content="Mbey_Koumatey-oriwood web developer" />
   <link rel="stylesheet" href="../style.min.css" />
 </head>
 
@@ -18,7 +18,7 @@
 
       <div class="basket_link">
         <a href="basket.html" id="basket">
-      
+
           <i class="fas fa-shopping-basket fa-2x"></i>
           <p>Panier</p>
         </a>
@@ -27,109 +27,114 @@
     <h1 class="title">Oriwood, vente n°1 en ligne des meubles en chênes pas cher!!</h1>
   </header>
   <main>
-    <section id="container-recapitulatif">
-      <h2 class="your-basket">Récapitulatif de votre commande!</h2>
+    <div class="container">
+      <section id="container-recapitulatif">
+        <h2 class="your-basket">Récapitulatif de votre commande!</h2>
 
-      <div id="articles"></div>
-
-      <div id=articleName>Nom</div>
-      <div id=articlePrice>prix</div>
-      <div id=articleQty>Quantité</div>
-      <div class="col-6 col-md-3 "><span class="bold">Supprimer</span>
-        <p> <button id="delete-btn"><i class="far fa-trash-alt"></i></button></p>
-      </div>
-
-      <div id="total-price">Prix Total</div>
-    </section>
-
-    <div class="card ">
-      <section id="formulaire">
-        <h2>Vos coordonnées</h2>
-
-        <form id="contact" class="form card-body">
-          <div class="form-row my-3">
-            <label for="firstName" >Prénom</label>
-            <div class="col-md-5">
-              <input type="text" class="form-control" id="firstName" placeholder="Prénom" />
-            </div>
+        <div id="articles">
+          <div class="article-recap">
+            <div class= "article-recap-title first-line" >Nom</div>
+            <div class="article-recap-title data-price first-line">prix</div>
+            <div class="article-recap-title  title-quantity first-line">Quantité</div>
           </div>
-          <div class="form-row my-3">
-            <label for="lastName" class="col-md-2 col-form-label">Nom</label>
-            <div class="col-md-5">
-              <input type="text" class="form-control" id="lastName" placeholder="Name" />
-            </div>
+          <div id="empty-basket">
+            <a href="basket.html">
+              <div>
+                Vider le panier
+              </div>
+            </a>
           </div>
-          <div class="form-row my-3">
-            <label for="email" class="col-md-2 col-form-label">Email</label>
-            <div class="col-md-5">
-              <input type="email" class="form-control" id="email" placeholder="Email" />
-            </div>
-          </div>
-          <div class="form-row my-3">
-            <label for="telephoneNumber" class="col-md-2 col-form-label">Téléphone</label>
-            <div class="col-md-5">
-              <input type="tel" required placeholder="numéro Téléphone" class="form-control" id="telephoneNumber" />
-            </div>
-          </div>
-          <div class="form-row my-3">
-            <label for="inputAddress" class="col-md-2 col-form-label">Adresse</label>
-            <div class="col-md-5">
-              <input type="text" class="form-control" id="address" placeholder="addresse" />
-            </div>
-          </div>
-          <div class="form-row my-3">
-            <label for="city" class="col-md-2 col-form-label">Ville</label>
-            <div class="col-md-5">
-              <input type="text" class="form-control" id="city" placeholder="Ville" />
-            </div>
-          </div>
-          <div class="text-center">
-            <button id="btn" class=" order-submit disabled">
-              Confirmer mes coordonnées
-            </button>
-          </div>
-        </form>
+        </div>
+        <div id="total-price">Prix Total</div>
       </section>
-      <a href="../view/order.html" id="validate" class="
-            btn btn-success
+
+      <div class="card ">
+        <section id="formulaire">
+          <h2>Vos coordonnées</h2>
+
+          <form id="contact" class="form card-body">
+            <div>
+              <label for="firstName">Prénom</label>
+              <div>
+                <input type="text" id="firstName" placeholder="Prénom" />
+              </div>
+            </div>
+            <div>
+              <label for="lastName">Nom</label>
+              <div>
+                <input type="text" id="lastName" placeholder="Name" />
+              </div>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <div class="col-md-5">
+                <input type="email" id="email" placeholder="Email" />
+              </div>
+            </div>
+            <div>
+              <label for="telephoneNumber">Téléphone</label>
+              <div>
+                <input type="tel" required placeholder="numéro Téléphone" id="telephoneNumber" />
+              </div>
+            </div>
+            <div>
+              <label for="inputAddress">Adresse</label>
+              <div>
+                <input type="text" id="address" placeholder="addresse" />
+              </div>
+            </div>
+            <div>
+              <label for="city">Ville</label>
+              <div>
+                <input type="text" id="city" placeholder="Ville" />
+              </div>
+            </div>
+            <div>
+              <button id="btn">
+                Confirmer mes coordonnées
+              </button>
+            </div>
+          </form>
+        </section>
+        <a href="../view/order.html" id="validate" class="
+         
             validation
-            col-6
-            offset-3
-            col-md-4
-            offset-md-4
-            disabled
+           
           ">Valider ma Commande</a>
 
+     
+        <a href="../index.html">Continuer mes achats</a> </section>
 
-      <a class="col-lg-4 btn retour text-center btn-success " href="../index.html">Continuer mes achats</a> </section>
+
+      </div>
   </main>
 
   <!--Footer-->
 
   <footer class="container-fluid footer">
-    <h3 class="title_footer text-center">
+    <h3 class="title-footer">
       Suivez-nous sur les réseaux sociaux
     </h3>
-    <section class="row row-no-gutters social">
-      <div class="facebook col-sm-3">
+    <section class="social">
+      <div class="facebook ">
         <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i>
           <p>Facebook</p>
         </a>
       </div>
-      <div class="instagram col-sm-3">
+      <div class="instagram ">
         <a href="https://www.instagram.com"><i class="fab fa-instagram"></i>
           <p>Instagram</p>
         </a>
       </div>
 
-      <div class="twitter col-sm-3">
+      <div class="twitter ">
         <a href="https://twitter.com/">
           <i class="fab fa-twitter-square"></i>
           <p>Twitter</p>
         </a>
       </div>
     </section>
-    <div class="footer_container">
+    <div class="footer-container">
       <section class="mention">
         <h3>A PROPOS</h3>
         <ul>
@@ -209,8 +214,8 @@
       <p>Copyright © 2021 Oriwood by Orinoco - Tous droits réservés</p>
     </div>
   </footer>
- 
- <script src="https://kit.fontawesome.com/cf88953d74.js"></script>
+
+  <script src="https://kit.fontawesome.com/cf88953d74.js"></script>
 
   <script src="../js/basket.min.js"></script>
 
