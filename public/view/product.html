@@ -4,127 +4,67 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mobiliers|Orinoco</title>
-    <!-- Meta open graph -->
-    <meta
-      property="og: title"
-      content="Meuble design vintage et mobilier pas cher-oriwood"
-    />
-    <meta property="og: type" content="website" />
-    <meta property="og: url" content="" />
-    <meta property="og: image" content="logo.webp" />
-    <meta
-      property="og: description"
-      content="Bienvenu sur la boutique oriwood de l'entreprise Orinoco spécialisée dans la vente en ligne des meubles en chêne. Découvrez nos meubles vintages : Table, chaisses..."
-    />
-    <meta name="Copyright" content="oriwood" />
+
     <meta name="author" content="Mbey_Koumatey-oriwood web developer" />
-    <meta
-      name="description"
-      content="Bienvenu sur la boutique oriwood de l'entreprise Orinoco spécialisée dans la vente en ligne des meubles en chêne. Découvrez nos meubles vintages : Table, chaisses..."
-    />
-    <meta
-      name="keywords"
-      content="meuble vintage, meuble design, tables en bois, chêne, vernis, bois, chaise en bois, meuble tv"
-    />
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-      as="style"
-    />
-    <link rel="icon" type="image/png" href="favicon.ico" />
-    <!-- Meta description -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <!-- fontawesome CSS -->
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    />
+
     <link rel="stylesheet" href="../style.min.css" />
   </head>
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar">
         <a href="../index.html">
           <img src="../logo.webp" alt="logo de l'entreprise" />
         </a>
 
-        <div class="basket_link">
+        <div class="basket-link">
           <a href="basket.html" id="basket">
-            <div class="nb-articles cache"></div>
             <i class="fas fa-shopping-basket fa-2x"></i>
             <p>Panier</p>
           </a>
         </div>
       </nav>
-      <h1 class="buy text-black text-center">Meubles en chêne by Oriwood</h1>
+      <h1 class="buy">Meubles en chêne by Oriwood</h1>
     </header>
     <!--Produits-->
-    <main class="furniture" id="container">
-      <div id="product" class="col-lg-8 card border-light bg-light mx-auto">
-        <div class="pb-3 align-self-center m-3 bg-light text-black">
-          <h2 id="titre" class="text-center align-self-top">....</h2>
-          <img
-            src="..."
-            id="image"
-            alt="meuble en bois chêne"
-            class="card-img-top p-3"
-          />
-        </div>
-        <section
-          class="card-body align-self-center bg-light d-flex flex-column"
-        >
-          <h3 id="prix" class="card-title">Prix</h3>
-          <h4 id="description" class="card-text p-2">....</h4>
+    <main id="product">
+      <form id="formulaire-product">
+        <h2 id="titre">nom</h2>
+        <img id="image" alt="meuble en bois chêne" />
 
-          <form class="row">
-            <div class="col-lg-4">
-              <label for="varnish-select"> Vernis :</label>
-              <select name="varnish" id="varnish-select" class="mb-2"></select>
-            </div>
+        <section>
+          <h3 id="prix">Prix</h3>
+          <h4 id="description">description</h4>
 
-            <div class="col-lg-4 mt-4">
-              <label for="quantity">Quantité :</label>
-              <select name="quantity" id="quantityProduct" class="mb-3">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="3">5</option>
-                <option value="4">6</option>
-                <option value="3">7</option>
-                <option value="4">8</option>
-                <option value="3">9</option>
-                <option value="4">10</option>
-              </select>
-            </div>
-          </form>
+          <label for="varnish-select"> Vernis :</label>
+          <select name="varnish" id="varnish-select" class="mb-2"></select>
 
-          <button
-            id="add-to-basket"
-            type="submit"
-            name="btn-envoyer"
-            class="btn btn-light border border-info p-2 m-3"
-          >
+          <label for="quantity">Quantité :</label>
+          <select name="quantity" id="quantity-product" class="mb-3">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="3">5</option>
+            <option value="4">6</option>
+            <option value="3">7</option>
+            <option value="4">8</option>
+            <option value="3">9</option>
+            <option value="4">10</option>
+          </select>
+
+          <button id="add-to-basket" type="submit" name="btn-envoyer">
             Ajouter au panier
           </button>
-          <bouton class="btn btn-light border border-primary p-2 m-3">
+          <div id="confirmation-ajout"></div>
+          <bouton id="look-basket">
             <a href="../view/basket.html">Voir le panier</a>
           </bouton>
-          <bouton class="back-to-home btn-light border border-warning p-2 m-3">
+          <bouton id="return-home">
             <a href="../index.html">Retour</a>
           </bouton>
         </section>
-      </div>
+      </form>
     </main>
 
     <!--Footer-->
@@ -133,21 +73,21 @@
       <h3 class="title_footer text-center">
         Suivez-nous sur les réseaux sociaux
       </h3>
-      <section class="row row-no-gutters social">
-        <div class="facebook col-sm-3">
+      <section class="social">
+        <div class="facebook">
           <a href="https://www.facebook.com/"
             ><i class="fab fa-facebook"></i>
             <p>Facebook</p>
           </a>
         </div>
-        <div class="instagram col-sm-3">
+        <div class="instagram">
           <a href="https://www.instagram.com"
             ><i class="fab fa-instagram"></i>
             <p>Instagram</p>
           </a>
         </div>
 
-        <div class="twitter col-sm-3">
+        <div class="twitter">
           <a href="https://twitter.com/">
             <i class="fab fa-twitter-square"></i>
             <p>Twitter</p>
@@ -188,10 +128,10 @@
           <h3>LE GROUPE ORINOCO</h3>
           <ul>
             <li>
-              <a href="#"> <li>Historique</li></a>
+              <a href="#"> Historique</a>
             </li>
             <li>
-              <a href="#"> <li>Nous rejoindre!</li></a>
+              <a href="#">Nous rejoindre!</a>
             </li>
           </ul>
         </section>
@@ -234,24 +174,7 @@
       </div>
     </footer>
 
-    <script
-      defer
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    ></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    ></script>
-
-    <script
-      defer
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    ></script>
-
-    <script
-      defer
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    ></script>
+    <script src="https://kit.fontawesome.com/cf88953d74.js"></script>
 
     <script src="../js/product.min.js"></script>
   </body>
