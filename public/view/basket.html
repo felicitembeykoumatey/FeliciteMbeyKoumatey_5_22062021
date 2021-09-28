@@ -1,217 +1,154 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mobiliers|Orinoco</title>
+    <meta name="author" content="Mbey_Koumatey-oriwood web developer" />
+    <link rel="stylesheet" href="../style.min.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mobiliers|Orinoco</title>
-  <meta name="author" content="Mbey_Koumatey-oriwood web developer" />
-  <link rel="stylesheet" href="../style.min.css" />
-</head>
-
-<body>
-  <header class="nav">
-    <nav class="navbar">
-      <a href="../index.html">
-        <img src="../logo.webp" alt="logo de l'entreprise" />
-      </a>
-
-      <div class="basket_link">
-        <a href="basket.html" id="basket">
-
-          <i class="fas fa-shopping-basket fa-2x"></i>
-          <p>Panier</p>
+  <body>
+    <header class="nav">
+      <nav class="navbar">
+        <a href="../index.html">
+          <img src="../logo.webp" alt="logo de l'entreprise" />
         </a>
-      </div>
-    </nav>
-    <h1 class="title">Oriwood, vente n°1 en ligne des meubles en chênes pas cher!!</h1>
-  </header>
-  <main>
-    <div class="container">
+
+        <div class="basket_link">
+          <a href="basket.html" id="basket">
+            <i class="fas fa-shopping-basket fa-2x"></i>
+            <p>Panier</p>
+          </a>
+        </div>
+      </nav>
+      <h1 class="title">
+        Oriwood, vente n°1 en ligne des meubles en chênes pas cher!!
+      </h1>
+    </header>
+    <main id="container">
       <section id="container-recapitulatif">
         <h2 class="your-basket">Récapitulatif de votre commande!</h2>
 
         <div id="articles">
-          <div>Qauntité - </div>
-          <div> € - Supprimer article </div>
-
-
+          <div>Qauntité -</div>
+          <div>€ - Supprimer article</div>
         </div>
-     
-          <b class="total-order"id="total-price">Montant Total : </b>
-          <span>Vider le panier</span>
-      
+
+        <b class="total-order" id="total-price">Montant Total : </b>
+        <span>Vider le panier</span>
       </section>
+      <!--Forumlaire dans le HTML-->
+      <div id="formulaire "></div>
+    </main>
 
-      <div class="card ">
-        <section id="formulaire">
-          <h2>Vos coordonnées</h2>
+    <!--Footer-->
 
-          <form id="contact" class="form card-body">
-            <div>
-              <label for="firstName">Prénom</label>
-              <div>
-                <input type="text" id="firstName" placeholder="Prénom" />
-              </div>
-            </div>
-            <div>
-              <label for="lastName">Nom</label>
-              <div>
-                <input type="text" id="lastName" placeholder="Name" />
-              </div>
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <div>
-                <input type="email" id="email" placeholder="Email" />
-              </div>
-            </div>
-           
-            <div>
-              <label for="inputAddress">Adresse</label>
-              <div>
-                <input type="text" id="address" placeholder="Adresse" />
-              </div>
-            </div>
-            <div>
-              <label for="city">Ville</label>
-              <div>
-                <input type="text" id="city" placeholder="Ville" />
-              </div>
-            </div>
-            <div>
-              <button id="btn-order">
-                Confirmer mes coordonnées
-              </button>
-            </div>
-          </form>
+    <footer class="container-fluid footer">
+      <h3 class="title-footer">Suivez-nous sur les réseaux sociaux</h3>
+      <section class="social">
+        <div class="facebook">
+          <a href="https://www.facebook.com/"
+            ><i class="fab fa-facebook"></i>
+            <p>Facebook</p>
+          </a>
+        </div>
+        <div class="instagram">
+          <a href="https://www.instagram.com"
+            ><i class="fab fa-instagram"></i>
+            <p>Instagram</p>
+          </a>
+        </div>
+
+        <div class="twitter">
+          <a href="https://twitter.com/">
+            <i class="fab fa-twitter-square"></i>
+            <p>Twitter</p>
+          </a>
+        </div>
+      </section>
+      <div class="footer-container">
+        <section class="mention">
+          <h3>A PROPOS</h3>
+          <ul>
+            <li><a href="#">Qui sommes nous et nos engagements </a></li>
+            <li><a href="#">Conditions générales de ventes</a></li>
+            <li><a href="#">Conditions générales d'utilisation</a></li>
+            <li><a href="#">Mentions</a></li>
+          </ul>
         </section>
-        <a href="../view/order.html" id="validate" class="
-         
-            validation
-           
-          ">Valider ma Commande</a>
 
+        <section class="service">
+          <h3>NOS SERVICES</h3>
+          <ul>
+            <li><a href="#">SAV</a></li>
+            <li><a href="#"> Livraison-montage meubles</a></li>
+            <li><a href="#">Carte de fidelite et parrainage </a></li>
+            <li>
+              <a href="#">Contactez-nous</a>
+            </li>
+            <li>
+              <i class="fas fa-phone-square-alt">
+                Besoin d'aide!
 
-        <a href="../index.html">Continuer mes achats</a> </section>
+                <span class="navbar-title">Appelez au 02.00.00.00</span></i
+              >
+            </li>
+          </ul>
+        </section>
 
+        <section class="orinoco">
+          <h3>LE GROUPE ORINOCO</h3>
+          <ul>
+            <li>
+              <a href="#"> <li>Historique</li></a>
+            </li>
+            <li>
+              <a href="#"> <li>Nous rejoindre!</li></a>
+            </li>
+          </ul>
+        </section>
+        <section class="filiales">
+          <h3>Nos autres sites</h3>
+          <ul>
+            <li>
+              <a href="#"><i class="fas fa-camera">Oricam</i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-books">Oribook</i></a>
+            </li>
+            <li>
+              <a href=""><i class="fas fa-tshirt"></i>Oritextil</a>
+            </li>
+          </ul>
+        </section>
 
+        <section class="payment">
+          <h3>PAIEMENTS</h3>
+          <ul id="footer_paiement">
+            <li><i class="fab fa-cc-paypal"></i></li>
+            <li><i class="fab fa-cc-visa"></i></li>
+            <li><i class="fab fa-cc-mastercard"></i></li>
+          </ul>
+        </section>
+
+        <div class="container">
+          <p class="oriwoodCookie" style="text-align: center">
+            En utilisant ce site, vous acceptez notre utilisation des
+            <a href="#">cookies</a> afin d'améliorer votre expérience de
+            navigation
+            <button>OK</button>
+          </p>
+        </div>
       </div>
-  </main>
 
-  <!--Footer-->
-
-  <footer class="container-fluid footer">
-    <h3 class="title-footer">
-      Suivez-nous sur les réseaux sociaux
-    </h3>
-    <section class="social">
-      <div class="facebook ">
-        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i>
-          <p>Facebook</p>
-        </a>
+      <div class="copyright" style="text-align: center">
+        <p>Copyright © 2021 Oriwood by Orinoco - Tous droits réservés</p>
       </div>
-      <div class="instagram ">
-        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i>
-          <p>Instagram</p>
-        </a>
-      </div>
+    </footer>
 
-      <div class="twitter ">
-        <a href="https://twitter.com/">
-          <i class="fab fa-twitter-square"></i>
-          <p>Twitter</p>
-        </a>
-      </div>
-    </section>
-    <div class="footer-container">
-      <section class="mention">
-        <h3>A PROPOS</h3>
-        <ul>
-          <li><a href="#">Qui sommes nous et nos engagements </a></li>
-          <li><a href="#">Conditions générales de ventes</a></li>
-          <li><a href="#">Conditions générales d'utilisation</a></li>
-          <li><a href="#">Mentions</a></li>
-        </ul>
-      </section>
+    <script src="https://kit.fontawesome.com/cf88953d74.js"></script>
 
-      <section class="service">
-        <h3>NOS SERVICES</h3>
-        <ul>
-          <li><a href="#">SAV</a></li>
-          <li><a href="#"> Livraison-montage meubles</a></li>
-          <li><a href="#">Carte de fidelite et parrainage </a></li>
-          <li>
-            <a href="#">Contactez-nous</a>
-          </li>
-          <li>
-            <i class="fas fa-phone-square-alt">
-              Besoin d'aide!
-
-              <span class="navbar-title">Appelez au 02.00.00.00</span></i>
-          </li>
-        </ul>
-      </section>
-
-      <section class="orinoco">
-        <h3>LE GROUPE ORINOCO</h3>
-        <ul>
-          <li>
-            <a href="#">
-          <li>Historique</li></a>
-          </li>
-          <li>
-            <a href="#">
-          <li>Nous rejoindre!</li></a>
-          </li>
-        </ul>
-      </section>
-      <section class="filiales">
-        <h3>Nos autres sites</h3>
-        <ul>
-          <li>
-            <a href="#"><i class="fas fa-camera">Oricam</i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fas fa-books">Oribook</i></a>
-          </li>
-          <li>
-            <a href=""><i class="fas fa-tshirt"></i>Oritextil</a>
-          </li>
-        </ul>
-      </section>
-
-      <section class="payment">
-        <h3>PAIEMENTS</h3>
-        <ul id="footer_paiement">
-          <li><i class="fab fa-cc-paypal"></i></li>
-          <li><i class="fab fa-cc-visa"></i></li>
-          <li><i class="fab fa-cc-mastercard"></i></li>
-        </ul>
-      </section>
-
-      <div class="container">
-        <p class="oriwoodCookie" style="text-align: center">
-          En utilisant ce site, vous acceptez notre utilisation des
-          <a href="#">cookies</a> afin d'améliorer votre expérience de
-          navigation
-          <button>OK</button>
-        </p>
-      </div>
-    </div>
-
-    <div class="copyright" style="text-align: center">
-      <p>Copyright © 2021 Oriwood by Orinoco - Tous droits réservés</p>
-    </div>
-  </footer>
-
-  <script src="https://kit.fontawesome.com/cf88953d74.js"></script>
-
-  <script src="../js/basket.min.js"></script>
-
-
-
-
-</body>
-
+    <script src="../js/basket.min.js"></script>
+  </body>
 </html>
