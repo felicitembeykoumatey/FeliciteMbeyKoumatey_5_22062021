@@ -91,7 +91,7 @@ const afficherFormulaireHtml = () => {
 
           <form id="contact" class="card-body">
 
-            <label for="firstName">Prénom</label>
+            <label for="firstName">Prénom</label><span id = "firstNameMiss" class="info-champs-manquant"></span>
             <input type="text" id="firstName" placeholder="Prénom" />
           <label for="lastName">Nom</label>
             <input type="text" id="lastName" placeholder="Name" />
@@ -165,52 +165,140 @@ btnOrderElt.addEventListener("click", (e) => {
     basket,
     formulaireValues,
   };
-  formulaireValues();
-});
 
-//****************************GESTION VALIDATION FORMULAIRE********************************************************************************/
-// Utilisation de la méthode expression regulière-------------------------------------------------
+  //****************************GESTION VALIDATION FORMULAIRE********************************************************************************/
+  // Utilisation de la méthode expression regulière-------------------------------------------------
+  // --------contrôle du prenom-----------------------------
 
-//*****************************--FIN GESTION VALIDATION FORMULAIRE---*************************************************
-//--------------------Mettre le contenu du LocalStorage dans les champs du formulaire-----------------------------------------------
-//--------------------Prendre la key dans le LocalStorage et la mettre dans une variable-----------------------------------------------
-const dataLocalStorage = localStorage.getItem("formulaireValues");
+  const textAlert = (value) => {
+    return `${value}: chiffre et symbole ne sont pas autorisé \n Ne pas dépasser 20 caractères, minimum 3 caractères`;
+  };
+  const regExFirstNameLastNameCity = (value) => {
+    return /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(value);
+  };
+  function firstNameControl() {
+    const yourFirstname = formulaireValues.firstName;
 
-//convertir la chaîne de caractère en objet javascript
-const dataLocalStorageObjet = JSON.parse(dataLocalStorage);
+    if (regExFirstNameLastNameCity(yourFirstname)) {
+      return true;
+    } else {
+      alert(textAlert("Prénom"));
+      return false;
+    }
+  }
 
-//Fonction pour que le champ du formulaire soit rempli par les données du LS si elle existe
+  //--------------------contrôle nom--------------------------------------
+  function lastNameControl() {
+    const yourLastname = formulaireValues.lastName;
+    if (regExFirstNameLastNameCity(yourLastname)) {
+      return true;
+    } else {
+      alert(textAlert("Nnom"));
+      return false;
+    }
+  }
+  //---------------contrôle code postal----------------------------------------
+  const regExcodePostal = (value) => {
+    return /^[0-9]{5}$/.test(value);
+  };
+  function codePostalControl() {
+    // contrôle de la validité du code postal
 
-function fillInFieldInputFromLocalStorage(input) {
-  document.querySelector(`#${input}`).value = dataLocalStorageObjet[input];
-}
-fillInFieldInputFromLocalStorage("firstName");
-fillInFieldInputFromLocalStorage("lastName");
-fillInFieldInputFromLocalStorage("email");
-fillInFieldInputFromLocalStorage("address");
-fillInFieldInputFromLocalStorage("city");
-fillInFieldInputFromLocalStorage("codePostal");
+    const theCodePostal = formulaireValues.codePostal;
+    if (regExcodePostal(theCodePostal)) {
+      return true;
+    } else {
+      alert(textAlert("Code postal: doit être composé de 5 chiffres"));
+      return false;
+    }
+  }
 
-//*******************************--FIN Gestion Formulaire et validation commande--************************************/
+  //--------------------contrôle email---------------------
+  const regExEmail = (value) => {
+    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
+  };
 
-//********************************---Envoi requête vers le server----**********************************************/
+  function emailControl() {
+    // contrôle de la validité d'email
 
-//------------Requête HTTP du type POST pour envoyer mes données vers le serveur---------------------
-// Création de l'entête de la requête
-const options = {
-  method: "POST",
-  body: JSON.stringify(order),
-  headers: { "Content-Type": "application/json" },
-};
+    const yourEmail = formulaireValues.email;
+    if (regExEmail(yourEmail)) {
+      return true;
+    } else {
+      alert(textAlert("l'email n'est pas valide"));
+      return false;
+    }
+  }
 
-// Envoie de la requête avec l'en-tête. On changera de page avec un localStorage qui ne contiendra plus que l'order id et le prix.
-fetch("http://localhost:3000/api/furniture/order", options)
-  .then((response) => response.json())
-  .then((data) => {
-    localStorage.clear();
-    console.log(data);
-    localStorage.setItem("orderId", data.orderId);
+  //------------Validation du champs adresse----------------------------
+  const regExAdresse = (value) => {
+    return /^[A-Za-z0-9\s]{3,70}$/.test(value);
+  };
 
-    //  On peut commenter cette ligne pour vérifier le statut 201 de la requête fetch. Le fait de préciser la destination du lien ici et non dans la balise <a> du HTML permet d'avoir le temps de placer les éléments comme l'orderId dans le localStorage avant le changement de page.
-    document.location.href = "./order.html";
+  function adressControl() {
+    const yourAdress = formulaireValues.address;
+    if (regExAdresse(yourAdress)) {
+      return true;
+    } else {
+      alert(
+        "L'adresse doit contenir que des lettres sans ponctuation et des chiffres"
+      );
+      return false;
+    }
+  }
+  //*****************************--FIN GESTION VALIDATION FORMULAIRE---*************************************************
+  //controle validation formulaire avant envoi dans le LS
+
+  if (
+    firstNameControl() &&
+    lastNameControl() &&
+    codePostalControl() &&
+    emailControl() &&
+    adressControl()
+  ) {
+    //Mettre l'objet "formulairesValues" dans le LS
+    localStorage.setItem("formulairesValues", JSON.stringify(formulaireValues));
+  } else {
+    alert("Veuillez bien remplir le formulaire");
+  }
+
+  //--------------------Mettre le contenu du LocalStorage dans les champs du formulaire-----------------------------------------------
+  //--------------------Prendre la key dans le LocalStorage et la mettre dans une variable-----------------------------------------------
+  const dataLocalStorage = localStorage.getItem("formulaireValues");
+
+  //convertir la chaîne de caractère en objet javascript
+  const dataLocalStorageObjet = JSON.parse(dataLocalStorage);
+
+  //Fonction pour que le champ du formulaire soit rempli par les données du LS si elle existe
+
+  function fillInFieldInputFromLocalStorage(input) {
+    document.querySelector(`#${input}`).value = dataLocalStorageObjet[input];
+  }
+  fillInFieldInputFromLocalStorage("firstName");
+  fillInFieldInputFromLocalStorage("lastName");
+  fillInFieldInputFromLocalStorage("email");
+  fillInFieldInputFromLocalStorage("address");
+  fillInFieldInputFromLocalStorage("city");
+  fillInFieldInputFromLocalStorage("codePostal");
+
+  //*******************************--FIN Gestion Formulaire et validation commande--************************************/
+
+  //********************************---Envoi requête vers le server----**********************************************/
+  //envoie de l'objet "aEnvoyer" vers le serveur
+  //------------Requête HTTP du type POST pour envoyer mes données vers le serveur---------------------
+  // Création de l'entête de la requête
+  const promise01 = fetch("http://localhost:3000/api/furniture/order", {
+    method: "POST",
+    body: JSON.stringify(aEnvoyer),
+    headers: { "Content-Type": "application/json" },
   });
+
+  // Pour voir le resultat dans la console.
+  promise01.then(async (response) => {
+    try {
+      const contenu = await response.json();
+    } catch (e) {
+      console.log(e);
+    }
+  });
+});
