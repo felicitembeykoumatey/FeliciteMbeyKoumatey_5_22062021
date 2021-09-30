@@ -5,12 +5,10 @@ const productName = document.getElementById("articleName");
 const priceElt = document.getElementById("articlePrice");
 const basketELt = document.getElementById("container-recapitulatif");
 const positionElt = document.getElementById("articles");
-console.log("positionElt:" + positionElt);
 
 //Déclaration de la variable "basket"dans laquelle on met les key et les values.
 let basket = JSON.parse(window.localStorage.getItem("products"));
-
-//--------affichage produit selectionner
+//------------Affichage produit selectionner------------------------------------------------
 pageBasket();
 
 function pageBasket() {
@@ -48,6 +46,9 @@ function toEmptyBasket() {
     localStorage.clear();
   });
 }
+
+////****************Fin Gestion du bouton vider le panier*****************************************************/
+
 ////*********************************Le montant total du panier ******************************************************/
 let priceTotalCalcul = [];
 //Aller chercher les prix dans le panier
@@ -72,9 +73,10 @@ const totalPrice = priceTotalCalcul.reduce(reducer, 0);
 // le code html du prix total à afficher
 
 const affichagePrixHtml = `
-
 <div class ="affichage-prix-html">${totalPrice} € </div>`;
 totalPriceElt.insertAdjacentHTML("beforeend", affichagePrixHtml);
+//*********************************Fin Montant Total Panier***************************************************/
+//*******************************Gestion Formulaire et validation commande************************************/
 
 structureFormulaire = "";
 
@@ -129,13 +131,30 @@ const btnOrderElt = document.getElementById("btn-order");
 //-----------------------------AddEventListener-------------------------------------------------------------------------------------
 btnOrderElt.addEventListener("click", (e) => {
   e.preventDefault();
-  const formulaireValues = {
-    firstName: document.getElementById("firstName").value,
-    lastName: document.getElementById("lastName").value,
-    email: document.getElementById("email").value,
-    city: document.getElementById("city").value,
-    codePostal: document.getElementById("codePostal").value,
-  };
+  // Création /definition d'une classe pour fabriquer l'objet lequel iront
+  // Les values du formulaire
+  class Formulaire {
+    constructor(firstName, lastName) {
+      this.firstName = document.getElementById("firstName").value;
+      this.lastName = document.getElementById("lastName").value;
+      this.email = document.getElementById("email").value;
+      this.address = document.getElementById("address").value;
+      this.city = document.getElementById("city").value;
+      this.codePostal = document.getElementById("codePostal").value;
+    }
+  }
+
+  //Appel de l'instance Formulaire pour créer l'objet formulairesValues
+
+  const formulaireValues = new Formulaire();
+  // const formulaireValues = {
+  //   firstName: document.getElementById("firstName").value,
+  //   lastName: document.getElementById("lastName").value,
+  //   email: document.getElementById("email").value,
+  //  address: document.getElementById("address").value,
+  //  city: document.getElementById("city").value,
+  //  codePostal: document.getElementById("codePostal").value,
+  // };
 
   //Mettre l'objet "formulaireValues" dans un objet
 
@@ -144,7 +163,7 @@ btnOrderElt.addEventListener("click", (e) => {
   //Mettre les values du formulaire et mettre les produits selectionnés dans un objet à envoyer ver le serveur
   const aEnvoyer = {
     basket,
-    formulaire,
+    formulaireValues,
   };
   formulaireValues();
 });
@@ -172,4 +191,26 @@ fillInFieldInputFromLocalStorage("address");
 fillInFieldInputFromLocalStorage("city");
 fillInFieldInputFromLocalStorage("codePostal");
 
+//*******************************--FIN Gestion Formulaire et validation commande--************************************/
+
+//********************************---Envoi requête vers le server----**********************************************/
+
 //------------Requête HTTP du type POST pour envoyer mes données vers le serveur---------------------
+// Création de l'entête de la requête
+const options = {
+  method: "POST",
+  body: JSON.stringify(order),
+  headers: { "Content-Type": "application/json" },
+};
+
+// Envoie de la requête avec l'en-tête. On changera de page avec un localStorage qui ne contiendra plus que l'order id et le prix.
+fetch("http://localhost:3000/api/furniture/order", options)
+  .then((response) => response.json())
+  .then((data) => {
+    localStorage.clear();
+    console.log(data);
+    localStorage.setItem("orderId", data.orderId);
+
+    //  On peut commenter cette ligne pour vérifier le statut 201 de la requête fetch. Le fait de préciser la destination du lien ici et non dans la balise <a> du HTML permet d'avoir le temps de placer les éléments comme l'orderId dans le localStorage avant le changement de page.
+    document.location.href = "./order.html";
+  });
