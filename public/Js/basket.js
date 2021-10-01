@@ -147,18 +147,33 @@ btnOrderElt.addEventListener("click", (e) => {
   //Appel de l'instance Formulaire pour créer l'objet formulairesValues
 
   const formulaireValues = new Formulaire();
-  // const formulaireValues = {
-  //   firstName: document.getElementById("firstName").value,
-  //   lastName: document.getElementById("lastName").value,
-  //   email: document.getElementById("email").value,
-  //  address: document.getElementById("address").value,
-  //  city: document.getElementById("city").value,
-  //  codePostal: document.getElementById("codePostal").value,
-  // };
 
+  //***************Gestion validation du formulaire********************************/
+
+  //contrôle de la validité du prénom
+
+  function firstNameControl() {
+    const theFirstName = formulaireValues.firstName;
+    if (/^[A-Za-z]{3,20}$/.test(theFirstName)) {
+      return true;
+      console.log("OK");
+    } else {
+      return false;
+      console.log("KO");
+      alert(
+        "Chiffre et symbole ne sont pas autorisés. Ne pas dépasser les 20 caractères, minimum 3 caractères. "
+      );
+    }
+    console.log(theFirstName);
+  }
   //Mettre l'objet "formulaireValues" dans un objet
-
-  localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+  if (firstNameControl) {
+    localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+    console.log(firstNameControl());
+  } else {
+    console.log(firstNameControl());
+    alert("Veuillez bien remplir le formulaire");
+  }
 
   //Mettre les values du formulaire et mettre les produits selectionnés dans un objet à envoyer ver le serveur
   const aEnvoyer = {
@@ -166,139 +181,24 @@ btnOrderElt.addEventListener("click", (e) => {
     formulaireValues,
   };
 
-  //****************************GESTION VALIDATION FORMULAIRE********************************************************************************/
-  // Utilisation de la méthode expression regulière-------------------------------------------------
-  // --------contrôle du prenom-----------------------------
-
-  const textAlert = (value) => {
-    return `${value}: chiffre et symbole ne sont pas autorisé \n Ne pas dépasser 20 caractères, minimum 3 caractères`;
-  };
-  const regExFirstNameLastNameCity = (value) => {
-    return /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(value);
-  };
-  function firstNameControl() {
-    const yourFirstname = formulaireValues.firstName;
-
-    if (regExFirstNameLastNameCity(yourFirstname)) {
-      return true;
-    } else {
-      alert(textAlert("Prénom"));
-      return false;
-    }
-  }
-
-  //--------------------contrôle nom--------------------------------------
-  function lastNameControl() {
-    const yourLastname = formulaireValues.lastName;
-    if (regExFirstNameLastNameCity(yourLastname)) {
-      return true;
-    } else {
-      alert(textAlert("Nnom"));
-      return false;
-    }
-  }
-  //---------------contrôle code postal----------------------------------------
-  const regExcodePostal = (value) => {
-    return /^[0-9]{5}$/.test(value);
-  };
-  function codePostalControl() {
-    // contrôle de la validité du code postal
-
-    const theCodePostal = formulaireValues.codePostal;
-    if (regExcodePostal(theCodePostal)) {
-      return true;
-    } else {
-      alert(textAlert("Code postal: doit être composé de 5 chiffres"));
-      return false;
-    }
-  }
-
-  //--------------------contrôle email---------------------
-  const regExEmail = (value) => {
-    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
-  };
-
-  function emailControl() {
-    // contrôle de la validité d'email
-
-    const yourEmail = formulaireValues.email;
-    if (regExEmail(yourEmail)) {
-      return true;
-    } else {
-      alert(textAlert("l'email n'est pas valide"));
-      return false;
-    }
-  }
-
-  //------------Validation du champs adresse----------------------------
-  const regExAdresse = (value) => {
-    return /^[A-Za-z0-9\s]{3,70}$/.test(value);
-  };
-
-  function adressControl() {
-    const yourAdress = formulaireValues.address;
-    if (regExAdresse(yourAdress)) {
-      return true;
-    } else {
-      alert(
-        "L'adresse doit contenir que des lettres sans ponctuation et des chiffres"
-      );
-      return false;
-    }
-  }
-  //*****************************--FIN GESTION VALIDATION FORMULAIRE---*************************************************
-  //controle validation formulaire avant envoi dans le LS
-
-  if (
-    firstNameControl() &&
-    lastNameControl() &&
-    codePostalControl() &&
-    emailControl() &&
-    adressControl()
-  ) {
-    //Mettre l'objet "formulairesValues" dans le LS
-    localStorage.setItem("formulairesValues", JSON.stringify(formulaireValues));
-  } else {
-    alert("Veuillez bien remplir le formulaire");
-  }
-
-  //--------------------Mettre le contenu du LocalStorage dans les champs du formulaire-----------------------------------------------
-  //--------------------Prendre la key dans le LocalStorage et la mettre dans une variable-----------------------------------------------
-  const dataLocalStorage = localStorage.getItem("formulaireValues");
-
-  //convertir la chaîne de caractère en objet javascript
-  const dataLocalStorageObjet = JSON.parse(dataLocalStorage);
-
-  //Fonction pour que le champ du formulaire soit rempli par les données du LS si elle existe
-
-  function fillInFieldInputFromLocalStorage(input) {
-    document.querySelector(`#${input}`).value = dataLocalStorageObjet[input];
-  }
-  fillInFieldInputFromLocalStorage("firstName");
-  fillInFieldInputFromLocalStorage("lastName");
-  fillInFieldInputFromLocalStorage("email");
-  fillInFieldInputFromLocalStorage("address");
-  fillInFieldInputFromLocalStorage("city");
-  fillInFieldInputFromLocalStorage("codePostal");
-
-  //*******************************--FIN Gestion Formulaire et validation commande--************************************/
-
-  //********************************---Envoi requête vers le server----**********************************************/
-  //envoie de l'objet "aEnvoyer" vers le serveur
-  //------------Requête HTTP du type POST pour envoyer mes données vers le serveur---------------------
-  // Création de l'entête de la requête
-  const promise01 = fetch("http://localhost:3000/api/furniture/order", {
-    method: "POST",
-    body: JSON.stringify(aEnvoyer),
-    headers: { "Content-Type": "application/json" },
-  });
-
-  // Pour voir le resultat dans la console.
-  promise01.then(async (response) => {
-    try {
-      const contenu = await response.json();
-    } catch (e) {
-      console.log(e);
-    }
-  });
+  //---------------Envoie de l'objet "aEnvoyer" vers le serveur--------------------------//
 });
+//--------------Mettre le contenu du LS dans les champs du formulaire-------------------------
+//Prendre la key dans le LS et la mettre dans une variable---------------------------------
+const dataLocalStorage = localStorage.getItem("formulaireValues");
+
+console.log(dataLocalStorage);
+//convertir la chaine de caractère en objet JS
+
+const dataLocalStorageOjet = JSON.parse(dataLocalStorage);
+console.log(dataLocalStorageOjet);
+
+//Mettre les valeurs du LS dans les champs du formulaire
+document.getElementById("firstName").value = dataLocalStorageOjet.firstName;
+document.getElementById("lastName").value = dataLocalStorageOjet.lastName;
+document.getElementById("email").value = dataLocalStorageOjet.email;
+document.getElementById("address").value = dataLocalStorageOjet.address;
+document.getElementById("city").value = dataLocalStorageOjet.city;
+document.getElementById("codePostal").value = dataLocalStorageOjet.codePostal;
+
+// Contrôle validation formulaire du champ Nom et Prénom avant l'envoi dans LS
