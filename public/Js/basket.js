@@ -149,20 +149,22 @@ btnOrderElt.addEventListener("click", (e) => {
   const formulaireValues = new Formulaire();
 
   //***************Gestion validation du formulaire********************************/
+  //----------Création fonction et mettre RegEX dans une variable-----------------------
+  const regExFirsNameLastNameCity = (value) => {};
 
   //contrôle de la validité du prénom
 
   function firstNameControl() {
     const theFirstName = formulaireValues.firstName;
     if (/^[A-Za-z]{3,20}$/.test(theFirstName)) {
-      return true;
       console.log("OK");
+      return true;
     } else {
-      return false;
-      console.log("KO");
       alert(
-        "Chiffre et symbole ne sont pas autorisés. Ne pas dépasser les 20 caractères, minimum 3 caractères. "
+        "Chiffre et symbole ne sont pas autorisés.\n Ne pas dépasser les 20 caractères, minimum 3 caractères. "
       );
+      console.log("KO");
+      return false;
     }
     console.log(theFirstName);
   }
