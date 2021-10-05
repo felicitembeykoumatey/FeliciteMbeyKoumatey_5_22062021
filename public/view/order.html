@@ -10,23 +10,40 @@
 
   <body>
     <header class="nav">
-
       <a href="../view/basket.html">
         <img src="../logo.webp" id="logo" alt="logo de l'entreprise" />
-    
       </a>
     </header>
 
     <main>
-      <div class="container-recapitulatif-commande">
-        <h1 class="title-recapitulatif">Récapitulatif de votre commande</h1>
-<div class="recapitulatif-commande">
-  <p>Merci pour votre commande</p>
-  <p>Votre commande numéro : <span class ="gras">xxxxxxxxx</span> a bien été prise en compte.</p>
-<p>Le montant de votre commande est de : <span class="gras">xxxxxxx</span></p>
-<P class="remerciement">Au plaisir de vous revoir</P>
-</div>
-        
+      <section class="confirmation">
+        <h2>Confirmation de votre commande</h2>
+        <h3>
+          Félicitations <span id="firstName"></span>&nbsp;<span
+            id="lastName"
+          ></span
+          >&nbsp;!
+        </h3>
+        <p class="textConfirm">
+          Nous vous remercions pour votre achat d'un montant total à payer
+          de&nbsp;<span id="priceOrder"></span>&nbsp;€.<br />
+          Nous allons préparé votre commande et vous l'expédier rapidement enfin
+          profiter de la qualité des meubles Orinoco.<br />Merci de bien vouloir
+          conserver votre référence de commande ci-dessous pour toute
+          communication avec notre équipe commerciale :
+        </p>
+        <p id="orderId"></p>
+        <p class="textConfirm">
+          Si vous souhaitez diversifier votre panier, n'hésitez pas à consulter
+          nos autres sites spécialisés :
+
+          <a href="#"><span>Oribook</span></a> pour Oricam pour les cameras
+          <a href="#"><span>Oribook</span></a> pour les livres et
+          <a href="#"><span>Oritextil</span></a>
+
+          pour les vêtements !
+        </p>
+      </section>
     </main>
     <!--Footer-->
 
