@@ -50,7 +50,6 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
             <label for="varnish-select"> Vernis :</label>
             <select name="varnish" id="varnish-select"></select>
           </div>
-
           <label for="quantity">Quantité :</label>
           <select name="quantity" id="quantity-product" class="mb-3">
             <option value="1">1</option>
@@ -65,7 +64,6 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
             <option value="4">10</option>
           </select>
      
-
         <button id="add-to-basket" type="submit" name="btn-envoyer">
           Ajouter au panier
         </button>

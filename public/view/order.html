@@ -11,36 +11,26 @@
   <body>
     <header class="nav">
       <a href="../view/basket.html">
-        <i class="fa fa-arrow-left fa-2x"></i>
-      </a>
-      <a href="../view/basket.html">
         <img src="../logo.webp" id="logo" alt="logo de l'entreprise" />
-        <h1>
-          Orifurniture, <br />n°1 de vente en ligne des mobiliers en chêne!
-        </h1>
       </a>
     </header>
 
-    <main class="container">
-      <section class="card-header">
-        <h2 class="font-weight-bold text-center">Merci pour votre commande!</h2>
+    <main>
+      <section id="confirmation">
+        <h2>Confirmation de votre commande</h2>
 
-        <article id="buy-articles">
-          Confirmation de votre commande <br /><b>#</b>
-        </article>
+        <p id="orderId"></p>
+        <p class="textConfirm">
+          Si vous souhaitez diversifier votre panier, n'hésitez pas à consulter
+          nos autres sites spécialisés :
 
-        <span class="confirm_price">
-          Le montant de votre commande est de : <b>,00 €</b>
-        </span>
+          <a href="#"><span>Oribook</span></a> pour Oricam pour les cameras
+          <a href="#"><span>Oribook</span></a> pour les livres et
+          <a href="#"><span>Oritextil</span></a>
 
-        <span class="font-weight-light Date heure">
-          Commande effectuée le : <span> jour/mois/année</span>
-        </span>
+          pour les vêtements !
+        </p>
       </section>
-
-      <h3 id="btn-liste ">
-        <a href="../index.html"> Retour à la liste</a>
-      </h3>
     </main>
     <!--Footer-->
 
@@ -55,6 +45,6 @@
 
     <script src="https://kit.fontawesome.com/cf88953d74.js"></script>
 
-    <script src="../js/order.min.js" type="text/javascript"></script>
+    <script src="../js/order.js"></script>
   </body>
 </html>

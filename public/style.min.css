@@ -1,3 +1,8 @@
+.container-recapitulatif-commande {
+  width: 80vw;
+  border: 1 px solid rgb(22, 2, 2);
+}
+
 /***************************************Envoi formulaire***************************************************/
 
 .card-body {
