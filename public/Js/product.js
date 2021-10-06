@@ -106,12 +106,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 
       if (quantityElt.value > 0 && quantityElt.value < 100) {
         let productAdded = {
-          article: furniture.name,
           _id: id,
-          price: parseFloat(newPrice),
-          quantity: parseFloat(
-            document.getElementById("quantity-product").value
-          ),
         };
         // Gestion LocalStorage
 
