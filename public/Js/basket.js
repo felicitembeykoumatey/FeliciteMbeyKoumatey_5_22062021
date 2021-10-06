@@ -85,12 +85,9 @@ const afficherFormulaireHtml = () => {
   const positionElt4 = document.getElementById("container");
   const structureFormulaire = `
   
-
    <section class="formulaire-section">
           <h2>Vos coordonnées</h2>
-
           <form id="contact" class="card-body">
-
             <label for="firstName">Prénom</label><span id = "firstNameEmpty" class="info-champs-manquant"></span>
             <input type="text" id="firstName" placeholder="Prénom" />
           <label for="lastName">Nom</label><span id = "lastNameEmpty" class="info-champs-manquant"></span>
@@ -103,18 +100,14 @@ const afficherFormulaireHtml = () => {
             <input type="text" id="city" placeholder="Ville" />
             <label for="postal">Code Postal</label><span id = "codePostalEmpty" class="info-champs-manquant"></span>
             <input type="text" id="codePostal" placeholder="Code postal" />
-
             <!--Fin forumlaire dans le HTML-->
             
-
-
           </form>
            <button id="btn-order" class="validate-order>
           <a href="../view/order.html" id="validate" class="validation"
             >Valider ma Commande</a
           >
         </button>
-
             <button class="continue-shopping"><a href="../index.html">Continuer mes achats</a></button>
         </section>
       </div>
