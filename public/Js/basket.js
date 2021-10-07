@@ -319,7 +319,7 @@ btnOrderElt.addEventListener("click", (e) => {
   fetch(url, options)
     .then((res) => res.json())
     .then((res) => {
-      const Tr = basket[0]._id;
+      const orderId = basket[0]._id;
 
       let order = JSON.stringify(res);
       localStorage.setItem("order", basket[0]._id);
