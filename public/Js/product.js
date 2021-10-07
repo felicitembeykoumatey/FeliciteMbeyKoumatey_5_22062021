@@ -17,7 +17,6 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
       "oups! Lancez le serveur local au Port 3000 !";
   })
   .then(function (furniture) {
-    console.log(furniture);
     // code cibler  HTML
     const productElt = document.getElementById("product");
     let cardArticle = "";
@@ -86,13 +85,9 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
       structureVarnish += `<option value="${optionVarnish}">${optionVarnish}</option>`;
     });
 
-    console.log(structureVarnish);
-
     varnishElt.innerHTML = structureVarnish;
 
     // selection formulaire  dans mon HTML
-
-    console.log(localStorage);
 
     // Ecouter les évenements
     const addToBasket = document.getElementById("add-to-basket");

@@ -5,13 +5,14 @@ const productName = document.getElementById("articleName");
 const priceElt = document.getElementById("articlePrice");
 const basketELt = document.getElementById("container-recapitulatif");
 const positionElt = document.getElementById("articles");
+const positionElt4 = document.getElementById("container");
 
 //Déclaration de la variable "basket"dans laquelle on met les key et les values.
 let basket = JSON.parse(window.localStorage.getItem("products"));
 //------------Affichage produit selectionner------------------------------------------------
-pageBasket();
+showBasket();
 
-function pageBasket() {
+function showBasket() {
   // si le panier est vide
   if (basket === null) {
     const panierVide = `<main id="container-products-basket"><div class="empty-basket">Le panier est vide !</div></main>`;
@@ -50,39 +51,41 @@ function toEmptyBasket() {
 ////****************Fin Gestion du bouton vider le panier*****************************************************/
 
 ////*********************************Le montant total du panier ******************************************************/
-let priceTotalCalcul = [];
-//Aller chercher les prix dans le panier
+showPrice();
+function showPrice() {
+  let priceTotalCalcul = [];
+  //Aller chercher les prix dans le panier
 
-for (
-  let priceCalculation = 0;
-  priceCalculation < basket.length;
-  priceCalculation++
-) {
-  let priceProductInBasket =
-    basket[priceCalculation].price * basket[priceCalculation].quantity;
+  for (
+    let priceCalculation = 0;
+    priceCalculation < basket.length;
+    priceCalculation++
+  ) {
+    let priceProductInBasket =
+      basket[priceCalculation].price * basket[priceCalculation].quantity;
 
-  //mettre les prix du panier dans la variable "priceTotalCalcul"
+    //mettre les prix du panier dans la variable "priceTotalCalcul"
 
-  priceTotalCalcul.push(priceProductInBasket);
-}
+    priceTotalCalcul.push(priceProductInBasket);
+  }
 
-// Additionner les prix qu'il ya dans le tableau de la variable "prix totale"---------
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-const totalPrice = priceTotalCalcul.reduce(reducer, 0);
+  // Additionner les prix qu'il ya dans le tableau de la variable "prix totale"---------
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  const totalPrice = priceTotalCalcul.reduce(reducer, 0);
 
-// le code html du prix total à afficher
+  // le code html du prix total à afficher
 
-const affichagePrixHtml = `
+  const affichagePrixHtml = `
 <div class ="affichage-prix-html">${totalPrice} € </div>`;
-totalPriceElt.insertAdjacentHTML("beforeend", affichagePrixHtml);
+  totalPriceElt.insertAdjacentHTML("beforeend", affichagePrixHtml);
+}
 //*********************************Fin Montant Total Panier***************************************************/
 //*******************************Gestion Formulaire et validation commande************************************/
 
 structureFormulaire = "";
 
 // Sélection élément DOM pour le positionnement du formulaire
-const afficherFormulaireHtml = () => {
-  const positionElt4 = document.getElementById("container");
+const showHtmlForm = () => {
   const structureFormulaire = `
   
    <section class="formulaire-section">
@@ -117,13 +120,14 @@ const afficherFormulaireHtml = () => {
   //------------------------------------------Injection HTML------------------------------------------------------------------------
   positionElt4.insertAdjacentHTML("afterend", structureFormulaire);
 };
-console.log("dhtgh");
-afficherFormulaireHtml();
-console.log("gffdgfdgfdgf");
+
+showHtmlForm();
+
 //-------------------------bouton envoyer le formulaire----------------------------------------------------------------------------
 const btnOrderElt = document.getElementById("btn-order");
 
 //-----------------------------AddEventListener-------------------------------------------------------------------------------------
+
 btnOrderElt.addEventListener("click", (e) => {
   e.preventDefault();
   // Création /definition d'une classe pour fabriquer l'objet lequel iront
@@ -279,24 +283,14 @@ btnOrderElt.addEventListener("click", (e) => {
     basket,
     contact,
   };
-  console.log("basket");
-  console.log(basket);
-  console.log("contact");
-  console.log(contact);
-  console.log("aEnvoyer");
-  console.log(aEnvoyer);
+
   //--------------Mettre le contenu du LS dans les champs du formulaire-------------------------
   //Prendre la key dans le LS et la mettre dans une variable---------------------------------
   const dataLocalStorage = localStorage.getItem("contact");
-
-  console.log(dataLocalStorage);
   //convertir la chaine de caractère en objet JS
-
   const dataLocalStorageOjet = JSON.parse(dataLocalStorage);
-  console.log(dataLocalStorageOjet);
 
   //Fonction pour que le champ du formulaire soit rempli par les données du LS si elle existe
-
   function remplirChampsInputDepuisLocalStorage(input) {
     if (dataLocalStorage == null) {
       console.log("le localStorage a pour valeur null");
@@ -325,9 +319,10 @@ btnOrderElt.addEventListener("click", (e) => {
   fetch(url, options)
     .then((res) => res.json())
     .then((res) => {
+      const Tr = basket[0]._id;
+
       let order = JSON.stringify(res);
-      localStorage.setItem("order", order);
-      console.log(localStorage);
+      localStorage.setItem("order", basket[0]._id);
 
       //Redirection
       window.location.href = "order.html";
@@ -335,8 +330,6 @@ btnOrderElt.addEventListener("click", (e) => {
     .catch(function (error) {
       alert("Impossible d'envoyer la requête");
     });
-  console.log("promise01");
-  console.log(promise01);
 
   //Mettre les valeurs du LS dans les champs du formulaire
   document.getElementById("firstName").value = dataLocalStorageOjet.firstName;
