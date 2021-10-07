@@ -324,7 +324,7 @@ btnOrderElt.addEventListener("click", (e) => {
       let order = JSON.stringify(res);
       localStorage.setItem("order", basket[0]._id);
 
-      //Redirection
+      //Redirection vers la page de confirmation
       window.location.href = "order.html";
     })
     .catch(function (error) {
