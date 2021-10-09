@@ -1,6 +1,7 @@
 //déclaration variables
 const formulaireElt = document.getElementById("formulaire");
 const totalPriceElt = document.getElementById("total-price");
+console.log("totalPriceElt:" + totalPriceElt);
 const productName = document.getElementById("articleName");
 const priceElt = document.getElementById("articlePrice");
 const cartELt = document.getElementById("container-recapitulatif");
@@ -9,7 +10,7 @@ const positionFurnitureElt = document.getElementById("container");
 
 //Déclaration de la variable "cart"dans laquelle on met les key et les values.
 let cart = JSON.parse(window.localStorage.getItem("products"));
-console.log("cart:" + cart);
+console.log(cart);
 //------------Affichage produit selectionner------------------------------------------------
 showcart();
 
@@ -25,9 +26,8 @@ function showcart() {
     //faire boucle for pour parcourir mon LS et recupérer les objets
 
     for (i = 0; i < cart.length; i++) {
-      structureProductCart += `<div class="quantity"> Qauntité - ${cart[i].quantity}</div>
-      <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].price} </div>
-         <b class="total-order" id="total-price"> Montant Total : </b>
+      structureProductCart += `<div class="quantity"> Quantité - ${cart[i].quantity}</div>
+      <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].price} </div>       
 `;
     }
 
@@ -41,8 +41,8 @@ function showcart() {
   for (j = 0; j < cart.length; j++) {
     total = total + parseInt(cart[j].price) * cart[j].quantity;
   }
-  totalPriceElt.innerHTML = total;
-  console.log(total);
+  totalPriceElt.innerHTML = "Montant Total : " + total + " €";
+  localStorage.setItem("total", JSON.stringify(total));
 }
 //-----------Fin de l'affichage des produits du panier-----------------------------------
 
@@ -260,7 +260,7 @@ btnOrderElt.addEventListener("click", (e) => {
   //*************FIN GESTION VALIDATION DU FORMULAIRE********************************/
 
   //Mettre les values du formulaire et mettre les produits selectionnés dans un objet à envoyer ver le serveur
-  const aEnvoyer = {
+  let aEnvoyer = {
     cart,
     contact,
   };
@@ -301,9 +301,11 @@ btnOrderElt.addEventListener("click", (e) => {
     .then((res) => res.json())
     .then((res) => {
       const orderId = cart[0]._id;
+      console.log(orderId);
 
       let order = JSON.stringify(res);
       localStorage.setItem("order", cart[0]._id);
+      console.log(order);
 
       //Redirection vers la page de confirmation
       window.location.href = "order.html";

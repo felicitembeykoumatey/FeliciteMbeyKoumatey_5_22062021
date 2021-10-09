@@ -1,23 +1,21 @@
 //*****************************Gestion de la commande************************************************* */
-
+let contact = JSON.parse(window.localStorage.getItem("contact"));
 //---------------------Récupération de commande---------------------------------------------------------
+const totalPriceConfirmation = document.getElementById("display-price");
+const orderId = document.getElementById("display-orderid");
 
-main();
+const myFurnitureArticle = document.getElementById("confirm");
+console.log(myFurnitureArticle);
 
-function main() {
-  displayOrderIdAndPrice();
-}
+displayOrderIdAndPrice();
 
 function displayOrderIdAndPrice() {
-  const totalPriceConfirmation = document.getElementById("display-price");
-  console.log(totalPriceConfirmation);
-  const orderId = document.getElementById("display-orderid");
-  console.log(orderId);
+  lastName = contact.lastName;
 
-  totalPriceConfirmation.innerText = localStorage.getItem("totalPrice");
-  console.log(totalPriceConfirmation);
-  console.log(localStorage.getItem("order"));
+  myFurnitureArticle.innerText = lastName;
+  totalPriceConfirmation.innerText = localStorage.getItem("total");
   orderId.innerText = localStorage.getItem("order");
 }
+
 // On vide le localStorage pour recommencer plus tard le processus d'achat
 localStorage.clear();
