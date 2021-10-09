@@ -9,6 +9,7 @@ const positionFurnitureElt = document.getElementById("container");
 
 //Déclaration de la variable "cart"dans laquelle on met les key et les values.
 let cart = JSON.parse(window.localStorage.getItem("products"));
+console.log("cart:" + cart);
 //------------Affichage produit selectionner------------------------------------------------
 showcart();
 
@@ -26,6 +27,7 @@ function showcart() {
     for (i = 0; i < cart.length; i++) {
       structureProductCart += `<div class="quantity"> Qauntité - ${cart[i].quantity}</div>
       <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].price} </div>
+         <b class="total-order" id="total-price"> Montant Total : </b>
 `;
     }
 
@@ -34,6 +36,13 @@ function showcart() {
       positionElt.innerHTML = structureProductCart;
     }
   }
+
+  let total = 0;
+  for (j = 0; j < cart.length; j++) {
+    total = total + parseInt(cart[j].price) * cart[j].quantity;
+  }
+  totalPriceElt.innerHTML = total;
+  console.log(total);
 }
 //-----------Fin de l'affichage des produits du panier-----------------------------------
 
@@ -50,34 +59,7 @@ function toEmptycart() {
 ////****************Fin Gestion du bouton vider le panier*****************************************************/
 
 ////*********************************Le montant total du panier ******************************************************/
-showPrice();
-function showPrice() {
-  let priceTotalCalcul = [];
-  //Aller chercher les prix dans le panier
 
-  for (
-    let priceCalculation = 0;
-    priceCalculation < showPrice.length;
-    priceCalculation++
-  ) {
-    let priceProductIncart =
-      cart[priceCalculation].price * cart[priceCalculation].quantity;
-
-    //mettre les prix du panier dans la variable "priceTotalCalcul"
-
-    priceTotalCalcul.push(priceProductIncart);
-  }
-
-  // Additionner les prix qu'il ya dans le tableau de la variable "prix totale"---------
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  const totalPrice = priceTotalCalcul.reduce(reducer, 0);
-
-  // le code html du prix total à afficher
-
-  const displayPriceHtml = `
-<div class ="affichage-prix-html" id=total-price >${totalPrice} </div>`;
-  totalPriceElt.insertAdjacentHTML("beforeend", displayPriceHtml);
-}
 //*********************************Fin Montant Total Panier***************************************************/
 //*******************************Gestion Formulaire et validation commande************************************/
 

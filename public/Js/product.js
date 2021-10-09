@@ -68,7 +68,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
         </button>
         <div id="confirmation-ajout"></div>
         <bouton id="look-cart">
-          <a href="../view/cart.html">Voir le panier</a>
+          <a href="../view/basket.html">Voir le panier</a>
         </bouton>
         <bouton id="return-home">
           <a href="../index.html">Retour</a>
@@ -109,6 +109,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
         // Gestion LocalStorage
 
         let cart = [];
+
         //si l'article est dans le LS, on recupère son contenu, on l'insère dans le tableau cart, puis on le renvoit vers le LS avec le nouveau article.
 
         if (localStorage.getItem("products") !== null) {
@@ -123,5 +124,3 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
       }
     });
   });
-console.log(JSON);
-console.log("hello if");
