@@ -5,7 +5,7 @@ const productName = document.getElementById("articleName");
 const priceElt = document.getElementById("articlePrice");
 const cartELt = document.getElementById("container-recapitulatif");
 const positionElt = document.getElementById("articles");
-const positionElt4 = document.getElementById("container");
+const positionFurnitureElt = document.getElementById("container");
 
 //Déclaration de la variable "cart"dans laquelle on met les key et les values.
 let cart = JSON.parse(window.localStorage.getItem("products"));
@@ -19,19 +19,19 @@ function showcart() {
     positionElt.innerHTML = panierVide;
   } else {
     //si le panier n'est pas vide: afficher les produits dans le LS
-    let structureProductcart = [];
+    let structureProductCart = [];
 
     //faire boucle for pour parcourir mon LS et recupérer les objets
 
     for (i = 0; i < cart.length; i++) {
-      structureProductcart += `<div class="quantity"> Qauntité - ${cart[i].quantity}</div>
-      <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].price} € </div>
+      structureProductCart += `<div class="quantity"> Qauntité - ${cart[i].quantity}</div>
+      <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].price} </div>
 `;
     }
 
     if (i == cart.length) {
       // injection html dans la page panier
-      positionElt.innerHTML = structureProductcart;
+      positionElt.innerHTML = structureProductCart;
     }
   }
 }
@@ -42,7 +42,6 @@ toEmptycart();
 //-----------Le bouton POUR vider le panier et le LS----------------------
 function toEmptycart() {
   const btnToEmptycart = document.getElementById("to-empty-cart");
-  console.log(btnToEmptycart);
   btnToEmptycart.addEventListener("click", () => {
     localStorage.clear();
   });
@@ -58,7 +57,7 @@ function showPrice() {
 
   for (
     let priceCalculation = 0;
-    priceCalculation < cart.length;
+    priceCalculation < showPrice.length;
     priceCalculation++
   ) {
     let priceProductIncart =
@@ -75,9 +74,9 @@ function showPrice() {
 
   // le code html du prix total à afficher
 
-  const affichagePrixHtml = `
-<div class ="affichage-prix-html">${totalPrice} € </div>`;
-  totalPriceElt.insertAdjacentHTML("beforeend", affichagePrixHtml);
+  const displayPriceHtml = `
+<div class ="affichage-prix-html" id=total-price >${totalPrice} </div>`;
+  totalPriceElt.insertAdjacentHTML("beforeend", displayPriceHtml);
 }
 //*********************************Fin Montant Total Panier***************************************************/
 //*******************************Gestion Formulaire et validation commande************************************/
@@ -118,7 +117,7 @@ const showHtmlForm = () => {
   `;
 
   //------------------------------------------Injection HTML------------------------------------------------------------------------
-  positionElt4.insertAdjacentHTML("afterend", structureFormulaire);
+  positionFurnitureElt.insertAdjacentHTML("afterend", structureFormulaire);
 };
 
 showHtmlForm();
