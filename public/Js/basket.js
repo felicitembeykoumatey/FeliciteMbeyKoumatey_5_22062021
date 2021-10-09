@@ -3,47 +3,47 @@ const formulaireElt = document.getElementById("formulaire");
 const totalPriceElt = document.getElementById("total-price");
 const productName = document.getElementById("articleName");
 const priceElt = document.getElementById("articlePrice");
-const basketELt = document.getElementById("container-recapitulatif");
+const cartELt = document.getElementById("container-recapitulatif");
 const positionElt = document.getElementById("articles");
 const positionElt4 = document.getElementById("container");
 
-//Déclaration de la variable "basket"dans laquelle on met les key et les values.
-let basket = JSON.parse(window.localStorage.getItem("products"));
+//Déclaration de la variable "cart"dans laquelle on met les key et les values.
+let cart = JSON.parse(window.localStorage.getItem("products"));
 //------------Affichage produit selectionner------------------------------------------------
-showBasket();
+showcart();
 
-function showBasket() {
+function showcart() {
   // si le panier est vide
-  if (basket === null) {
-    const panierVide = `<main id="container-products-basket"><div class="empty-basket">Le panier est vide !</div></main>`;
+  if (cart === null) {
+    const panierVide = `<main id="container-products-cart"><div class="empty-cart">Le panier est vide !</div></main>`;
     positionElt.innerHTML = panierVide;
   } else {
     //si le panier n'est pas vide: afficher les produits dans le LS
-    let structureProductBasket = [];
+    let structureProductcart = [];
 
     //faire boucle for pour parcourir mon LS et recupérer les objets
 
-    for (i = 0; i < basket.length; i++) {
-      structureProductBasket += `<div class="quantity"> Qauntité - ${basket[i].quantity}</div>
-      <div class="name">  ${basket[i].article}</div> <div class="price">${basket[i].price} € </div>
+    for (i = 0; i < cart.length; i++) {
+      structureProductcart += `<div class="quantity"> Qauntité - ${cart[i].quantity}</div>
+      <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].price} € </div>
 `;
     }
 
-    if (i == basket.length) {
+    if (i == cart.length) {
       // injection html dans la page panier
-      positionElt.innerHTML = structureProductBasket;
+      positionElt.innerHTML = structureProductcart;
     }
   }
 }
 //-----------Fin de l'affichage des produits du panier-----------------------------------
 
 //******************Gestion du bouton vider le panier*******************************************/
-toEmptyBasket();
+toEmptycart();
 //-----------Le bouton POUR vider le panier et le LS----------------------
-function toEmptyBasket() {
-  const btnToEmptyBasket = document.getElementById("to-empty-cart");
-  console.log(btnToEmptyBasket);
-  btnToEmptyBasket.addEventListener("click", () => {
+function toEmptycart() {
+  const btnToEmptycart = document.getElementById("to-empty-cart");
+  console.log(btnToEmptycart);
+  btnToEmptycart.addEventListener("click", () => {
     localStorage.clear();
   });
 }
@@ -58,15 +58,15 @@ function showPrice() {
 
   for (
     let priceCalculation = 0;
-    priceCalculation < basket.length;
+    priceCalculation < cart.length;
     priceCalculation++
   ) {
-    let priceProductInBasket =
-      basket[priceCalculation].price * basket[priceCalculation].quantity;
+    let priceProductIncart =
+      cart[priceCalculation].price * cart[priceCalculation].quantity;
 
     //mettre les prix du panier dans la variable "priceTotalCalcul"
 
-    priceTotalCalcul.push(priceProductInBasket);
+    priceTotalCalcul.push(priceProductIncart);
   }
 
   // Additionner les prix qu'il ya dans le tableau de la variable "prix totale"---------
@@ -280,7 +280,7 @@ btnOrderElt.addEventListener("click", (e) => {
 
   //Mettre les values du formulaire et mettre les produits selectionnés dans un objet à envoyer ver le serveur
   const aEnvoyer = {
-    basket,
+    cart,
     contact,
   };
 
@@ -319,10 +319,10 @@ btnOrderElt.addEventListener("click", (e) => {
   fetch(url, options)
     .then((res) => res.json())
     .then((res) => {
-      const orderId = basket[0]._id;
+      const orderId = cart[0]._id;
 
       let order = JSON.stringify(res);
-      localStorage.setItem("order", basket[0]._id);
+      localStorage.setItem("order", cart[0]._id);
 
       //Redirection vers la page de confirmation
       window.location.href = "order.html";

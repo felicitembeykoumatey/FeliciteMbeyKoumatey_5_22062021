@@ -23,7 +23,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 
     //Formatage du format du prix
 
-    let priceArticle = furniture.price / 100;
+    let priceArticle = furniture.price;
     let newPrice = new Intl.NumberFormat("fr-Fr", {
       style: "currency",
       currency: "EUR",
