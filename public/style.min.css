@@ -15,3 +15,17 @@
 input {
   width: 80vw;
 }
+
+.products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 25%;
+}
+img {
+  width: 35%;
+}
+figure {
+  display: flex;
+  flex-direction: row;
+}

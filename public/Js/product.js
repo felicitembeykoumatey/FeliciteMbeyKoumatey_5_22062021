@@ -17,7 +17,6 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
       "oups! Lancez le serveur local au Port 3000 !";
   })
   .then(function (furniture) {
-    console.log(furniture);
     // code cibler  HTML
     const productElt = document.getElementById("product");
     let cardArticle = "";
@@ -64,11 +63,11 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
             <option value="4">10</option>
           </select>
      
-        <button id="add-to-basket" type="submit" name="btn-envoyer">
+        <button id="add-to-cart" type="submit" name="btn-envoyer">
           Ajouter au panier
         </button>
         <div id="confirmation-ajout"></div>
-        <bouton id="look-basket">
+        <bouton id="look-cart">
           <a href="../view/basket.html">Voir le panier</a>
         </bouton>
         <bouton id="return-home">
@@ -86,47 +85,42 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
       structureVarnish += `<option value="${optionVarnish}">${optionVarnish}</option>`;
     });
 
-    console.log(structureVarnish);
-
     varnishElt.innerHTML = structureVarnish;
 
     // selection formulaire  dans mon HTML
 
-    console.log(localStorage);
-
     // Ecouter les évenements
-    const addToBasket = document.getElementById("add-to-basket");
+    const addTocart = document.getElementById("add-to-cart");
 
     // Ecouter les évenements
 
-    addToBasket.addEventListener("click", (event) => {
+    addTocart.addEventListener("click", (event) => {
       event.preventDefault();
 
       if (quantityElt.value > 0 && quantityElt.value < 100) {
         let productAdded = {
           article: furniture.name,
           _id: id,
-          price: parseFloat(newPrice),
+          price: newPrice,
           quantity: parseFloat(
             document.getElementById("quantity-product").value
           ),
         };
         // Gestion LocalStorage
 
-        let basket = [];
-        //si l'article est dans le LS, on recupère son contenu, on l'insère dans le tableau basket, puis on le renvoit vers le LS avec le nouveau article.
+        let cart = [];
+
+        //si l'article est dans le LS, on recupère son contenu, on l'insère dans le tableau cart, puis on le renvoit vers le LS avec le nouveau article.
 
         if (localStorage.getItem("products") !== null) {
-          basket = JSON.parse(localStorage.getItem("products"));
+          cart = JSON.parse(localStorage.getItem("products"));
 
           // sinon, on le crée avec l'article ajouté
         }
-        basket.push(productAdded),
-          localStorage.setItem("products", JSON.stringify(basket));
+        cart.push(productAdded),
+          localStorage.setItem("products", JSON.stringify(cart));
 
         alert("Votre article a été ajouté au panier");
       }
     });
   });
-console.log(JSON);
-console.log("hello if");

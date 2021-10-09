@@ -1,13 +1,21 @@
 //*****************************Gestion de la commande************************************************* */
-
+let contact = JSON.parse(window.localStorage.getItem("contact"));
 //---------------------Récupération de commande---------------------------------------------------------
-const myConfirmation = document.getElementById("confirmation");
-console.log("myConfirmation:" + myConfirmation);
-const myOrder = JSON.parse(localStorage.getItem("order"));
-console.log(myOrder);
-//creation éléments html DOM
+const totalPriceConfirmation = document.getElementById("display-price");
+const orderId = document.getElementById("display-orderid");
 
-let myContact = document.createElement("h2");
-let orderId = document.createElement("p");
-let totalPrice = document.createElement("b");
-myContact.innerHTML = myConfirmation.name + ",";
+const myFurnitureArticle = document.getElementById("confirm");
+console.log(myFurnitureArticle);
+
+displayOrderIdAndPrice();
+
+function displayOrderIdAndPrice() {
+  lastName = contact.lastName;
+
+  myFurnitureArticle.innerText = lastName;
+  totalPriceConfirmation.innerText = localStorage.getItem("total");
+  orderId.innerText = localStorage.getItem("order");
+}
+
+// On vide le localStorage pour recommencer plus tard le processus d'achat
+localStorage.clear();
