@@ -11,30 +11,32 @@
   </head>
 
   <body>
+    <!-- header -->
     <header>
       <nav class="navbar">
-        <a href="../index.html">
-          <img src="../logo.webp" alt="logo de l'entreprise" />
-        </a>
-
-        <div class="basket-link">
-          <a href="basket.html" id="basket">
-            <i class="fas fa-shopping-basket fa-2x"></i>
+        <img
+          class="logo-orinoco"
+          src="../logo.webp"
+          id="logo"
+          alt="logo de l'entreprise"
+        />
+        <div class="basket_link">
+          <a href="./view/basket.html" id="basket">
+            <i class="fas fa-shopping-basket"></i>
             <p>Panier</p>
           </a>
         </div>
       </nav>
-      <h1 class="buy">Meubles en chêne by Oriwood</h1>
     </header>
     <!--Produits-->
     <main id="product">
-      <form id="formulaire-product">
+      <form>
         <h2 id="titre">nom</h2>
         <img id="image" alt="meuble en bois chêne" />
 
         <section>
           <h3 id="prix">Prix</h3>
-          <h4 id="description">description</h4>
+          <h4 id="description-product">description</h4>
 
           <label for="varnish-select"> Vernis :</label>
           <select name="varnish" id="varnish-select" class="mb-2"></select>
@@ -136,7 +138,7 @@
           </ul>
         </section>
         <section class="filiales">
-          <h3>Nos autres sites</h3>
+          <h3>NOS AUTRES SITES</h3>
           <ul>
             <li>
               <a href="#"><i class="fas fa-camera">Oricam</i></a>
