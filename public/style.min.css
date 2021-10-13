@@ -149,17 +149,9 @@ footer li a {
   margin: 10px 12px 10px 15px;
 }
 /*Page produit*/
-figure .figure-product {
-  display: flex;
-  width: 94%;
-  justify-content: flex-end;
-  height: 170px;
-  border-radius: 8px;
-  margin-bottom: 40px;
-  overflow: hidden;
-}
-figcaption .figcaption-product {
-  width: 20%;
+
+.figcaption-product {
+  width: 199px;
   background-color: rgba(185, 66, 219, 0.52);
 }
 .product {
@@ -175,11 +167,25 @@ figcaption .figcaption-product {
     width: 60%;
     margin: -10px 0 0 1px;
   }
+  figure .figure-product {
+    border-radius: 8px;
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
 }
 
 /*tablets*/
 
 @media screen and (min-width: 768px) {
+  figure .figure-product {
+    display: flex;
+    width: 94%;
+    justify-content: flex-end;
+    height: 170px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
   .global_articles {
     display: flex;
     flex-direction: row;
