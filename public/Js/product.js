@@ -17,6 +17,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
       "oups! Lancez le serveur local au Port 3000 !";
   })
   .then(function (furniture) {
+    console.log(furniture);
     // code cibler  HTML
     const productElt = document.getElementById("product");
     let cardArticle = "";
