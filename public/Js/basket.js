@@ -1,19 +1,14 @@
 //déclaration variables
 const formulaireElt = document.getElementById("formulaire");
 const totalPriceElt = document.getElementById("total-price");
-console.log("totalPriceElt:" + totalPriceElt);
 const productName = document.getElementById("articleName");
 const priceElt = document.getElementById("articlePrice");
 const cartELt = document.getElementById("container-recapitulatif");
 const positionElt = document.getElementById("articles");
 const positionFurnitureElt = document.getElementById("container");
-
 //Déclaration de la variable "cart"dans laquelle on met les key et les values.
 let cart = JSON.parse(window.localStorage.getItem("products"));
-console.log(cart);
 //------------Affichage produit selectionner------------------------------------------------
-showcart();
-
 function showcart() {
   // si le panier est vide
   if (cart === null) {
@@ -24,30 +19,30 @@ function showcart() {
     let structureProductCart = [];
 
     //faire boucle for pour parcourir mon LS et recupérer les objets
+    let i;
 
     for (i = 0; i < cart.length; i++) {
       structureProductCart += `<div class="quantity"> Quantité - ${cart[i].quantity}</div>
-      <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].price} </div>       
-`;
+      <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].price} </div>`;
     }
 
-    if (i == cart.length) {
+    if (i === cart.length) {
       // injection html dans la page panier
       positionElt.innerHTML = structureProductCart;
     }
   }
 
   let total = 0;
-  for (j = 0; j < cart.length; j++) {
+  for (let j = 0; j < cart.length; j++) {
     total = total + parseInt(cart[j].price) * cart[j].quantity;
   }
   totalPriceElt.innerHTML = "Montant Total : " + total + " €";
   localStorage.setItem("total", JSON.stringify(total));
 }
 //-----------Fin de l'affichage des produits du panier-----------------------------------
-
+showcart();
 //******************Gestion du bouton vider le panier*******************************************/
-toEmptycart();
+
 //-----------Le bouton POUR vider le panier et le LS----------------------
 function toEmptycart() {
   const btnToEmptycart = document.getElementById("to-empty-cart");
@@ -55,6 +50,7 @@ function toEmptycart() {
     localStorage.clear();
   });
 }
+toEmptycart();
 
 ////****************Fin Gestion du bouton vider le panier*****************************************************/
 
@@ -114,7 +110,7 @@ btnOrderElt.addEventListener("click", (e) => {
   // Création /definition d'une classe pour fabriquer l'objet lequel iront
   // Les values du formulaire
   class Formulaire {
-    constructor(firstName, lastName) {
+    constructor() {
       this.firstName = document.getElementById("firstName").value;
       this.lastName = document.getElementById("lastName").value;
       this.email = document.getElementById("email").value;
@@ -126,16 +122,16 @@ btnOrderElt.addEventListener("click", (e) => {
 
   //Appel de l'instance Formulaire pour créer l'objet formulairesValues
 
-  const contact = new Formulaire();
+  let contact = new Formulaire();
 
   //***************Gestion validation du formulaire********************************/
   //-------------------------Fonction alerte--------------------------------------
-  const textAlert = (value) => {
+  let textAlert = (value) => {
     return `${value}: chiffre et symbole ne sont pas autorisé \n Ne pas dépasser 20 caractères, minimum 3 caractères`;
   };
 
   //----------Création fonction et mettre RegEX dans une variable pour Prénom*Nom/Ville-----------------------
-  const regExFirsNameLastNameCity = (value) => {
+  let regExFirsNameLastNameCity = (value) => {
     return /^[A-Za-z]{3,20}$/.test(value);
   };
 
@@ -176,13 +172,14 @@ btnOrderElt.addEventListener("click", (e) => {
 
   // Contrôle de la validité du Nom
   function cityControl() {
-    const theCity = contact.city;
-    if (regExFirsNameLastNameCity(theCity)) {
+    if (regExFirsNameLastNameCity(contact.city)) {
       dataControlMissingTextEmpty("cityEmpty");
+
       return true;
     } else {
       dataControlMissingText("cityEmpty");
       alert(textAlert("Ville"));
+
       return false;
     }
   }
@@ -272,6 +269,7 @@ btnOrderElt.addEventListener("click", (e) => {
   const dataLocalStorageOjet = JSON.parse(dataLocalStorage);
 
   //Fonction pour que le champ du formulaire soit rempli par les données du LS si elle existe
+
   function remplirChampsInputDepuisLocalStorage(input) {
     if (dataLocalStorage == null) {
       console.log("le localStorage a pour valeur null");

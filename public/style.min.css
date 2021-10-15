@@ -1,10 +1,39 @@
+/*en-tête et corps des pages*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 5% 25px 43%;
+  text-align: center;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+main {
+  width: 95%;
+  margin: auto;
+}
+
+/*Page d'accueil*/
 .container-recapitulatif-commande {
   width: 80vw;
   border: 1 px solid rgb(22, 2, 2);
 }
-
-/***************************************Envoi formulaire***************************************************/
-
+.global-title,
+.title_footer,
+.copyright {
+  padding: 10px 0 30px 0;
+  text-align: center;
+  background: rgb(132, 156, 230);
+}
+.global-products {
+  padding: 10px 0 30px 0;
+  text-align: center;
+  background: rgb(204, 147, 209);
+  border-radius: 30px 30px 30px 30px;
+}
 .card-body {
   display: flex;
   background-color: rgb(251, 158, 247);
@@ -20,12 +49,185 @@ input {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 25%;
-}
-img {
   width: 35%;
+}
+
+.logo-orinoco {
+  width: 98%;
+  margin: -59px -15px 5px -22px;
+}
+.container-products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px 12px 10px 12px;
 }
 figure {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  width: 43%;
+  height: 170px;
+
+  border-radius: 8px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+figcaption h2 {
+  margin-bottom: 10px;
+  font-size: small;
+}
+
+figcaption p {
+  margin: 5px 0 20px 5px;
+}
+
+figcaption a {
+  font-size: small;
+  padding: 5px;
+  border: 2px black solid;
+  background-color: #fff;
+  color: #000;
+  border-radius: 3px;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*Pied de page*/
+footer {
+  color: rgb(15, 15, 15);
+  background-color: rgb(132, 156, 230);
+}
+.footer_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px 0 0 0px;
+}
+
+footer li a {
+  text-decoration: none;
+  color: rgb(12, 12, 12);
+}
+
+.facebook a,
+.instagram a,
+.twitter a {
+  color: #ffff;
+  margin: 10px 10px 15px 10px;
+}
+.footer_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.container_reseaux {
+  display: flex;
+  flex-direction: row;
+}
+.mention,
+.service,
+.orinoco,
+.filiales,
+.payment,
+.facebook,
+.instagram,
+.twitter {
+  margin: 10px 12px 10px 15px;
+}
+/*Page produit*/
+
+.figcaption-product {
+  width: 199px;
+  background-color: rgba(185, 66, 219, 0.52);
+}
+.product {
+  width: 737px;
+  margin: auto;
+}
+/*mobile*/
+
+@media screen and (min-width: 375px) {
+  .logo-orinoco,
+  .basket_link {
+    display: flex;
+    width: 60%;
+    margin: -10px 0 0 1px;
+  }
+  figure .figure-product {
+    border-radius: 8px;
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
+}
+
+/*tablets*/
+
+@media screen and (min-width: 768px) {
+  figure .figure-product {
+    display: flex;
+    width: 94%;
+    justify-content: flex-end;
+    height: 170px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
+  .global_articles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 45%;
+    margin: auto;
+  }
+
+  figure {
+    width: 34%;
+  }
+}
+
+/*desktop*/
+
+@media screen and (min-width: 992px) {
+  .product {
+    width: 80%;
+  }
+  .products_container {
+    width: 35%;
+    border-radius: 10px 10px 0 0;
+    margin: 10px 12px 10px 138px;
+    height: 20%;
+  }
+  .image {
+    width: 400px;
+    border-radius: 50px 50px 50px 50px;
+    height: 480px;
+    margin: 10px 12px 15px 15px;
+    padding: 30px 20px 0 30px;
+  }
+  .container_page_product {
+    width: 80%;
+  }
+
+  figure {
+    width: 23%;
+    height: 170px;
+  }
+  figcaption {
+    width: 20%;
+    background-color: rgba(185, 66, 219, 0.52);
+  }
 }

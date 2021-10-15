@@ -2,7 +2,7 @@ let params = new URL(document.location).searchParams,
   id = params.get("id");
 const titleElt = document.getElementById("titre");
 const priceElt = document.getElementById("prix");
-const descriptionElt = document.getElementById("description");
+const descriptionElt = document.getElementById("description-product");
 const imageElt = document.getElementById("image");
 const quantityElt = document.getElementById("quantity-product");
 
@@ -17,6 +17,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
       "oups! Lancez le serveur local au Port 3000 !";
   })
   .then(function (furniture) {
+    console.log(furniture);
     // code cibler  HTML
     const productElt = document.getElementById("product");
     let cardArticle = "";
@@ -32,10 +33,10 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     // injecter HTML
 
     cardArticle += `
-<figure>
+<figure class="figure-product">
  <img src="${furniture.imageUrl}">
-		    <form id="formulaire-product">
-				<figcaption  id="description">
+		    <form>
+				<figcaption class="figcaption-product">
 			
 			
 							<h2>${furniture.name}</h2>
