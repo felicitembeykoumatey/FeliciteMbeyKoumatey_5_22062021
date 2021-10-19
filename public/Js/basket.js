@@ -6,6 +6,7 @@ const priceElt = document.getElementById("articlePrice");
 const cartELt = document.getElementById("container-recapitulatif");
 const positionElt = document.getElementById("articles");
 const positionFurnitureElt = document.getElementById("container");
+
 //Déclaration de la variable "cart"dans laquelle on met les key et les values.
 let cart = JSON.parse(window.localStorage.getItem("products"));
 //------------Affichage produit selectionner------------------------------------------------
@@ -22,8 +23,8 @@ function showCart() {
     let i;
 
     for (i = 0; i < cart.length; i++) {
-      structureProductCart += `<div class="quantity"> Quantité - ${cart[i].quantity}</div>
-      <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].priceArticle} </div>`;
+      structureProductCart += `<div class="quantity"> Quantité : ${cart[i].quantity}</div>
+      <div class="name">  ${cart[i].article}</div> <div class="price"> Prix : ${cart[i].price} </div>`;
     }
 
     if (i === cart.length) {
