@@ -9,7 +9,7 @@ const positionFurnitureElt = document.getElementById("container");
 //Déclaration de la variable "cart"dans laquelle on met les key et les values.
 let cart = JSON.parse(window.localStorage.getItem("products"));
 //------------Affichage produit selectionner------------------------------------------------
-function showcart() {
+function showCart() {
   // si le panier est vide
   if (cart === null) {
     const panierVide = `<main id="container-products-cart"><div class="empty-cart">Le panier est vide !</div></main>`;
@@ -31,6 +31,7 @@ function showcart() {
       positionElt.innerHTML = structureProductCart;
     }
   }
+  ////**************************Le montant total du panier ******************************************************/
 
   let total = 0;
   for (let j = 0; j < cart.length; j++) {
@@ -38,25 +39,25 @@ function showcart() {
   }
   totalPriceElt.innerHTML = "Montant Total : " + total + " €";
   localStorage.setItem("total", JSON.stringify(total));
+
+  //*********************************Fin Montant Total Panier***************************************************/
 }
+showCart();
 //-----------Fin de l'affichage des produits du panier-----------------------------------
-showcart();
+
 //******************Gestion du bouton vider le panier*******************************************/
 
 //-----------Le bouton POUR vider le panier et le LS----------------------
-function toEmptycart() {
+function toEmptyCart() {
   const btnToEmptycart = document.getElementById("to-empty-cart");
   btnToEmptycart.addEventListener("click", () => {
     localStorage.clear();
   });
 }
-toEmptycart();
+toEmptyCart();
 
-////****************Fin Gestion du bouton vider le panier*****************************************************/
+////***********************Fin Gestion du bouton vider le panier*****************************************************/
 
-////*********************************Le montant total du panier ******************************************************/
-
-//*********************************Fin Montant Total Panier***************************************************/
 //*******************************Gestion Formulaire et validation commande************************************/
 
 structureFormulaire = "";
@@ -93,11 +94,9 @@ const showHtmlForm = () => {
       </div>
   
   `;
-
   //------------------------------------------Injection HTML------------------------------------------------------------------------
   positionFurnitureElt.insertAdjacentHTML("afterend", structureFormulaire);
 };
-
 showHtmlForm();
 
 //-------------------------bouton envoyer le formulaire----------------------------------------------------------------------------
@@ -137,7 +136,7 @@ btnOrderElt.addEventListener("click", (e) => {
 
   //function pour gérer l'affichage du texte à côté de l'input pour indiquer qu'il faut le remplir correctement
 
-  function dataControlMissingTextEmpty(getElementById) {
+  function controlMissingTextEmpty(getElementById) {
     document.getElementById(`${getElementById}`).textContent =
       "Veuillez bien remplir ce champ!";
   }
@@ -147,33 +146,35 @@ btnOrderElt.addEventListener("click", (e) => {
   function firstNameControl() {
     const theFirstName = contact.firstName;
     if (regExFirsNameLastNameCity(theFirstName)) {
-      dataControlMissingTextEmpty("firstNameEmpty");
+      controlMissingTextEmpty("firstNameEmpty");
       return true;
     } else {
-      dataControlMissingText("firstNameEmpty");
+      controlMissingTextEmpty("firstNameEmpty");
       alert(textAlert("Prénom"));
       return false;
     }
   }
+  firstNameControl();
   // Contrôle de la validité du Nom
   function lastNameControl() {
     const theLastName = contact.lastName;
     if (regExFirsNameLastNameCity(theLastName)) {
-      dataControlMissingTextEmpty("lastNameEmpty");
+      controlMissingTextEmpty("lastNameEmpty");
       return true;
     } else {
-      dataControlMissingText("lastNameEmpty");
+      controlMissingTextEmpty("lastNameEmpty");
       alert(textAlert("Nom"));
       return false;
     }
   }
+  lastNameControl();
 
   //*******Création fonction et mettre RegEX dans une variable pour champ ville*************
 
   // Contrôle de la validité du Nom
   function cityControl() {
     if (regExFirsNameLastNameCity(contact.city)) {
-      dataControlMissingTextEmpty("cityEmpty");
+      controlMissingTextEmpty("cityEmpty");
 
       return true;
     } else {
@@ -183,6 +184,7 @@ btnOrderElt.addEventListener("click", (e) => {
       return false;
     }
   }
+  cityControl();
 
   //*******Création fonction et mettre RegEX dans une variable pour Email
 
@@ -193,7 +195,7 @@ btnOrderElt.addEventListener("click", (e) => {
   function emailControl() {
     const yourEmail = contact.email;
     if (regExEmail(yourEmail)) {
-      dataControlMissingTextEmpty("emailEmpty");
+      controlMissingTextEmpty("emailEmpty");
       return true;
     } else {
       dataControlMissingText("emailEmpty");
@@ -201,16 +203,17 @@ btnOrderElt.addEventListener("click", (e) => {
       return false;
     }
   }
+  emailControl();
   //*******Création fonction et mettre RegEX dans une variable pour adresse************
 
-  const regExAdresse = (value) => {
+  const regExAdress = (value) => {
     return /^[A-Za-z0-9\s]{3,70}$/.test(value);
   };
   //contrôle de la validité adresse--------------------------------
   function adressControl() {
     const yourAdress = contact.address;
-    if (regExAdresse(yourAdress)) {
-      dataControlMissingTextEmpty("addressEmpty");
+    if (regExAdress(yourAdress)) {
+      controlMissingTextEmpty("addressEmpty");
       return true;
     } else {
       dataControlMissingText("addressEmpty");
@@ -231,7 +234,7 @@ btnOrderElt.addEventListener("click", (e) => {
   function codePostalControl() {
     const theCodePostal = contact.codePostal;
     if (regExcodePostal(theCodePostal)) {
-      dataControlMissingTextEmpty("codePostalEmpty");
+      controlMissingTextEmpty("codePostalEmpty");
       return true;
     } else {
       dataControlMissingText("codePostalEmpty");
@@ -239,6 +242,7 @@ btnOrderElt.addEventListener("click", (e) => {
       return false;
     }
   }
+  codePostalControl();
   //Mettre l'objet "contact" dans un objet
   if (
     firstNameControl() &&
@@ -270,19 +274,18 @@ btnOrderElt.addEventListener("click", (e) => {
 
   //Fonction pour que le champ du formulaire soit rempli par les données du LS si elle existe
 
-  function remplirChampsInputDepuisLocalStorage(input) {
+  function fillInputFieldsFromLs(input) {
     if (dataLocalStorage == null) {
-      console.log("le localStorage a pour valeur null");
     } else {
       document.querySelector(`#${input}`).value = dataLocalStorageOjet[input];
     }
   }
-  remplirChampsInputDepuisLocalStorage("firstName");
-  remplirChampsInputDepuisLocalStorage("lastName");
-  remplirChampsInputDepuisLocalStorage("email");
-  remplirChampsInputDepuisLocalStorage("address");
-  remplirChampsInputDepuisLocalStorage("city");
-  remplirChampsInputDepuisLocalStorage("codePostal");
+  fillInputFieldsFromLs("firstName");
+  fillInputFieldsFromLs("lastName");
+  fillInputFieldsFromLs("email");
+  fillInputFieldsFromLs("address");
+  fillInputFieldsFromLs("city");
+  fillInputFieldsFromLs("codePostal");
 
   //---------------Envoie de l'objet "aEnvoyer" vers le serveur--------------------------//
 
@@ -299,11 +302,8 @@ btnOrderElt.addEventListener("click", (e) => {
     .then((res) => res.json())
     .then((res) => {
       const orderId = cart[0]._id;
-      console.log(orderId);
-
       let order = JSON.stringify(res);
       localStorage.setItem("order", cart[0]._id);
-      console.log(order);
 
       //Redirection vers la page de confirmation
       window.location.href = "order.html";

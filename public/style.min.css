@@ -62,17 +62,6 @@ input {
   flex-wrap: wrap;
   margin: 10px 12px 10px 12px;
 }
-figure {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  width: 43%;
-  height: 170px;
-
-  border-radius: 8px;
-  margin-bottom: 40px;
-  overflow: hidden;
-}
 
 figcaption h2 {
   margin-bottom: 10px;
@@ -158,19 +147,56 @@ footer li a {
   width: 737px;
   margin: auto;
 }
+.look-basket a {
+  font-size: small;
+  padding: 5px;
+  border: 2px black solid;
+  background-color: #fff;
+  color: #000;
+  border-radius: 3px;
+}
 /*mobile*/
 
 @media screen and (min-width: 375px) {
-  .logo-orinoco,
+  .logo-orinoco {
+    width: 94%;
+    margin: -49px 45px 5px -39px;
+  }
+
   .basket_link {
     display: flex;
     width: 60%;
     margin: -10px 0 0 1px;
   }
+  .figure {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 105px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
   figure .figure-product {
     border-radius: 8px;
     margin-bottom: 40px;
     overflow: hidden;
+  }
+  figcaption {
+    background-color: rgba(185, 66, 219, 0.52);
+  }
+  figcaption a {
+    font-size: small;
+    padding: 1px;
+    border: 2px black solid;
+    background-color: #fff;
+    color: #000;
+    border-radius: 3px;
+  }
+  .btn-ok {
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin: 5px 15px 15px 139px;
   }
 }
 
@@ -186,6 +212,18 @@ footer li a {
     margin-bottom: 40px;
     overflow: hidden;
   }
+  figure {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 43%;
+    height: 170px;
+
+    border-radius: 8px;
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
+
   .global_articles {
     display: flex;
     flex-direction: row;
@@ -195,7 +233,7 @@ footer li a {
   }
 
   figure {
-    width: 34%;
+    width: 55%;
   }
 }
 
@@ -229,5 +267,16 @@ footer li a {
   figcaption {
     width: 20%;
     background-color: rgba(185, 66, 219, 0.52);
+  }
+}
+
+@media screen and (min-width: 1009px) {
+  .container-products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  figure {
+    width: 36%;
   }
 }
