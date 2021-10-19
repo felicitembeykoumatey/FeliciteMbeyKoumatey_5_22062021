@@ -17,13 +17,7 @@ function recoverImage() {
       // Affichage de nos articles
 
       furnitures.forEach((product) => {
-        //Formatage du format du prix
-
         let priceArticle = product.price / 100;
-        let newPrice = new Intl.NumberFormat("fr-Fr", {
-          style: "currency",
-          currency: "EUR",
-        }).format(priceArticle);
 
         //injection code HTML pour afficher nos articles meubles sur la page
 
@@ -31,7 +25,7 @@ function recoverImage() {
 						<img src="${product.imageUrl}" alt="${product.name}">
 						<figcaption>
 							<h2>${product.name}</h2>
-							<p>${newPrice}</p>
+							<p>${priceArticle} € </p>
 							<a href="./view/product.html?id=${product._id}">Voir l'article </a>
 						</figcaption>
 					</figure>`;
