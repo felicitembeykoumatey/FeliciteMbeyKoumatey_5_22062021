@@ -22,13 +22,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
     let cardArticle = "";
 
     //Formatage du format du prix
-
     let priceArticle = furniture.price / 100;
-    let newPrice = new Intl.NumberFormat("fr-Fr", {
-      style: "currency",
-      currency: "EUR",
-    }).format(priceArticle);
-
     // injecter HTML
 
     cardArticle += `
@@ -39,7 +33,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
 			
 			
 							<h2>${furniture.name}</h2>
-							<p>${newPrice}</p>
+							<p>${priceArticle} € </p>
               <p>${furniture.description}</p>
 				
            </figcaption>
@@ -101,7 +95,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
         let productAdded = {
           article: furniture.name,
           _id: id,
-          price: newPrice,
+          price: priceArticle,
           quantity: parseFloat(
             document.getElementById("quantity-product").value
           ),

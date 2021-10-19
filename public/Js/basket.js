@@ -23,7 +23,7 @@ function showCart() {
 
     for (i = 0; i < cart.length; i++) {
       structureProductCart += `<div class="quantity"> Quantité - ${cart[i].quantity}</div>
-      <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].price} </div>`;
+      <div class="name">  ${cart[i].article}</div> <div class="price">${cart[i].priceArticle} </div>`;
     }
 
     if (i === cart.length) {
