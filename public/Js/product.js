@@ -49,12 +49,7 @@ fetch(`http://localhost:3000/api/furniture/${id}`)
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
-            <option value="3">5</option>
-            <option value="4">6</option>
-            <option value="3">7</option>
-            <option value="4">8</option>
-            <option value="3">9</option>
-            <option value="4">10</option>
+
           </select>
      
         <button id="add-to-cart" type="submit" name="btn-envoyer">
